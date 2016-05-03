@@ -12,7 +12,7 @@ sylius:
             meta_description: Meta omschrijving
             taxons: Taxons
         product_variant:
-            available_on: Beschikbaar op
+            available_on: Beschikbaar vanaf
             available_until: Beschikbaar tot
         product_archetype:
             name: Naam
@@ -21,3 +21,6 @@ sylius:
             options: Opties
         association_type:
             name: Naam
+        association:
+            type: Relatietype
+            product: Gerelateerd product

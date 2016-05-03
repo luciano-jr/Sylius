@@ -5,9 +5,24 @@ sylius:
     menu:
         admin:
             main:
+                catalog:
+                    taxons: Gruppen
+                    options: Optionen
+                    attributes: Attribute
                 configuration:
-                    header: Einstellung
-                    tax_categories: Steuerkategorien
+                    channels: Ausgabekanäle
                     countries: Länder
+                    currencies: Währungen
+                    header: Einstellung
                     locales: Gebietsschemata
+                    payment_methods: Bezahlmethoden
+                    shipping_methods: Versandmethoden
+                    tax_categories: Steuerkategorien
                     tax_rates: Steuersätze
+                    zones: Versandgebiete
+                marketing:
+                    header: Marketing
+                    promotions: Aktionen
+                customers:
+                    header: Kunde
+                    customers: Kunden

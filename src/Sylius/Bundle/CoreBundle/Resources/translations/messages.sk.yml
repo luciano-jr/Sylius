@@ -21,7 +21,7 @@ sylius:
             payment_method: Spôsob platby
             shipping_method: Spôsob dobpravy
         promotion:
-            channels: Kanál
+            channels: Kanály
         coupon:
             per_customer_usage_limit: Obmedzenie použitia pre zákazníka
         group:
@@ -76,6 +76,7 @@ sylius:
                     Tracking code (for example: Google Analytics kód
             taxation:
                 default_tax_zone: Predvolené daňové pásmo
+                default_tax_calculation_strategy: Predvolený spôsob výpočtu dane
             security:
                 enabled: Zapnuť?
         shipment_filter:
@@ -130,3 +131,23 @@ sylius:
             type: Typ priradenia
         product_association_type:
             name: Názov
+        promotion_rule:
+            contains_taxon:
+                taxon: Kategória
+                count: Počet
+            taxon:
+                taxons: Kategórie
+            total_of_items_from_taxon:
+                taxon: Kategória
+                amount: Suma
+    email:
+        order_confirmation:
+            name: Potvrdenie objednávky
+        order_comment:
+            name: Poznámka k objednávke
+        shipment_confirmation:
+            name: Potvrdenie odoslania zásielky
+        user_confirmation:
+            name: Potvrdenie registrácie použivateľa
+        password_reset:
+            name: Obnoviť heslo

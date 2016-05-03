@@ -26,8 +26,6 @@ class OrderRepository extends EntityRepository implements OrderRepositoryInterfa
     {
         $queryBuilder = $this->createQueryBuilder('o');
 
-        $this->_em->getFilters()->disable('softdeleteable');
-
         return $queryBuilder
             ->leftJoin('o.items', 'item')
             ->addSelect('item')
@@ -50,6 +48,25 @@ class OrderRepository extends EntityRepository implements OrderRepositoryInterfa
             ->setParameter('number', $number)
             ->getQuery()
             ->getSingleScalarResult() > 0
+        ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findOneByNumber($orderNumber)
+    {
+        $queryBuilder = $this->createQueryBuilder('o');
+
+        $queryBuilder
+            ->andWhere($queryBuilder->expr()->isNotNull('o.completedAt'))
+            ->andWhere('o.number = :orderNumber')
+            ->setParameter('orderNumber', $orderNumber)
+        ;
+
+        return $queryBuilder
+            ->getQuery()
+            ->getOneOrNullResult()
         ;
     }
 }

@@ -36,42 +36,6 @@ final class NotificationChecker implements NotificationCheckerInterface
 
     /**
      * {@inheritdoc}
-     * 
-     * @throws NotificationExpectationMismatchException
-     */
-    public function checkCreationNotification($resource)
-    {
-        $message = sprintf('%s has been successfully created.', $this->humanizeResourceName($resource));
-
-        $this->checkNotification($message, NotificationType::success());
-    }
-
-    /**
-     * {@inheritdoc}
-     * 
-     * @throws NotificationExpectationMismatchException
-     */
-    public function checkDeletionNotification($resource)
-    {
-        $message = sprintf('%s has been successfully deleted.', $this->humanizeResourceName($resource));
-
-        $this->checkNotification($message, NotificationType::success());
-    }
-
-    /**
-     * {@inheritdoc}
-     * 
-     * @throws NotificationExpectationMismatchException
-     */
-    public function checkEditionNotification($resource)
-    {
-        $message = sprintf('%s has been successfully updated.', $this->humanizeResourceName($resource));
-
-        $this->checkNotification($message, NotificationType::success());
-    }
-
-    /**
-     * {@inheritdoc}
      */
     public function checkNotification($message, NotificationType $type)
     {
@@ -94,7 +58,7 @@ final class NotificationChecker implements NotificationCheckerInterface
      */
     private function hasType(NotificationType $type)
     {
-        return (string) $type === (string) $this->notificationAccessor->getType();
+        return $type === $this->notificationAccessor->getType();
     }
 
     /**
@@ -105,15 +69,5 @@ final class NotificationChecker implements NotificationCheckerInterface
     private function hasMessage($message)
     {
         return false !== strpos($this->notificationAccessor->getMessage(), $message);
-    }
-
-    /**
-     * @param string $resourceName
-     *
-     * @return string
-     */
-    private function humanizeResourceName($resourceName)
-    {
-        return ucfirst(str_replace('_', ' ', $resourceName));
     }
 }

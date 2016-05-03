@@ -7,25 +7,34 @@ sylius:
             username: Vartotojo vardas
             password: Slaptažodis
             remember_me: Prisiminti mane
+        option:
+            presentation: Prezentacija
     ui:
         actions: Veiksmai
         cancel: Atšaukti
+        color: Spalva
         countries: Šalys
+        coupon_based: Pagal kuponą
         create: Sukurti
+        currencies: Valiutos
         dashboard: Skydelis
+        default_currency: Numatytoji valiuta
         delete: Šalinti
         description: Aprašymas
         edit: Redaguoti
         empty: Išvalyti
         enabled: Įjungta
+        exclusive: Išskirtinis
         filter: Filtruoti
         locales: Lokalės
         new: Naujas
         new_country: Naujas šalis
+        new_currency: Nauja valiuta
         new_tax_category: Nauja mokesčių kategorija
         "no": false
         powered_by: Sukurta
         save_changes: Išsaugoti pakeitimus
+        shipping_methods: Pristatymo būdai
         sign_in: Prisijungti
         sign_out: Atsijungti
         success: Pavyko

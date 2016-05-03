@@ -7,23 +7,32 @@ sylius:
             username: Uživatelské jméno
             password: Heslo
             remember_me: Pamatuj si mě
+        option:
+            presentation: Prezentace
     ui:
         actions: Akce
         cancel: Zrušit
+        color: Barva
         countries: Země
+        coupon_based: Kupón na bázi
         create: Vytvořit
+        currencies: Měny
         dashboard: Nástěnka
+        default_currency: Výchozí měna
         delete: Odstranit
         description: Popis
         edit: Úpravy
         empty: Prázdné
         enabled: Povoleno
+        exclusive: Exkluzivní
         filter: Filtr
         locales: Lokalizace
         new: Nový
         new_country: Nové země
+        new_currency: Nová měna
         new_tax_category: Nová kategorie daně
         "no": false
         save_changes: Uložit změny
+        shipping_methods: Způsoby dopravy
         success: Úspěch
         "yes": true

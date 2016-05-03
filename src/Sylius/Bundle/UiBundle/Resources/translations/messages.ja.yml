@@ -11,11 +11,13 @@ sylius:
         countries: 国の設定
         create: 作成
         dashboard: ダッシュボード
+        default_currency: デフォルトの通貨
         delete: sylius.account.address.action.delete
         filter: F絞り込む
         new_country: 国を登録
         new_tax_category: 税区分を登録
         "no": false
         save_changes: 保存
+        shipping_methods: 配送方法管理
         success: 成功
         "yes": true

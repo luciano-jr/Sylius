@@ -5,7 +5,10 @@ sylius:
     form:
         login:
             password: كلمة السر
+        option:
+            presentation: تقديم
     ui:
+        color: اللون
         countries: البلدان
         new: جديد
         "no": false

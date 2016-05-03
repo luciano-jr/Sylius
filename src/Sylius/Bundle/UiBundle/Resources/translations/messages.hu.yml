@@ -7,12 +7,16 @@ sylius:
             username: Felhasználónév
             password: Jelszó
             remember_me: Emlékezzen rám
+        option:
+            presentation: Bemutató
     ui:
         actions: Műveletek
         cancel: Mégse
         countries: Országok
+        coupon_based: Kupon alapján
         create: Létrehozás
         dashboard: Vezérlőpult
+        default_currency: Alapértelmezett pénznem
         delete: Törlés
         description: Leírás
         edit: Szerkesztés
@@ -24,5 +28,6 @@ sylius:
         new_tax_category: Új adókategória
         "no": false
         save_changes: Módosítások mentése
+        shipping_methods: Szállítási módok
         success: Siker
         "yes": true

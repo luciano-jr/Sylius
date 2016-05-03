@@ -18,6 +18,7 @@ use Sylius\Behat\Page\Admin\Crud\CreatePage as BaseCreatePage;
 
 /**
  * @author Mateusz Zalewski <mateusz.zalewski@lakion.com>
+ * @author Łuksaz Zalewski <mateusz.zalewski@lakion.com>
  */
 class CreatePage extends BaseCreatePage implements CreatePageInterface
 {
@@ -39,7 +40,7 @@ class CreatePage extends BaseCreatePage implements CreatePageInterface
      */
     public function selectRuleOption($option, $value, $multiple = false)
     {
-        $this->getLastAddedRule()->find('named', array('select', $option))->selectOption($value, $multiple);
+        $this->getLastAddedCollectionItem('rules')->find('named', array('select', $option))->selectOption($value, $multiple);
     }
 
     /**
@@ -47,7 +48,78 @@ class CreatePage extends BaseCreatePage implements CreatePageInterface
      */
     public function fillRuleOption($option, $value)
     {
-        $this->getLastAddedRule()->fillField($option, $value);
+        $this->getLastAddedCollectionItem('rules')->fillField($option, $value);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addAction($actionName)
+    {
+        $this->getDocument()->clickLink('Add action');
+
+        $this->selectActionOption('Type', $actionName);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function selectActionOption($option, $value, $multiple = false)
+    {
+        $this->getLastAddedCollectionItem('actions')->find('named', array('select', $option))->selectOption($value, $multiple);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function fillActionOption($option, $value)
+    {
+        $this->getLastAddedCollectionItem('actions')->fillField($option, $value);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function fillUsageLimit($limit)
+    {
+        $this->getDocument()->fillField('Usage limit', $limit);
+    }
+
+    public function makeExclusive()
+    {
+        $this->getDocument()->checkField('Exclusive');
+    }
+
+    public function checkCouponBased()
+    {
+        $this->getDocument()->checkField('Coupon based');
+    }
+
+    public function checkChannel($name)
+    {
+        $this->getDocument()->checkField($name);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setStartsAt(\DateTime $dateTime)
+    {
+        $timestamp = $dateTime->getTimestamp();
+
+        $this->getDocument()->fillField('sylius_promotion_startsAt_date', date('Y-m-d', $timestamp));
+        $this->getDocument()->fillField('sylius_promotion_startsAt_time', date('H:i', $timestamp));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setEndsAt(\DateTime $dateTime)
+    {
+        $timestamp = $dateTime->getTimestamp();
+
+        $this->getDocument()->fillField('sylius_promotion_endsAt_date', date('Y-m-d', $timestamp));
+        $this->getDocument()->fillField('sylius_promotion_endsAt_time', date('H:i', $timestamp));
     }
 
     /**
@@ -56,6 +128,9 @@ class CreatePage extends BaseCreatePage implements CreatePageInterface
     protected function getDefinedElements()
     {
         return [
+            'starts_at' => '#sylius_promotion_startsAt',
+            'ends_at' => '#sylius_promotion_endsAt',
+            'actions' => '#sylius_promotion_actions',
             'code' => '#sylius_promotion_code',
             'name' => '#sylius_promotion_name',
             'rules' => '#sylius_promotion_rules',
@@ -63,11 +138,13 @@ class CreatePage extends BaseCreatePage implements CreatePageInterface
     }
 
     /**
-     * @return mixed
+     * @param string $collection
+     *
+     * @return NodeElement
      */
-    private function getLastAddedRule()
+    private function getLastAddedCollectionItem($collection)
     {
-        $rules = $this->getElement('rules')->findAll('css', 'div[data-form-collection="item"]');
+        $rules = $this->getElement($collection)->findAll('css', 'div[data-form-collection="item"]');
 
         return end($rules);
     }

@@ -202,7 +202,6 @@ sylius:
         country: Država
         country_details: Podrobnosti države
         coupon: Kupon
-        coupon_based: Kupon, ki temelji
         coupons: Kuponi
         create: Ustvarite
         create_a_new_address: Ustvarite nov naslov
@@ -340,7 +339,6 @@ sylius:
         enjoy_all_the_features_that_are_available_on_your_personal_space_to_view_track_and_manage_all_your_data: Uživajte vse lastnosti vašega osebnega prostora, ki so na voljo za ogled, sledenje in upravljanje vseh vaših podatkov
         error: Napaka
         exchange_rate: Menjalni tečaj
-        exclusive: Izključno
         existing_customer: Obstoječa stranka
         expires_at: Poteče dne
         failed: Ni uspelo
@@ -432,7 +430,6 @@ sylius:
         new_contact_topic: Nova tema stika
         new_country: Nova država
         new_currency: Nova valuta
-        new_customer: Nov uporabnik
         new_order: Novo naročilo
         new_password: Novo geslo
         new_payment: Novo plačilo
@@ -663,6 +660,7 @@ sylius:
         total_registrations: Skupaj registracij
         tracking_code: Koda za sledenje
         tracking_number: Številka sledenja
+        translations: Prevodi
         type: Vrsta
         unavailable: Ni na voljo
         unit_price: Cena za enoto

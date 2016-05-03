@@ -220,7 +220,6 @@ sylius:
         country: Land
         country_details: Landdetails
         coupon: Gutschein
-        coupon_based: Gutschein basierend
         coupons: Gutscheine
         create: Erstellen
         create_a_new_address: Neue Adresse hinzufügen
@@ -359,7 +358,6 @@ sylius:
         enjoy_all_the_features_that_are_available_on_your_personal_space_to_view_track_and_manage_all_your_data: Dies ist dein persönlicher Bereich. Hier kannst du alle deine Bestellungen verfolgen, deine persönlichen Daten bearbeiten, sowie neue Adressen hinzufügen
         error: Fehler
         exchange_rate: Wechselkurs
-        exclusive: Exklusiv
         existing_customer: Existierender Benutzer
         expires_at: Verfällt am
         failed: Fehlgeschlagen
@@ -457,7 +455,6 @@ sylius:
         new_contact_topic: Neues Thema
         new_country: Neues Land
         new_currency: Neue Währung
-        new_customer: Neuer Benutzer
         new_order: Neue Bestellung
         new_password: Neues Passwort
         new_payment: Zahlungsmethode erstellen
@@ -698,6 +695,7 @@ sylius:
         total_registrations: Gesamteregistrierungen
         tracking_code: Tracking-Code
         tracking_number: Sendungsnummer
+        translations: Übersetzungen
         type: Typ
         unavailable: Nicht verfügbar
         unit_price: Einzelpreis

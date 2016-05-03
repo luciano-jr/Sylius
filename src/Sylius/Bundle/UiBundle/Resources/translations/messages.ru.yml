@@ -7,23 +7,33 @@ sylius:
             username: Логин
             password: Пароль
             remember_me: Запомнить меня
+        option:
+            presentation: Публичное название
     ui:
         actions: Действия
         cancel: Отмена
+        color: Цвет
         countries: Страны
+        coupon_based: Основана на купонах
         create: Добавить
+        currencies: Валюты
         dashboard: Приборная панель
+        default_currency: Валюта по умолчанию
+        default_locale: Локаль по умолчанию
         delete: sylius.account.address.action.delete
         description: Описание
         edit: Редактировать
         enabled: Активен
+        exclusive: Эксклюзив
         filter: Фильтр
         locales: Языки
         new: Новый
         new_country: Добавить страну
+        new_currency: Новая валюта
         new_tax_category: Создать налоговую категорию
         "no": false
         save_changes: Сохранить изменения
+        shipping_methods: Методы доставки
         sign_in: Войти
         sign_out: Выйти
         status: Статус

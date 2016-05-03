@@ -5,7 +5,13 @@ sylius:
     menu:
         admin:
             main:
+                catalog:
+                    options: Επιλογές
                 configuration:
-                    header: Παραμετροποίηση
                     countries: Χώρες
+                    header: Παραμετροποίηση
+                    payment_methods: Τρόποι πληρωμής
                     tax_rates: Φορολογικοί συντελεστές
+                    zones: Ζώνες
+                marketing:
+                    promotions: Προσφορές

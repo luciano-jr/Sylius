@@ -5,9 +5,24 @@ sylius:
     menu:
         admin:
             main:
+                catalog:
+                    taxons: Kategoritë
+                    options: Opsionet
+                    attributes: Atributet
                 configuration:
-                    header: Konfigurimi
-                    tax_categories: Kategoritë e taksimit
+                    channels: Kanalet
                     countries: Vendet
+                    currencies: Monedhat
+                    header: Konfigurimi
                     locales: Rajonet
+                    payment_methods: Mënyrat e pagesës
+                    shipping_methods: Mënyrat e dërgesave
+                    tax_categories: Kategoritë e taksimit
                     tax_rates: Normat e taksimit
+                    zones: Zonat
+                marketing:
+                    header: Marketingu
+                    promotions: Reklamat
+                customers:
+                    header: Blerësi
+                    customers: Blerësit

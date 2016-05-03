@@ -92,6 +92,7 @@ sylius:
         actions: Akcje
         add: Dodaj
         add_action: Dodaj akcje
+        add_association: Dodaj powiązanie
         add_attribute: Dodaj cechę
         add_channel: Dodaj kanał
         add_choice: Dodaj wybór
@@ -116,6 +117,7 @@ sylius:
         archetype: Szablon
         association: Powiązanie
         association_types: Typy powiązań
+        associations: Powiązania
         assortment: Asortyment
         attributes: Cechy
         author: Autor
@@ -160,7 +162,6 @@ sylius:
         country: Kraj
         country_details: Szczegóły kraju
         coupon: Kupon
-        coupon_based: Z wykorzystaniem kuponów
         coupons: Kupony
         create: Utwórz
         create_a_new_address: Dodaj nowy adres
@@ -275,7 +276,6 @@ sylius:
         ends_at: Data zakończenia
         error: Błąd
         exchange_rate: Kurs wymiany
-        exclusive: Ekskluzywny
         existing_customer: Istniejący Klient
         expires_at: Wygasa dnia
         failed: Nieudane
@@ -357,7 +357,6 @@ sylius:
         new_contact_topic: Nowy temat kontaktu
         new_country: Nowy kraj
         new_currency: Nowa waluta
-        new_customer: Nowy Klient
         new_order: Nowe zamówienie
         new_password: Nowe hasło
         new_payment: Nowa płatność
@@ -430,6 +429,7 @@ sylius:
         product_association_index: Powiązanie
         product_association_type_index: Rodzaj powiązania
         product_association_types: Rodzaje produktów towarzyszących
+        product_associations: Powiązania produktów
         product_details_viewing_product_product: 'Szczegóły produktu <small>Oglądasz produkt "<strong>%product%</strong>"</small>'
         products: Produkty
         products_categorized_as_name: 'Produkty sklasyfikowane jako "%name%"'
@@ -533,11 +533,13 @@ sylius:
         total_registrations: Rejestracje
         tracking_code: Kod śledzenia
         tracking_number: Numer śledzenia
+        translations: Tłumaczenia
         type: Typ
         unavailable: Niedostępne
         unit_price: Cena za sztukę
         unknown: Nieznany
         unlock: Odblokuj
+        update_product_association_type: Zaktualizuj typ powiązania produktu
         updating_tax_rate: Edycja stawki podatkowej
         usage_limit: Limit użycia
         used: Użyto

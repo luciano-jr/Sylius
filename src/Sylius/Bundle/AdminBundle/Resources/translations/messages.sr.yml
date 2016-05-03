@@ -6,8 +6,13 @@ sylius:
         admin:
             main:
                 configuration:
-                    header: Подешавања
-                    tax_categories: Категорија пореза
                     countries: Земље
+                    header: Подешавања
                     locales: Локални
+                    payment_methods: Опције плаћања
+                    shipping_methods: Начини доставе
+                    tax_categories: Категорија пореза
                     tax_rates: Пореске стопе
+                    zones: Зоне
+                marketing:
+                    promotions: Промоције

@@ -7,6 +7,8 @@ sylius:
             username: ชื่อผู้ใช้
             password: รหัสผ่าน
             remember_me: จำฉันไว้
+        option:
+            presentation: ผู้ใช้มองเห็น
     ui:
         actions: ดำเนินการ
         administration_panel_login: เข้าสู่ระบบ Admin
@@ -14,11 +16,16 @@ sylius:
         are_your_sure_you_want_to_perform_this_action: คุณแน่ใจหรือคุณต้องการดำเนินการนี้หรือไม่
         cancel: ยกเลิก
         clear_filters: ล้างตัวกรอง
+        color: สี
         confirm_your_action: ยืนยันการกระทำของคุณ
         contains: ประกอบด้วย
         countries: ประเทศ
+        coupon_based: ขึ้นกับคูปอง
         create: สร้าง
+        currencies: สกุลเงิน
         dashboard: แดชบอร์ด
+        default_currency: สกุลเงินหลัก
+        default_locale: ตำแหน่งที่ตั้งเริ่มต้น
         delete: ลบ
         description: คำอธิบาย
         disabled: ปิดการใช้งาน
@@ -29,16 +36,16 @@ sylius:
         enabled: เปิดใช้งานแล้ว
         ends_with: ลงท้ายด้วย
         equal: เท่ากับ
+        exclusive: พิเศษ
         filter: ตัวกรอง
         in: ใน
         info: ข้อมูล
         last_updated: ปรับปรุงครั้งล่าสุด
         locales: ภาษาที่ใช้
-        manage_country: จัดการประเทศ
-        manage_locale: จัดการตำแหน่งที่ตั้ง
         manage_taxation_of_your_products: จัดการภาษีผลิตภัณฑ์ของคุณ
         new: รายการใหม่
         new_country: ประเทศใหม่
+        new_currency: เพิ่มสกุลเงิน
         new_locale: ตำแหน่งที่ตั้งใหม่
         new_tax_category: ประเภทภาษีใหม่
         "no": false
@@ -51,6 +58,7 @@ sylius:
             ขับเคลื่อน
             โดย
         save_changes: บันทึกการเปลี่ยนแปลง
+        shipping_methods: วิธีการจัดส่ง
         show: แสดง
         sign_in: ลงชื่อเข้าใช้
         sign_out: ออกจากระบบ
@@ -58,4 +66,5 @@ sylius:
         status: สถานะ
         success: สำเร็จ
         tax_categories: ประเภทภาษี
+        values: ค่า
         "yes": true

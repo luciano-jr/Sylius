@@ -34,3 +34,7 @@ sylius:
         user_reset_password:
             confirmation: Confirmación
             new: Nueva contraseña
+    gender:
+        unknown: Desconocido
+        male: Hombre
+        female: Mujer

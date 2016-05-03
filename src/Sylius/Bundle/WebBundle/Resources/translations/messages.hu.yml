@@ -118,7 +118,6 @@ sylius:
         country: Ország
         country_details: Ország részletek
         coupon: Kupon
-        coupon_based: Kupon alapján
         coupons: Kuponok
         create: Létrehozás
         create_a_new_address: Új cím létrehozása
@@ -246,7 +245,6 @@ sylius:
         name: Név
         new: Új
         new_country: Új ország
-        new_customer: Új ügyfél
         new_order: Új rendelés
         new_password: Új jelszó
         new_payment: Új fizetés

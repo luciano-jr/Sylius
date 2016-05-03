@@ -15,7 +15,6 @@ use Behat\Behat\Context\Context;
 use Sylius\Behat\Page\Admin\Locale\CreatePageInterface;
 use Sylius\Behat\Page\Admin\Locale\IndexPageInterface;
 use Sylius\Behat\Page\Admin\Locale\UpdatePageInterface;
-use Sylius\Behat\Service\NotificationCheckerInterface;
 use Sylius\Component\Locale\Model\LocaleInterface;
 use Webmozart\Assert\Assert;
 
@@ -24,8 +23,6 @@ use Webmozart\Assert\Assert;
  */
 final class ManagingLocalesContext implements Context
 {
-    const RESOURCE_NAME = 'locale';
-
     /**
      * @var CreatePageInterface
      */
@@ -42,26 +39,18 @@ final class ManagingLocalesContext implements Context
     private $updatePage;
 
     /**
-     * @var NotificationCheckerInterface
-     */
-    private $notificationChecker;
-
-    /**
      * @param CreatePageInterface $createPage
      * @param IndexPageInterface $indexPage
      * @param UpdatePageInterface $updatePage
-     * @param NotificationCheckerInterface $notificationChecker
      */
     public function __construct(
         CreatePageInterface $createPage,
         IndexPageInterface $indexPage,
-        UpdatePageInterface $updatePage,
-        NotificationCheckerInterface $notificationChecker
+        UpdatePageInterface $updatePage
     ) {
         $this->createPage = $createPage;
         $this->indexPage = $indexPage;
         $this->updatePage = $updatePage;
-        $this->notificationChecker = $notificationChecker;
     }
 
     /**
@@ -122,27 +111,11 @@ final class ManagingLocalesContext implements Context
     }
 
     /**
-     * @Then I should be notified about successful creation
-     */
-    public function iShouldBeNotifiedAboutSuccessfulCreation()
-    {
-        $this->notificationChecker->checkCreationNotification(self::RESOURCE_NAME);
-    }
-
-    /**
-     * @Then I should be notified about successful edition
-     */
-    public function iShouldBeNotifiedAboutSuccessfulEdition()
-    {
-        $this->notificationChecker->checkEditionNotification(self::RESOURCE_NAME);
-    }
-
-    /**
      * @Then the store should be available in the :name language
      */
     public function storeShouldBeAvailableInLanguage($name)
     {
-        $doesLocaleExist = $this->indexPage->isResourceOnPage(['name' => $name]);
+        $doesLocaleExist = $this->indexPage->isSingleResourceOnPage(['name' => $name]);
         Assert::true(
             $doesLocaleExist,
             sprintf('Locale %s should exist but it does not', $name)

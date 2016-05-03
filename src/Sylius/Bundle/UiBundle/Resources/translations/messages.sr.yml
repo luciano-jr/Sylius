@@ -5,6 +5,8 @@ sylius:
     form:
         login:
             username: Кросницко име
+        option:
+            presentation: Приказ
     ui:
         cancel: Откажи
         countries: Земље
@@ -17,5 +19,6 @@ sylius:
         new_tax_category: Нова категорија пореза
         "no": false
         save_changes: Сачувај измене
+        shipping_methods: Начини доставе
         success: Успех
         "yes": true

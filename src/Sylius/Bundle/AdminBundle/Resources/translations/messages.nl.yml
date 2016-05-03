@@ -5,8 +5,25 @@ sylius:
     menu:
         admin:
             main:
+                catalog:
+                    header: Cataloog
+                    taxons: Taxons
+                    options: Opties
+                    attributes: Attributen
                 configuration:
-                    header: Configuratie
+                    channels: Kanalen
                     countries: Landen
+                    currencies: "Valuta's"
+                    header: Configuratie
                     locales: "Talen/Regio's"
+                    payment_methods: Betaalmethoden
+                    shipping_methods: Verzendmethoden
+                    tax_categories: Belastingcategorieën
                     tax_rates: BTW-tarieven
+                    zones: Zones
+                marketing:
+                    header: Marketing
+                    promotions: Promoties
+                customers:
+                    header: Klant
+                    customers: Klanten

@@ -34,3 +34,7 @@ sylius:
         user_reset_password:
             confirmation: Konfirmo
             new: Fjalëkalim i ri
+    gender:
+        unknown: E panjohur
+        male: Mashkull
+        female: Femër

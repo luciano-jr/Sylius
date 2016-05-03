@@ -102,7 +102,6 @@ sylius:
         country: Land
         country_details: Lande detaljer
         coupon: Kupon
-        coupon_based: Kupon baseret
         coupons: Kuponer
         create: Opret
         create_a_new_address: Opret en ny adresse
@@ -219,7 +218,6 @@ sylius:
         name: Navn
         new: Ny
         new_country: Nyt land
-        new_customer: Ny kunde
         new_order: Ny ordre
         new_password: Ny adgangskode
         new_payment: Ny betaling

@@ -61,7 +61,7 @@
         "symfony-cmf/create-bundle": "~1.2",
         "symfony-cmf/media-bundle": "~1.2",
         "symfony-cmf/menu-bundle": "~1.2",
-        "symfony-cmf/routing-bundle": "^1.4.0-RC1",
+        "symfony-cmf/routing-bundle": "^1.4",
         "symfony/assetic-bundle": "^2.6",
         "symfony/monolog-bundle": "^2.7",
         "symfony/polyfill-iconv": "~1.0",
@@ -95,7 +95,8 @@
         "matthiasnoback/symfony-dependency-injection-test": "^0.7.6",
         "phpspec/phpspec": "^2.4",
         "phpunit/phpunit": "~4.1",
-        "se/selenium-server-standalone": "^2.52"
+        "se/selenium-server-standalone": "^2.52",
+        "mikey179/vfsStream": "^1.6"
     },
     "replace": {
         "sylius/addressing": "self.version",

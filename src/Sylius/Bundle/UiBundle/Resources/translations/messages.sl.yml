@@ -7,26 +7,37 @@ sylius:
             username: Uporabniško ime
             password: Geslo
             remember_me: Zapomni si me
+        option:
+            presentation: Predstavitev
     ui:
         actions: Dejanja
         cancel: Prekliči
+        color: Barva
         countries: Države
+        coupon_based: Kupon, ki temelji
         create: Ustvarite
+        currencies: Valute
         dashboard: Nadzorna plošča
+        default_currency: Privzeta valuta
+        default_locale: Privzeto območje
         delete: Zbriši
         description: Opis
         edit: Urejanje
         empty: Prazno
         enabled: Omogočeno
+        exclusive: Izključno
         filter: Filter
         locales: Področne nastavitve
         new: Novo
         new_country: Nova država
+        new_currency: Nova valuta
         new_tax_category: Nova davčna kategorija
         "no": false
         powered_by: Poganja
         save_changes: Shrani spremembe
+        shipping_methods: Načini dostave
         sign_in: Prijava
         sign_out: Odjava
         success: Uspešno
+        values: Vrednosti
         "yes": true

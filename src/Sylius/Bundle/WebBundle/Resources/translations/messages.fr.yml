@@ -96,6 +96,7 @@ sylius:
     payment:
         transition:
             cancel: annuler
+            complete: terminé
             refund: remboursement
     pricing:
         volume_based:
@@ -121,8 +122,10 @@ sylius:
     shipment:
         no_items: "Il n'y a aucun élément à afficher"
         transition:
+            backorder: rupture de stock
             cancel: annuler
             prepare: préparer
+            release: libéré
             return: retour
             ship: envoi
         update: Modifier
@@ -218,7 +221,6 @@ sylius:
         country: Pays
         country_details: Détails du pays
         coupon: Code promo
-        coupon_based: Comprend des coupons
         coupons: Coupons de réduction
         create: Créer
         create_a_new_address: Créer une nouvelle adresse
@@ -357,7 +359,6 @@ sylius:
         enjoy_all_the_features_that_are_available_on_your_personal_space_to_view_track_and_manage_all_your_data: Profitez de toutes les fonctionnalités qui sont disponibles sur votre espace personnel pour visualiser, suivre et gérer toutes vos données
         error: Erreur
         exchange_rate: Taux de change
-        exclusive: Exclusif
         existing_customer: Client existant
         expires_at: Expire le
         failed: Échoué
@@ -455,7 +456,6 @@ sylius:
         new_contact_topic: Nouvelle rubrique contact
         new_country: Nouveau pays
         new_currency: Nouvelle devise
-        new_customer: Nouveau client
         new_order: Nouvelle commande
         new_password: Nouveau mot de passe
         new_payment: Nouveau paiement
@@ -696,6 +696,7 @@ sylius:
         total_registrations: "Nombre total d'inscriptions"
         tracking_code: Code de suivi
         tracking_number: Numéro de suivi
+        translations: Traductions
         type: Type
         unavailable: Indisponible
         unit_price: Prix unitaire

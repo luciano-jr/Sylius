@@ -119,7 +119,6 @@ sylius:
         country: Країна
         country_details: Подробиці про країну
         coupon: Купон
-        coupon_based: На основі купону
         coupons: Купони
         create: Створити
         create_a_new_address: Створити нову адресу
@@ -246,7 +245,6 @@ sylius:
         new: Новий
         new_comment_posted_on_order: Новий коментар, доданий до замовлення
         new_country: Нова країна
-        new_customer: Новий клієнт
         new_order: Нове замовлення
         new_password: Новий пароль
         new_payment: Нова оплата
@@ -383,6 +381,7 @@ sylius:
         total_registrations: Всього реєстрацій
         tracking_code: Трекінг-код
         tracking_number: Трекінг-номер
+        translations: Переклади
         type: Тип
         unavailable: Недоступно
         unit_price: Ціна одиниці

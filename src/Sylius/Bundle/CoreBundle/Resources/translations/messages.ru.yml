@@ -21,7 +21,7 @@ sylius:
             payment_method: Способ оплаты
             shipping_method: Способ доставки
         promotion:
-            channels: Канал
+            channels: Каналы
         coupon:
             per_customer_usage_limit: Лимит использования на клиента
         group:
@@ -128,3 +128,19 @@ sylius:
             type: Типы взаимосвязи
         product_association_type:
             name: Название
+        promotion_rule:
+            contains_taxon:
+                count: Кол-во
+            taxon:
+                taxons: Налоги
+            total_of_items_from_taxon:
+                amount: Сумма
+    email:
+        order_confirmation:
+            name: Подтверждение заказа
+        order_comment:
+            name: Комментарий к заказу
+        shipment_confirmation:
+            name: Подтверждение посылки
+        user_confirmation:
+            name: Подтверждение пользователя

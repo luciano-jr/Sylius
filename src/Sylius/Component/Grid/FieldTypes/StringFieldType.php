@@ -33,12 +33,13 @@ class StringFieldType implements FieldTypeInterface
     }
 
     /**
-     * @param Field $field
-     * @param $data
+     * {@inheritdoc}
      */
     public function render(Field $field, $data)
     {
-        return $this->dataExtractor->get($field, $data);
+        $value = $this->dataExtractor->get($field, $data);
+
+        return is_string($value) ? htmlspecialchars($value) : $value;
     }
 
     /**

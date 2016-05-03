@@ -17,12 +17,18 @@
         <parameter key="sylius.behat.context.transform.channel.class">Sylius\Behat\Context\Transform\ChannelContext</parameter>
         <parameter key="sylius.behat.context.transform.country.class">Sylius\Behat\Context\Transform\CountryContext</parameter>
         <parameter key="sylius.behat.context.transform.coupon.class">Sylius\Behat\Context\Transform\CouponContext</parameter>
+        <parameter key="sylius.behat.context.transform.currency.class">Sylius\Behat\Context\Transform\CurrencyContext</parameter>
         <parameter key="sylius.behat.context.transform.customer.class">Sylius\Behat\Context\Transform\CustomerContext</parameter>
+        <parameter key="sylius.behat.context.transform.date_time.class">Sylius\Behat\Context\Transform\DateTimeContext</parameter>
         <parameter key="sylius.behat.context.transform.lexical.class">Sylius\Behat\Context\Transform\LexicalContext</parameter>
+        <parameter key="sylius.behat.context.transform.locale.class">Sylius\Behat\Context\Transform\LocaleContext</parameter>
         <parameter key="sylius.behat.context.transform.payment.class">Sylius\Behat\Context\Transform\PaymentContext</parameter>
+        <parameter key="sylius.behat.context.transform.payment_method.class">Sylius\Behat\Context\Transform\PaymentMethodContext</parameter>
         <parameter key="sylius.behat.context.transform.product.class">Sylius\Behat\Context\Transform\ProductContext</parameter>
+        <parameter key="sylius.behat.context.transform.product_option.class">Sylius\Behat\Context\Transform\ProductOptionContext</parameter>
         <parameter key="sylius.behat.context.transform.product_variant.class">Sylius\Behat\Context\Transform\ProductVariantContext</parameter>
         <parameter key="sylius.behat.context.transform.promotion.class">Sylius\Behat\Context\Transform\PromotionContext</parameter>
+        <parameter key="sylius.behat.context.transform.province.class">Sylius\Behat\Context\Transform\ProvinceContext</parameter>
         <parameter key="sylius.behat.context.transform.shared_storage.class">Sylius\Behat\Context\Transform\SharedStorageContext</parameter>
         <parameter key="sylius.behat.context.transform.shipping_method.class">Sylius\Behat\Context\Transform\ShippingMethodContext</parameter>
         <parameter key="sylius.behat.context.transform.tax_category.class">Sylius\Behat\Context\Transform\TaxCategoryContext</parameter>
@@ -31,6 +37,7 @@
         <parameter key="sylius.behat.context.transform.theme.class">Sylius\Behat\Context\Transform\ThemeContext</parameter>
         <parameter key="sylius.behat.context.transform.user.class">Sylius\Behat\Context\Transform\UserContext</parameter>
         <parameter key="sylius.behat.context.transform.zone.class">Sylius\Behat\Context\Transform\ZoneContext</parameter>
+        <parameter key="sylius.behat.context.transform.zone_member.class">Sylius\Behat\Context\Transform\ZoneMemberContext</parameter>
     </parameters>
     <services>
         <service id="sylius.behat.context.transform.addressing" class="%sylius.behat.context.transform.addressing.class%" scope="scenario">
@@ -55,13 +62,28 @@
             <tag name="sylius.behat.context" />
         </service>
 
+        <service id="sylius.behat.context.transform.currency" class="%sylius.behat.context.transform.currency.class%" scope="scenario">
+            <argument type="service" id="sylius.converter.currency_name" container="symfony" />
+            <argument type="service" id="sylius.repository.currency" container="symfony" />
+            <tag name="sylius.behat.context" />
+        </service>
+
         <service id="sylius.behat.context.transform.customer" class="%sylius.behat.context.transform.customer.class%" scope="scenario">
             <argument type="service" id="sylius.repository.customer" container="symfony" />
             <argument type="service" id="sylius.factory.customer" container="symfony" />
             <tag name="sylius.behat.context" />
         </service>
 
+        <service id="sylius.behat.context.transform.date_time" class="%sylius.behat.context.transform.date_time.class%" scope="scenario">
+            <tag name="sylius.behat.context" />
+        </service>
+
         <service id="sylius.behat.context.transform.lexical" class="%sylius.behat.context.transform.lexical.class%" scope="scenario">
+            <tag name="sylius.behat.context" />
+        </service>
+
+        <service id="sylius.behat.context.transform.locale" class="%sylius.behat.context.transform.locale.class%" scope="scenario">
+            <argument type="service" id="sylius.converter.locale_name" container="symfony" />
             <tag name="sylius.behat.context" />
         </service>
 
@@ -70,8 +92,18 @@
             <tag name="sylius.behat.context" />
         </service>
 
+        <service id="sylius.behat.context.transform.payment_method" class="%sylius.behat.context.transform.payment_method.class%" scope="scenario">
+            <argument type="service" id="sylius.repository.payment_method" container="symfony" />
+            <tag name="sylius.behat.context" />
+        </service>
+
         <service id="sylius.behat.context.transform.product" class="%sylius.behat.context.transform.product.class%" scope="scenario">
             <argument type="service" id="sylius.repository.product" container="symfony" />
+            <tag name="sylius.behat.context" />
+        </service>
+
+        <service id="sylius.behat.context.transform.product_option" class="%sylius.behat.context.transform.product_option.class%" scope="scenario">
+            <argument type="service" id="sylius.repository.product_option" container="symfony" />
             <tag name="sylius.behat.context" />
         </service>
 
@@ -83,6 +115,11 @@
 
         <service id="sylius.behat.context.transform.promotion" class="%sylius.behat.context.transform.promotion.class%" scope="scenario">
             <argument type="service" id="sylius.repository.promotion" container="symfony" />
+            <tag name="sylius.behat.context" />
+        </service>
+
+        <service id="sylius.behat.context.transform.province" class="%sylius.behat.context.transform.province.class%" scope="scenario">
+            <argument type="service" id="sylius.repository.province" container="symfony" />
             <tag name="sylius.behat.context" />
         </service>
 
@@ -123,6 +160,14 @@
 
         <service id="sylius.behat.context.transform.zone" class="%sylius.behat.context.transform.zone.class%" scope="scenario">
             <argument type="service" id="sylius.repository.zone" container="symfony" />
+            <tag name="sylius.behat.context" />
+        </service>
+
+        <service id="sylius.behat.context.transform.zone_member" class="%sylius.behat.context.transform.zone_member.class%" scope="scenario">
+            <argument type="service" id="sylius.converter.country_name" container="symfony" />
+            <argument type="service" id="sylius.repository.province" container="symfony" />
+            <argument type="service" id="sylius.repository.zone" container="symfony" />
+            <argument type="service" id="sylius.repository.zone_member" container="symfony" />
             <tag name="sylius.behat.context" />
         </service>
     </services>

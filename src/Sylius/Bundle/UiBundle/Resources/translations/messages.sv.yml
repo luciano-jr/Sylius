@@ -2,7 +2,12 @@
 # (c) Paweł Jędrzejewski
 
 sylius:
+    form:
+        option:
+            presentation: Presentation
     ui:
+        color: Färg
+        default_currency: Standardvaluta
         enabled: Aktiverad
         "no": false
         "yes": true

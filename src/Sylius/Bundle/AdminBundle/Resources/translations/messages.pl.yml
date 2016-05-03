@@ -5,8 +5,23 @@ sylius:
     menu:
         admin:
             main:
+                catalog:
+                    taxons: Taksony
+                    options: Warianty
+                    attributes: Cechy
                 configuration:
-                    header: Konfiguracja
+                    channels: Kanały
                     countries: Kraje
+                    currencies: Waluty
+                    header: Konfiguracja
                     locales: Ustawienia regionalne
+                    payment_methods: Metody płatności
+                    shipping_methods: Sposób wysyłki
                     tax_rates: Stawki podatkowe
+                    zones: Strefy
+                marketing:
+                    header: Marketing
+                    promotions: Promocje
+                customers:
+                    header: Klient
+                    customers: Klienci

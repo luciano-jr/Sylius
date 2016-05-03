@@ -6,12 +6,17 @@ sylius:
         login:
             username: Nume de utilizator
             password: Parolă
+        option:
+            presentation: Prezentare
     ui:
         actions: Acțiuni
         cancel: Anulează
+        color: Culoare
         countries: Țări
+        coupon_based: Bazat pe cod promoțional
         create: Creează
         dashboard: Panou de administrare
+        default_currency: Moneda implicită
         delete: Șterge
         description: Descriere
         edit: Editare
@@ -23,5 +28,6 @@ sylius:
         new_tax_category: Categorie de taxă nouă
         "no": false
         save_changes: Salvează modificările
+        shipping_methods: Metode de livrare
         success: Succes
         "yes": true

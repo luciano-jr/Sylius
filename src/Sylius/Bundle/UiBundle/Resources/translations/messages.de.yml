@@ -7,6 +7,8 @@ sylius:
             username: Benutzername
             password: Passwort
             remember_me: Eingeloggt bleiben
+        option:
+            presentation: Präsentation
     ui:
         actions: Aktionen
         administration_panel_login: Administrations-Bereich Anmeldung
@@ -14,11 +16,16 @@ sylius:
         are_your_sure_you_want_to_perform_this_action: Möchten Sie diese Aktion sicher durchführen?
         cancel: Abbrechen
         clear_filters: Filter löschen
+        color: Farbe
         confirm_your_action: Aktion bestätigen
         contains: Enthält
         countries: Länder
+        coupon_based: Gutschein basierend
         create: Erstellen
+        currencies: Währungen
         dashboard: Dashboard
+        default_currency: Standardwährung
+        default_locale: Standard Lokalisierung
         delete: Löschen
         description: Beschreibung
         disabled: Deaktiviert
@@ -29,16 +36,16 @@ sylius:
         enabled: Aktiviert
         ends_with: Endet mit
         equal: Gleich
+        exclusive: Exklusiv
         filter: Filtern
         in: In
         info: Info
         last_updated: Letzte Aktualisierung
         locales: Gebietsschemata
-        manage_country: Land verwalten
-        manage_locale: Lokalisierungen verwalten
         manage_taxation_of_your_products: Besteuerung der Produkte verwalten
         new: Neu
         new_country: Neues Land
+        new_currency: Neue Währung
         new_locale: Neue Lokalisierung
         new_tax_category: Neue Steuerkategorie
         "no": false
@@ -49,6 +56,7 @@ sylius:
         or: oder
         powered_by: Powered by
         save_changes: Änderungen speichern
+        shipping_methods: Versandmethoden
         show: Anzeigen
         sign_in: Anmelden
         sign_out: Abmelden
@@ -56,4 +64,5 @@ sylius:
         status: Status
         success: Erfolgreich
         tax_categories: Steuerkategorien
+        values: Werte
         "yes": true

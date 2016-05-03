@@ -7,12 +7,16 @@ sylius:
             username: Korisničko ime
             password: Lozinka
             remember_me: Zapamti me
+        option:
+            presentation: Prezentacija
     ui:
         actions: Akcije
         cancel: Prekini
         countries: Države
+        coupon_based: Promocija bazirana na kuponima za popust
         create: Kreiraj
         dashboard: Kontrolna ploča
+        default_currency: Zadana valuta
         delete: sylius.account.address.action.delete
         description: Opis
         edit: Uredi
@@ -24,5 +28,6 @@ sylius:
         new_tax_category: Nova kategorija poreza
         "no": false
         save_changes: Sačuvaj izmjene
+        shipping_methods: Načini slanja
         success: Uspješno
         "yes": true

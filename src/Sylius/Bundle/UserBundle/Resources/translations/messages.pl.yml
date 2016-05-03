@@ -33,3 +33,7 @@ sylius:
         user_reset_password:
             confirmation: Potwierdzenie
             new: Nowe hasło
+    gender:
+        unknown: Nieznany
+        male: Mężczyzna
+        female: Kobieta

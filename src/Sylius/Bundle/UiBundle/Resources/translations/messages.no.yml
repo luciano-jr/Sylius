@@ -6,12 +6,16 @@ sylius:
         login:
             username: Brukernavn
             password: Passord
+        option:
+            presentation: Presentasjon
     ui:
         actions: Handlinger
         cancel: Avbryt
         countries: Land
+        coupon_based: Kupongbasert
         create: Opprett
         dashboard: Panel
+        default_currency: Standard valuta
         delete: Slett
         description: Beskrivelse
         edit: Rediger
@@ -23,5 +27,6 @@ sylius:
         new_tax_category: Ny momskategori
         "no": false
         save_changes: Lagre endringer
+        shipping_methods: Leveringsmetoder
         success: Suksess
         "yes": true

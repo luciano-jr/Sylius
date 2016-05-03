@@ -6,11 +6,14 @@ sylius:
         login:
             username: Όνομα χρήστη
             password: Κωδικός πρόσβασης
+        option:
+            presentation: Παρουσίαση
     ui:
         actions: Ενέργειες
         cancel: Άκυρο
         countries: Χώρες
         create: Δημιουργία
+        default_currency: Προεπιλεγμένο νόμισμα
         description: Περιγραφή
         enabled: Ενεργοποιημένο
         filter: Φίλτρο

@@ -7,26 +7,36 @@ sylius:
             username: Nazwa użytkownika
             password: Hasło
             remember_me: Zapamiętaj mnie
+        option:
+            presentation: Nazwa publiczna
     ui:
         actions: Akcje
         cancel: Anuluj
+        color: Kolor
         countries: Kraje
+        coupon_based: Z wykorzystaniem kuponów
         create: Utwórz
+        currencies: Waluty
         dashboard: Panel
+        default_currency: Domyślna waluta
+        default_locale: Domyślne ustawienia regionalne
         delete: Usuń
         description: Opis
         edit: Edytuj
         empty: Brak
         enabled: Włączone
+        exclusive: Ekskluzywny
         filter: Filtruj
         last_updated: Ostatnia aktualizacja
         locales: Ustawienia regionalne
         new: Nowy
         new_country: Nowy kraj
+        new_currency: Nowa waluta
         new_tax_category: Nowa kategoria podatkowa
         "no": false
         no_results_to_display: Brak wyników do wyświetlenia
         save_changes: Zapisz zmiany
+        shipping_methods: Metody wysyłki
         show: Pokaż
         status: Status
         success: Sukces

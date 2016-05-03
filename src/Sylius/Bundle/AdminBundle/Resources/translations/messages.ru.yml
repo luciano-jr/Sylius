@@ -5,9 +5,24 @@ sylius:
     menu:
         admin:
             main:
+                catalog:
+                    taxons: Налоги
+                    options: Список опций
+                    attributes: Атрибуты
                 configuration:
-                    header: Конфигурация
-                    tax_categories: Список налоговых категорий
+                    channels: Каналы
                     countries: Страны
+                    currencies: Валюты
+                    header: Конфигурация
                     locales: Языки
+                    payment_methods: Методы оплаты
+                    shipping_methods: Методы доставки
+                    tax_categories: Список налоговых категорий
                     tax_rates: Налоговые ставки
+                    zones: Зоны
+                marketing:
+                    header: Маркетинг
+                    promotions: Рекламные акции
+                customers:
+                    header: Клиент
+                    customers: Клиенты

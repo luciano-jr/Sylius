@@ -7,23 +7,32 @@ sylius:
             username: Kullanıcı adı
             password: Şifre
             remember_me: Beni hatırla
+        option:
+            presentation: Sunum
     ui:
         actions: Eylemler
         cancel: İptal
+        color: Renk
         countries: Ülkeler
+        coupon_based: Kupona dayalı
         create: Oluştur
+        currencies: Para birimi
         dashboard: Kontrol Paneli
+        default_currency: Varsayılan para birimi
         delete: Sil
         description: Açıklama
         edit: Düzenle
         empty: Boş
         enabled: Etkin
+        exclusive: Özel
         filter: Filtrele
         locales: Diller
         new: Yeni
         new_country: Yeni ülke
+        new_currency: Yeni para birimi
         new_tax_category: Yeni vergi kategorisi
         "no": false
         save_changes: Değişiklikleri kaydet
+        shipping_methods: Gönderim metodları
         success: Başarılı
         "yes": true

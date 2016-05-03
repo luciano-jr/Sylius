@@ -21,6 +21,9 @@ var paths = {
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/semantic-ui-css/semantic.min.js',
             'src/Sylius/Bundle/UiBundle/Resources/private/js/**',
+            'src/Sylius/Bundle/ShippingBundle/Resources/public/js/**',
+            'src/Sylius/Bundle/PromotionBundle/Resources/public/js/sylius-promotion.js',
+            'src/Sylius/Bundle/UserBundle/Resources/public/js/sylius-user.js'
         ],
         sass: [
             'src/Sylius/Bundle/UiBundle/Resources/private/sass/**',
@@ -82,4 +85,4 @@ gulp.task('admin-watch', function() {
 });
 
 gulp.task('default', ['admin-js', 'admin-css', 'admin-img']);
-
+gulp.task('watch', ['admin-watch', 'admin-js', 'admin-css', 'admin-img']);

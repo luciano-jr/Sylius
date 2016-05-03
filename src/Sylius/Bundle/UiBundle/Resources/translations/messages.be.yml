@@ -6,12 +6,16 @@ sylius:
         login:
             username: Юзернэйм
             password: Пароль
+        option:
+            presentation: Выгляд
     ui:
         actions: Дзеянні
         cancel: Адмяніць
         countries: Краіны
+        coupon_based: Заснавана на купонах
         create: Стварыць
         dashboard: Прыборная панэль
+        default_currency: Галоўная валюта
         delete: Выдаліць
         description: Апісанне
         edit: Рэдагаваць
@@ -23,5 +27,6 @@ sylius:
         new_tax_category: Новая катэгорыя падатка
         "no": false
         save_changes: Захаваць змены
+        shipping_methods: Метады дастаўкі
         success: Поспех
         "yes": true

@@ -21,7 +21,7 @@ sylius:
             payment_method: Moyen de paiement
             shipping_method: Mode de livraison
         promotion:
-            channels: Canal 
+            channels: Canaux
         coupon:
             per_customer_usage_limit: "Limite d'utilisation par client"
         group:
@@ -131,3 +131,23 @@ sylius:
             type: "Type d'association"
         product_association_type:
             name: Nom
+        promotion_rule:
+            contains_taxon:
+                taxon: Taxon
+                count: Nombre
+            taxon:
+                taxons: Famille de tags
+            total_of_items_from_taxon:
+                taxon: Taxon
+                amount: Montant
+    email:
+        order_confirmation:
+            name: Confirmation de commande
+        order_comment:
+            name: Commentaire sur la commande
+        shipment_confirmation:
+            name: "Confirmation d'expédition"
+        user_confirmation:
+            name: Utilisateur confirmé
+        password_reset:
+            name: Réinitialiser le mot de passe

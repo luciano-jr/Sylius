@@ -34,3 +34,7 @@ sylius:
         user_reset_password:
             confirmation: Potvrdenie
             new: Nové heslo
+    gender:
+        unknown: Neznáme
+        male: Muž
+        female: Žena

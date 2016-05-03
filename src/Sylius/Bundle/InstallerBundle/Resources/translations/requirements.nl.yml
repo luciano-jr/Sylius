@@ -13,6 +13,7 @@ sylius:
         help: 'Installeer en activeer de %extension% extensie.'
         iconv: Iconv
         exif: Exif
+        fileinfo: Bestandsinfo
         icu: ICU
         intl: Intl
         json_encode: JSON
@@ -61,4 +62,4 @@ sylius:
             header: Verouderde tijdzone
             help: 'Tijdzone %timezone% is verouderd. Fix je php.ini bestand (lijst met verouderde tijdzones http://php.net/manual/en/timezones.others.php).'
         version: PHP versie
-        version_recommanded: Aanbevolen PHP versie
+        version_recommanded: Aanbevolen PHP-versie

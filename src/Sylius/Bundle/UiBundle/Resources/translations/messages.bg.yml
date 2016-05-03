@@ -5,6 +5,8 @@ sylius:
     form:
         login:
             username: Потребителско име
+        option:
+            presentation: Презентация
     ui:
         cancel: Откажи
         countries: Страни
@@ -18,5 +20,6 @@ sylius:
         new_tax_category: Нова данъчна категория
         "no": false
         save_changes: Запиши промените
+        shipping_methods: Начин на доставка
         success: Успешно
         "yes": true

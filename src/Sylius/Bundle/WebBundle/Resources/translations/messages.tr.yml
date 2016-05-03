@@ -173,7 +173,6 @@ sylius:
         country: Ülke
         country_details: Ülke bilgileri
         coupon: Kupon
-        coupon_based: Kupona dayalı
         coupons: Kuponlar
         create: Oluştur
         create_a_new_address: Yeni bir adres oluşturun
@@ -296,7 +295,6 @@ sylius:
         ends_at: Sona erdi
         error: Hata
         exchange_rate: Döviz Kuru
-        exclusive: Özel
         existing_customer: Varolan Müşteri
         expires_at: 'Süre sonu:'
         failed: Başarısız oldu
@@ -378,7 +376,6 @@ sylius:
         new_contact_topic: Yeni iletişim konusu
         new_country: Yeni ülke
         new_currency: Yeni para birimi
-        new_customer: Yeni müşteri
         new_order: Yeni sipariş
         new_password: Yeni parola
         new_payment: Yeni ödeme

@@ -118,7 +118,6 @@ sylius:
         country: Țară
         country_details: Detalii țară
         coupon: Cod promoțional
-        coupon_based: Bazat pe cod promoțional
         coupons: Coduri promoționale
         create: Creează
         create_a_new_address: Creeare adresă nouă
@@ -238,7 +237,6 @@ sylius:
         name: Nume
         new: Nouă
         new_country: Țară nouă
-        new_customer: Client nou
         new_order: Comandă nouă
         new_password: Parolă nouă
         new_payment: Plată nouă

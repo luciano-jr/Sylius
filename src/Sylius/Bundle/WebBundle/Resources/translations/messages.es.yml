@@ -206,7 +206,6 @@ sylius:
         country: País
         country_details: Detalles del país
         coupon: Cupón
-        coupon_based: Basado en cupones
         coupons: sylius.breadcrumb.promotion_coupon.index
         create: Crear
         create_a_new_address: sylius.account.address.create
@@ -344,7 +343,6 @@ sylius:
         ends_at: Fecha de fin
         enjoy_all_the_features_that_are_available_on_your_personal_space_to_view_track_and_manage_all_your_data: Disfrute de todas las características disponibles en su espacio personal para examinar, controlar y gestionar todos sus datos
         exchange_rate: Tasa o tipo de cambio
-        exclusive: Exclusivo
         existing_customer: Cliente existente
         expires_at: Caduca en
         failed: Fallido
@@ -366,6 +364,7 @@ sylius:
         guest: Invitado
         hello_name: 'Hola <b>%name%</b>'
         hide_deleted: Ocultar eliminados
+        hostname: Nombre del host
         id: ID
         identifier: Identificador
         images: Imágenes
@@ -440,7 +439,6 @@ sylius:
         new_contact_topic: Nuevo tema de contacto
         new_country: Nuevo país
         new_currency: Nueva moneda
-        new_customer: Nuevo Cliente
         new_order: Nuevo pedido
         new_password: Nueva contraseña
         new_payment: Nuevo pago
@@ -625,6 +623,7 @@ sylius:
         taxes: Impuestos
         taxons: Taxonomías
         thank_you_for_your_order: Gracias por su pedido
+        theme: Tema
         there_are_no_archetypes_defined: No hay prototipos definidos
         there_are_no_attributes_configured: No hay atributos configurados
         there_are_no_blocks_to_display: No hay bloques para mostrar
@@ -677,6 +676,7 @@ sylius:
         total_registrations: Usuarios
         tracking_code: Código de seguimiento
         tracking_number: Número de seguimiento
+        translations: Traducciones
         type: Tipo
         unavailable: No disponible
         unit_price: Precio unitario

@@ -20,6 +20,8 @@ sylius:
                 different_billing_address: 使用不同地址的帐单吗？
             payment_method: 付款方式
             shipping_method: 配送方式
+        promotion:
+            channels: 频道
         group:
             name: 名称
             roles: 角色
@@ -106,3 +108,10 @@ sylius:
             email: 电子邮件
         product_association_type:
             name: 名称
+        promotion_rule:
+            contains_taxon:
+                count: 计数
+            taxon:
+                taxons: 分类
+            total_of_items_from_taxon:
+                amount: 金额

@@ -1,4 +1,4 @@
-@addressing
+@managing_countries
 Feature: Adding a new country
     In order to sell my goods to different countries
     As an Administrator
@@ -12,5 +12,5 @@ Feature: Adding a new country
         Given I want to add a new country
         When I choose "France"
         And I add it
-        Then I should be notified about successful creation
-        And country "France" should appear in the store
+        Then I should be notified that it has been successfully created
+        And the country "France" should appear in the store

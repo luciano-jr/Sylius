@@ -16,7 +16,7 @@ use Behat\Mink\Exception\ElementNotFoundException;
 use Sylius\Behat\Page\Admin\Country\CreatePageInterface;
 use Sylius\Behat\Page\Admin\Country\IndexPageInterface;
 use Sylius\Behat\Page\Admin\Country\UpdatePageInterface;
-use Sylius\Behat\Service\NotificationCheckerInterface;
+use Sylius\Behat\Service\CurrentPageResolverInterface;
 use Sylius\Component\Addressing\Model\CountryInterface;
 use Webmozart\Assert\Assert;
 
@@ -25,52 +25,51 @@ use Webmozart\Assert\Assert;
  */
 final class ManagingCountriesContext implements Context
 {
-    const RESOURCE_NAME = 'country';
-
     /**
      * @var IndexPageInterface
      */
-    private $countryIndexPage;
+    private $indexPage;
 
     /**
      * @var CreatePageInterface
      */
-    private $countryCreatePage;
+    private $createPage;
 
     /**
      * @var UpdatePageInterface
      */
-    private $countryUpdatePage;
+    private $updatePage;
 
     /**
-     * @var NotificationCheckerInterface
+     * @var CurrentPageResolverInterface
      */
-    private $notificationChecker;
+    private $currentPageResolver;
 
     /**
-     * @param IndexPageInterface $countryIndexPage
-     * @param CreatePageInterface $countryCreatePage
-     * @param UpdatePageInterface $countryUpdatePage
-     * @param NotificationCheckerInterface $notificationChecker
+     * @param IndexPageInterface $indexPage
+     * @param CreatePageInterface $createPage
+     * @param UpdatePageInterface $updatePage
+     * @param CurrentPageResolverInterface $currentPageResolver
      */
     public function __construct(
-        IndexPageInterface $countryIndexPage,
-        CreatePageInterface $countryCreatePage,
-        UpdatePageInterface $countryUpdatePage,
-        NotificationCheckerInterface $notificationChecker
+        IndexPageInterface $indexPage,
+        CreatePageInterface $createPage,
+        UpdatePageInterface $updatePage,
+        CurrentPageResolverInterface $currentPageResolver
     ) {
-        $this->countryIndexPage = $countryIndexPage;
-        $this->countryCreatePage = $countryCreatePage;
-        $this->countryUpdatePage = $countryUpdatePage;
-        $this->notificationChecker = $notificationChecker;
+        $this->indexPage = $indexPage;
+        $this->createPage = $createPage;
+        $this->updatePage = $updatePage;
+        $this->currentPageResolver = $currentPageResolver;
     }
 
     /**
      * @Given I want to add a new country
+     * @Given I want to add a new country with a province
      */
-    public function iWantToCreateNewCountry()
+    public function iWantToAddNewCountry()
     {
-        $this->countryCreatePage->open();
+        $this->createPage->open();
     }
 
     /**
@@ -78,15 +77,26 @@ final class ManagingCountriesContext implements Context
      */
     public function iWantToEditThisCountry(CountryInterface $country)
     {
-        $this->countryUpdatePage->open(['id' => $country->getId()]);
+        $this->updatePage->open(['id' => $country->getId()]);
     }
 
     /**
-     * @When /^I choose "([^"]*)"$/
+     * @When I choose :countryName
      */
-    public function iChoose($name)
+    public function iChoose($countryName)
     {
-        $this->countryCreatePage->chooseName($name);
+        $this->createPage->chooseName($countryName);
+    }
+
+    /**
+     * @When I add the :provinceName province with :provinceCode code
+     * @When I add the :provinceName province with :provinceCode code and :provinceAbbreviation abbreviation
+     */
+    public function iAddProvinceWithCode($provinceName, $provinceCode, $provinceAbbreviation = null)
+    {
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+
+        $currentPage->addProvince($provinceName, $provinceCode, $provinceAbbreviation);
     }
 
     /**
@@ -94,7 +104,7 @@ final class ManagingCountriesContext implements Context
      */
     public function iAddIt()
     {
-        $this->countryCreatePage->create();
+        $this->createPage->create();
     }
 
     /**
@@ -102,7 +112,7 @@ final class ManagingCountriesContext implements Context
      */
     public function iEnableIt()
     {
-        $this->countryUpdatePage->enable();
+        $this->updatePage->enable();
     }
 
     /**
@@ -110,40 +120,27 @@ final class ManagingCountriesContext implements Context
      */
     public function iDisableIt()
     {
-        $this->countryUpdatePage->disable();
+        $this->updatePage->disable();
     }
 
     /**
      * @When I save my changes
+     * @When I try to save changes
      */
     public function iSaveMyChanges()
     {
-        $this->countryUpdatePage->saveChanges();
+        $this->updatePage->saveChanges();
     }
 
     /**
-     * @Then I should be notified about successful creation
-     */
-    public function iShouldBeNotifiedAboutSuccessfulCreation()
-    {
-        $this->notificationChecker->checkCreationNotification(self::RESOURCE_NAME);
-    }
-
-    /**
-     * @Then I should be notified about successful edition
-     */
-    public function iShouldBeNotifiedAboutSuccessfulEdition()
-    {
-        $this->notificationChecker->checkEditionNotification(self::RESOURCE_NAME);
-    }
-
-    /**
-     * @Then /^(country "[^"]+") should appear in the store$/
+     * @Then /^the (country "([^"]+)") should appear in the store$/
      */
     public function countryShouldAppearInTheStore(CountryInterface $country)
     {
+        $this->indexPage->open();
+
         Assert::true(
-            $this->countryIndexPage->isResourceOnPage(['code' => $country->getCode()]),
+            $this->indexPage->isSingleResourceOnPage(['code' => $country->getCode()]),
             sprintf('Country %s should exist but it does not', $country->getCode())
         );
     }
@@ -153,8 +150,10 @@ final class ManagingCountriesContext implements Context
      */
     public function thisCountryShouldBeEnabled(CountryInterface $country)
     {
+        $this->indexPage->open();
+
         Assert::true(
-            $this->countryIndexPage->isCountryEnabled($country),
+            $this->indexPage->isCountryEnabled($country),
             sprintf('Country %s should be enabled but it is not', $country->getCode())
         );
     }
@@ -164,19 +163,20 @@ final class ManagingCountriesContext implements Context
      */
     public function thisCountryShouldBeDisabled(CountryInterface $country)
     {
-        $isCountryDisabled = $this->countryIndexPage->isCountryDisabled($country);
+        $this->indexPage->open();
+
         Assert::true(
-            $isCountryDisabled,
+            $this->indexPage->isCountryDisabled($country),
             sprintf('Country %s should be disabled but it is not', $country->getCode())
         );
     }
 
     /**
-     * @Then /^I should not be able to choose "([^"]*)"$/
+     * @Then I should not be able to choose :name
      */
     public function iShouldNotBeAbleToChoose($name)
     {
-        expect($this->countryCreatePage)->toThrow(ElementNotFoundException::class)->during('chooseName', [$name]);
+        expect($this->createPage)->toThrow(ElementNotFoundException::class)->during('chooseName', [$name]);
     }
 
     /**
@@ -185,8 +185,149 @@ final class ManagingCountriesContext implements Context
     public function theCodeFieldShouldBeDisabled()
     {
         Assert::true(
-            $this->countryUpdatePage->isCodeFieldDisabled(),
+            $this->updatePage->isCodeFieldDisabled(),
             'Code field should be disabled but is not'
+        );
+    }
+
+    /**
+     * @Then /^(this country) should have the "([^"]*)" province$/
+     * @Then /^the (country "[^"]*") should have the "([^"]*)" province$/
+     */
+    public function countryShouldHaveProvince(CountryInterface $country, $provinceName)
+    {
+        $this->iWantToEditThisCountry($country);
+
+        Assert::true(
+            $this->updatePage->isThereProvince($provinceName),
+            sprintf('%s is not a province of this country.', $provinceName)
+        );
+    }
+
+    /**
+     * @Then /^(this country) should not have the "([^"]*)" province$/
+     */
+    public function thisCountryShouldNotHaveTheProvince(CountryInterface $country, $provinceName)
+    {
+        $this->iWantToEditThisCountry($country);
+
+        Assert::false(
+            $this->updatePage->isThereProvince($provinceName),
+            sprintf('%s is a province of this country.', $provinceName)
+        );
+    }
+
+    /**
+     * @Then /^the province should still be named "([^"]*)" in (this country)$/
+     */
+    public function thisProvinceShouldStillBeNamed($provinceName, CountryInterface $country)
+    {
+        $this->updatePage->open(['id' => $country->getId()]);
+
+        Assert::true(
+            $this->updatePage->isThereProvince($provinceName),
+            sprintf('%s is not a province of this country.', $provinceName)
+        );
+    }
+
+    /**
+     * @Then /^province with name "([^"]*)" should not be added in (this country)$/
+     */
+    public function provinceWithNameShouldNotBeAdded($provinceName, CountryInterface $country)
+    {
+        $this->updatePage->open(['id' => $country->getId()]);
+
+        Assert::false(
+            $this->updatePage->isThereProvince($provinceName),
+            sprintf('%s is a province of this country.', $provinceName)
+        );
+    }
+
+    /**
+     * @Then /^province with code "([^"]*)" should not be added in (this country)$/
+     */
+    public function provinceWithCodeShouldNotBeAdded($provinceCode, CountryInterface $country)
+    {
+        $this->updatePage->open(['id' => $country->getId()]);
+
+        Assert::false(
+            $this->updatePage->isThereProvinceWithCode($provinceCode),
+            sprintf('%s is a province of this country.', $provinceCode)
+        );
+    }
+
+    /**
+     * @When /^I delete the "([^"]*)" province of (this country)$/
+     */
+    public function iDeleteTheProvinceOfCountry($provinceName, CountryInterface $country)
+    {
+        $this->updatePage->removeProvince($provinceName);
+    }
+
+    /**
+     * @Given /^I want to create a new province in (country "([^"]*)")$/
+     */
+    public function iWantToCreateANewProvinceInCountry(CountryInterface $country)
+    {
+        $this->updatePage->open(['id' => $country->getId()]);
+
+        $this->updatePage->clickAddProvinceButton();
+    }
+
+    /**
+     * @When I name the province :provinceName
+     * @When I do not name the province
+     */
+    public function iNameTheProvince($provinceName = null)
+    {
+        $this->updatePage->nameProvince($provinceName);
+    }
+
+    /**
+     * @When I do not specify the province code
+     * @When I specify the province code as :provinceCode
+     */
+    public function iSpecifyTheProvinceCode($provinceCode = null)
+    {
+        $this->updatePage->specifyProvinceCode($provinceCode);
+    }
+
+    /**
+     * @Then I should be notified that :element is required
+     */
+    public function iShouldBeNotifiedThatElementIsRequired($element)
+    {
+        $this->assertFieldValidationMessage($element, sprintf('Please enter province %s.', $element));
+    }
+
+    /**
+     * @When I remove :provinceName province name
+     */
+    public function iRemoveProvinceName($provinceName)
+    {
+        $this->updatePage->removeProvinceName($provinceName);
+    }
+
+    /**
+     * @param string $element
+     * @param string $expectedMessage
+     */
+    private function assertFieldValidationMessage($element, $expectedMessage)
+    {
+        Assert::true(
+            $this->updatePage->checkValidationMessageFor($element, $expectedMessage),
+            sprintf('Province %s should be required.', $element)
+        );
+    }
+
+    /**
+     * @Then /^I should be notified that province code must be unique$/
+     */
+    public function iShouldBeNotifiedThatProvinceCodeMustBeUnique()
+    {
+        Assert::true(
+            $this->updatePage->checkValidationMessageFor('code', 'Province code must be unique.'),
+            'Unique code violation message should appear on page, but it does not.'
         );
     }
 }

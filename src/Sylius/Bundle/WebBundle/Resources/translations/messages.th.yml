@@ -220,7 +220,6 @@ sylius:
         country: ประเทศ
         country_details: รายละเอียดประเทศ
         coupon: คูปอง
-        coupon_based: ขึ้นกับคูปอง
         coupons: คูปอง
         create: สร้าง
         create_a_new_address: สร้างที่อยู่ใหม่
@@ -359,7 +358,6 @@ sylius:
         enjoy_all_the_features_that_are_available_on_your_personal_space_to_view_track_and_manage_all_your_data: ยินดีด้วย คุณสามารถใช้งานคุณสมบัติของระบบได้ทั้งหมด
         error: ข้อผิดพลาด
         exchange_rate: อัตราแลกเปลี่ยน
-        exclusive: พิเศษ
         existing_customer: ลูกค้าที่มีอยู่
         expires_at: หมดอายุวันที่
         failed: ล้มเหลว
@@ -457,7 +455,6 @@ sylius:
         new_contact_topic: เพิ่มหัวข้อการติดต่อ
         new_country: เพิ่มประเทศ
         new_currency: เพิ่มสกุลเงิน
-        new_customer: เพิ่มลูกค้า
         new_order: เพิ่มใบสั่งซื้อ
         new_password: รหัสผ่านใหม่
         new_payment: เพิ่มการชำระเงิน
@@ -698,6 +695,7 @@ sylius:
         total_registrations: การลงทะเบียนทั้งหมด
         tracking_code: รหัสการติดตาม
         tracking_number: หมายเลขการติดตาม
+        translations: การแปลภาษา
         type: ชนิด
         unavailable: ไม่สามารถใช้ได้
         unit_price: ราคาต่อหน่วย
