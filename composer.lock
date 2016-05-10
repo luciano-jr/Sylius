@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "96017d67fe99cf84925e03ea8951b5ec",
-    "content-hash": "b645e29b67c1607cf7937aa2fc5c8d15",
+    "hash": "9116db8e9124dc6c2d0d48631a940bd4",
+    "content-hash": "9b9b8c7e6763ee69452f105cd20e8b13",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1997,122 +1997,6 @@
             "time": "2015-05-11 14:41:42"
         },
         {
-            "name": "hwi/oauth-bundle",
-            "version": "0.3.9",
-            "target-dir": "HWI/Bundle/OAuthBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hwi/HWIOAuthBundle.git",
-                "reference": "ff5d2e3a5af9f665cebd375777ffb8ae437d9262"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/ff5d2e3a5af9f665cebd375777ffb8ae437d9262",
-                "reference": "ff5d2e3a5af9f665cebd375777ffb8ae437d9262",
-                "shasum": ""
-            },
-            "require": {
-                "kriswallsmith/buzz": "~0.7",
-                "php": ">=5.3.3",
-                "symfony/framework-bundle": "~2.1",
-                "symfony/options-resolver": "~2.1",
-                "symfony/security-bundle": "~2.1"
-            },
-            "conflict": {
-                "twig/twig": "<1.12"
-            },
-            "require-dev": {
-                "doctrine/orm": "~2.2",
-                "symfony/property-access": "~2.3",
-                "symfony/twig-bundle": "~2.1",
-                "symfony/validator": "~2.1"
-            },
-            "suggest": {
-                "doctrine/doctrine-bundle": "to use Doctrine user provider",
-                "friendsofsymfony/user-bundle": "to connect FOSUB with this bundle",
-                "symfony/property-access": "to use FOSUB integration with this bundle",
-                "symfony/twig-bundle": "to use the Twig hwi_oauth_* functions"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "HWI\\Bundle\\OAuthBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Contributors",
-                    "homepage": "https://github.com/hwi/HWIOAuthBundle/contributors"
-                },
-                {
-                    "name": "Joseph Bielawski",
-                    "email": "stloyd@gmail.com"
-                },
-                {
-                    "name": "Alexander",
-                    "email": "iam.asm89@gmail.com"
-                },
-                {
-                    "name": "Geoffrey Bachelet",
-                    "email": "geoffrey.bachelet@gmail.com"
-                }
-            ],
-            "description": "Support for authenticating users using both OAuth1.0a and OAuth2 in Symfony2.",
-            "homepage": "http://github.com/hwi/HWIOAuthBundle",
-            "keywords": [
-                "37signals",
-                "Authentication",
-                "amazon",
-                "bitbucket",
-                "bitly",
-                "box",
-                "dailymotion",
-                "deviantart",
-                "disqus",
-                "dropbox",
-                "eventbrite",
-                "facebook",
-                "firewall",
-                "flickr",
-                "foursquare",
-                "github",
-                "google",
-                "instagram",
-                "jira",
-                "linkedin",
-                "mail.ru",
-                "oauth",
-                "oauth1",
-                "oauth2",
-                "odnoklassniki",
-                "qq",
-                "salesforce",
-                "security",
-                "sensio connect",
-                "sina weibo",
-                "stack exchange",
-                "stereomood",
-                "trello",
-                "twitch",
-                "twitter",
-                "vkontakte",
-                "windows live",
-                "wordpress",
-                "yahoo",
-                "yandex"
-            ],
-            "time": "2015-08-28 09:57:17"
-        },
-        {
             "name": "imagine/imagine",
             "version": "v0.6.3",
             "source": {
@@ -3138,54 +3022,6 @@
                 "minification"
             ],
             "time": "2015-11-12 13:51:40"
-        },
-        {
-            "name": "kriswallsmith/buzz",
-            "version": "v0.15",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kriswallsmith/Buzz.git",
-                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/d4041666c3ffb379af02a92dabe81c904b35fab8",
-                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "suggest": {
-                "ext-curl": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Buzz": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kris Wallsmith",
-                    "email": "kris.wallsmith@gmail.com",
-                    "homepage": "http://kriswallsmith.net/"
-                }
-            ],
-            "description": "Lightweight HTTP client",
-            "homepage": "https://github.com/kriswallsmith/Buzz",
-            "keywords": [
-                "curl",
-                "http client"
-            ],
-            "time": "2015-06-25 17:26:56"
         },
         {
             "name": "league/url",
@@ -8420,16 +8256,16 @@
         },
         {
             "name": "behat/gherkin",
-            "version": "v4.4.0",
+            "version": "v4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "6b3f8cf3560dc4909c4cddd4f1af3e1f6e9d80af"
+                "reference": "1576b485c0f92ef6d27da9c4bbfc57ee30cf6911"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/6b3f8cf3560dc4909c4cddd4f1af3e1f6e9d80af",
-                "reference": "6b3f8cf3560dc4909c4cddd4f1af3e1f6e9d80af",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/1576b485c0f92ef6d27da9c4bbfc57ee30cf6911",
+                "reference": "1576b485c0f92ef6d27da9c4bbfc57ee30cf6911",
                 "shasum": ""
             },
             "require": {
@@ -8474,7 +8310,7 @@
                 "gherkin",
                 "parser"
             ],
-            "time": "2015-09-29 13:41:19"
+            "time": "2015-12-30 14:47:00"
         },
         {
             "name": "behat/mink",
@@ -8818,16 +8654,16 @@
         },
         {
             "name": "coduo/php-matcher",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/coduo/php-matcher.git",
-                "reference": "fddefee866d44f673f68d2bc7716b7fa824b6942"
+                "reference": "a48618cdf1c63e40d0968e3d940fee10af228b07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coduo/php-matcher/zipball/fddefee866d44f673f68d2bc7716b7fa824b6942",
-                "reference": "fddefee866d44f673f68d2bc7716b7fa824b6942",
+                "url": "https://api.github.com/repos/coduo/php-matcher/zipball/a48618cdf1c63e40d0968e3d940fee10af228b07",
+                "reference": "a48618cdf1c63e40d0968e3d940fee10af228b07",
                 "shasum": ""
             },
             "require": {
@@ -8874,7 +8710,7 @@
                 "matcher",
                 "tests"
             ],
-            "time": "2016-03-18 09:28:02"
+            "time": "2016-04-12 12:03:33"
         },
         {
             "name": "coduo/php-to-string",
@@ -8985,6 +8821,146 @@
             "time": "2016-01-20 19:00:28"
         },
         {
+            "name": "hwi/oauth-bundle",
+            "version": "0.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hwi/HWIOAuthBundle.git",
+                "reference": "ae741802c8e99d8fa52de927fd483d0299911293"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/ae741802c8e99d8fa52de927fd483d0299911293",
+                "reference": "ae741802c8e99d8fa52de927fd483d0299911293",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/buzz": "~0.13",
+                "php": ">=5.3.3",
+                "symfony/form": "~2.3",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/options-resolver": "~2.3",
+                "symfony/security-bundle": "~2.3",
+                "symfony/yaml": "~2.3"
+            },
+            "conflict": {
+                "twig/twig": "<1.12"
+            },
+            "require-dev": {
+                "doctrine/orm": "~2.3",
+                "friendsofsymfony/user-bundle": "~1.3|~2.0",
+                "phpunit/phpunit": "~4.8|~5.0",
+                "symfony/phpunit-bridge": "~2.7",
+                "symfony/property-access": "~2.3",
+                "symfony/twig-bundle": "~2.3",
+                "symfony/validator": "~2.3"
+            },
+            "suggest": {
+                "doctrine/doctrine-bundle": "to use Doctrine user provider",
+                "friendsofsymfony/user-bundle": "to connect FOSUB with this bundle",
+                "symfony/property-access": "to use FOSUB integration with this bundle",
+                "symfony/twig-bundle": "to use the Twig hwi_oauth_* functions"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "HWI\\Bundle\\OAuthBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/hwi/HWIOAuthBundle/contributors"
+                },
+                {
+                    "name": "Joseph Bielawski",
+                    "email": "stloyd@gmail.com"
+                },
+                {
+                    "name": "Alexander",
+                    "email": "iam.asm89@gmail.com"
+                },
+                {
+                    "name": "Geoffrey Bachelet",
+                    "email": "geoffrey.bachelet@gmail.com"
+                }
+            ],
+            "description": "Support for authenticating users using both OAuth1.0a and OAuth2 in Symfony2.",
+            "homepage": "http://github.com/hwi/HWIOAuthBundle",
+            "keywords": [
+                "37signals",
+                "Authentication",
+                "Deezer",
+                "EVE Online",
+                "amazon",
+                "auth0",
+                "azure",
+                "bitbucket",
+                "bitly",
+                "box",
+                "bufferapp",
+                "dailymotion",
+                "deviantart",
+                "discogs",
+                "disqus",
+                "dropbox",
+                "eventbrite",
+                "facebook",
+                "firewall",
+                "fiware",
+                "flickr",
+                "foursquare",
+                "github",
+                "google",
+                "hubic",
+                "instagram",
+                "jira",
+                "linkedin",
+                "mail.ru",
+                "oauth",
+                "oauth1",
+                "oauth2",
+                "odnoklassniki",
+                "paypal",
+                "qq",
+                "reddit",
+                "runkeeper",
+                "salesforce",
+                "security",
+                "sensio connect",
+                "sina weibo",
+                "slack",
+                "sound cloud",
+                "spotify",
+                "stack exchange",
+                "stereomood",
+                "strava",
+                "toshl",
+                "trakt",
+                "trello",
+                "twitch",
+                "twitter",
+                "vkontakte",
+                "wechat",
+                "windows live",
+                "wordpress",
+                "xing",
+                "yahoo",
+                "yandex",
+                "youtube"
+            ],
+            "time": "2016-03-08 08:00:04"
+        },
+        {
             "name": "instaclick/php-webdriver",
             "version": "1.4.3",
             "source": {
@@ -9041,6 +9017,54 @@
                 "webtest"
             ],
             "time": "2015-06-15 20:19:33"
+        },
+        {
+            "name": "kriswallsmith/buzz",
+            "version": "v0.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriswallsmith/Buzz.git",
+                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/d4041666c3ffb379af02a92dabe81c904b35fab8",
+                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Buzz": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Lightweight HTTP client",
+            "homepage": "https://github.com/kriswallsmith/Buzz",
+            "keywords": [
+                "curl",
+                "http client"
+            ],
+            "time": "2015-06-25 17:26:56"
         },
         {
             "name": "lakion/api-test-case",
@@ -9182,24 +9206,24 @@
         },
         {
             "name": "malukenho/kawaii-gherkin",
-            "version": "0.1.2",
+            "version": "0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/malukenho/kawaii-gherkin.git",
-                "reference": "ab9bafcee0e3054b2cd1aad9ad797eff27dda0fb"
+                "reference": "eb70f7bf017e597b611cb85e2238d7dc94315eb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/malukenho/kawaii-gherkin/zipball/ab9bafcee0e3054b2cd1aad9ad797eff27dda0fb",
-                "reference": "ab9bafcee0e3054b2cd1aad9ad797eff27dda0fb",
+                "url": "https://api.github.com/repos/malukenho/kawaii-gherkin/zipball/eb70f7bf017e597b611cb85e2238d7dc94315eb6",
+                "reference": "eb70f7bf017e597b611cb85e2238d7dc94315eb6",
                 "shasum": ""
             },
             "require": {
                 "behat/gherkin": "^4.4",
                 "php": "~5.5|^7.0",
                 "sebastian/diff": "~1.2",
-                "symfony/console": "~2.0",
-                "symfony/finder": "~2.0"
+                "symfony/console": "~2.0|^3.0",
+                "symfony/finder": "~2.0|^3.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.0"
@@ -9230,7 +9254,7 @@
                 "code standard",
                 "gherkin"
             ],
-            "time": "2016-02-08 14:10:57"
+            "time": "2016-03-31 11:32:46"
         },
         {
             "name": "matthiasnoback/symfony-config-test",
@@ -9481,6 +9505,46 @@
                 "xml conversion"
             ],
             "time": "2015-09-16 18:59:23"
+        },
+        {
+            "name": "pamil/prophecy-common",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pamil/prophecy-common.git",
+                "reference": "1f51e88b488511260b8fbccdf5ac3b46dad3139c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pamil/prophecy-common/zipball/1f51e88b488511260b8fbccdf5ac3b46dad3139c",
+                "reference": "1f51e88b488511260b8fbccdf5ac3b46dad3139c",
+                "shasum": ""
+            },
+            "require": {
+                "phpspec/prophecy": "^1.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^2.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pamil\\ProphecyCommon\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kamil Kokot",
+                    "email": "kamil@kokot.me",
+                    "homepage": "http://kamil.kokot.me"
+                }
+            ],
+            "description": "Common helper classes for Prophecy",
+            "time": "2016-05-06 08:34:42"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -10175,28 +10239,28 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "1.3.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "863df9687835c62aa423a22412d26fa2ebde3fd3"
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/863df9687835c62aa423a22412d26fa2ebde3fd3",
-                "reference": "863df9687835c62aa423a22412d26fa2ebde3fd3",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.2"
+                "phpunit/phpunit": "~4.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -10219,11 +10283,11 @@
                 }
             ],
             "description": "Diff implementation",
-            "homepage": "http://www.github.com/sebastianbergmann/diff",
+            "homepage": "https://github.com/sebastianbergmann/diff",
             "keywords": [
                 "diff"
             ],
-            "time": "2015-02-22 15:13:53"
+            "time": "2015-12-08 07:14:41"
         },
         {
             "name": "sebastian/environment",

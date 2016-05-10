@@ -18,8 +18,7 @@ swiftmailer:
 
 doctrine:
     dbal:
-        dbname: %sylius.database.name%_test
-        path:   %sylius.database.path%
+        dbname: %database_name%_test
         driver_class: Sylius\Bundle\CoreBundle\Test\MySqlDriver
 
 sylius_money:
@@ -38,6 +37,10 @@ sylius_rbac:
 
 sylius_channel:
     fake_channel_support: true
+
+sylius_theme:
+    sources:
+        test: ~
 
 doctrine_cache:
     providers:
