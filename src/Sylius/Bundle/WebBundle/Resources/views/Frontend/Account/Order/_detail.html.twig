@@ -1,6 +1,5 @@
 {% set taxAdjustment = constant('Sylius\\Component\\Core\\Model\\AdjustmentInterface::TAX_ADJUSTMENT') %}
 {% set shippingAdjustment = constant('Sylius\\Component\\Core\\Model\\AdjustmentInterface::SHIPPING_ADJUSTMENT') %}
-{% set promotionAdjustment = constant('Sylius\\Component\\Core\\Model\\AdjustmentInterface::ORDER_PROMOTION_ADJUSTMENT') %}
 
 <div class="row well well-sm" id="information">
     <div class="col-md-6">
@@ -65,7 +64,7 @@
                         {{ 'sylius.ui.tax_total'|trans }}
                     </span>
                 </td>
-                <td>{{ order.getAdjustmentsTotalRecursively(taxAdjustment)|sylius_money(order.currency) }}</td>
+                <td>{{ order.taxTotal|sylius_money(order.currency) }}</td>
             </tr>
             <tr>
                 <td colspan="3">
@@ -73,7 +72,7 @@
                         {{ 'sylius.ui.shipping_total'|trans }}
                     </span>
                 </td>
-                <td>{{ order.adjustmentsTotal(shippingAdjustment)|sylius_money(order.currency) }}</td>
+                <td>{{ order.shippingTotal|sylius_money(order.currency) }}</td>
             </tr>
             <tr>
                 <td colspan="3">
@@ -81,7 +80,7 @@
                         {{ 'sylius.ui.promotion_total'|trans }}
                     </span>
                 </td>
-                <td>{{ order.adjustmentsTotal(promotionAdjustment)|sylius_money(order.currency) }}</td>
+                <td>{{ order.orderPromotionTotal|sylius_money(order.currency) }}</td>
             </tr>
             <tr>
                 <th colspan="3">

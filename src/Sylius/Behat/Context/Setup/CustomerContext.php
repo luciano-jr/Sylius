@@ -12,6 +12,7 @@
 namespace Sylius\Behat\Context\Setup;
 
 use Behat\Behat\Context\Context;
+use Sylius\Component\Core\Model\CustomerInterface;
 use Sylius\Component\Core\Test\Services\SharedStorageInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\User\Canonicalizer\CanonicalizerInterface;
@@ -24,9 +25,6 @@ use Sylius\Component\User\Security\PasswordUpdaterInterface;
  */
 final class CustomerContext implements Context
 {
-    const DEFAULT_CUSTOMER_FIRST_NAME = 'John';
-    const DEFAULT_CUSTOMER_LAST_NAME = 'Doe';
-
     /**
      * @var SharedStorageInterface
      */
@@ -78,7 +76,7 @@ final class CustomerContext implements Context
      */
     public function theStoreHasCustomer($email)
     {
-        $this->createCustomer($email, self::DEFAULT_CUSTOMER_FIRST_NAME, self::DEFAULT_CUSTOMER_LAST_NAME);
+        $this->createCustomer($email);
     }
 
     /**
@@ -86,7 +84,7 @@ final class CustomerContext implements Context
      */
     public function theStoreHasCustomerWithFirstName($email, $firstName)
     {
-        $this->createCustomer($email, $firstName, self::DEFAULT_CUSTOMER_LAST_NAME);
+        $this->createCustomer($email, $firstName);
     }
 
     /**
@@ -94,7 +92,7 @@ final class CustomerContext implements Context
      */
     public function theStoreHasCustomerWithLastName($email, $lastName)
     {
-        $this->createCustomer($email, self::DEFAULT_CUSTOMER_FIRST_NAME, $lastName);
+        $this->createCustomer($email, null, $lastName);
     }
 
     /**
@@ -107,6 +105,7 @@ final class CustomerContext implements Context
 
     /**
      * @Given there is enabled customer account :email with password :password
+     * @Given there is a customer account :email identified by :password
      */
     public function theStoreHasEnabledCustomerAccountWithPassword($email, $password)
     {
@@ -114,12 +113,25 @@ final class CustomerContext implements Context
     }
 
     /**
-     * @param string $email
-     * @param string $firstName
-     * @param string $lastName
+     * @Given there is a customer :name identified by an email :email and a password :password
      */
-    private function createCustomer($email, $firstName, $lastName)
+    public function theStoreHasCustomerAccountWithEmailAndPassword($name, $email, $password)
     {
+        $names = explode(' ', $name);
+        $firstName = $names[0];
+        $lastName = count($names) > 1 ? $names[1] : null;
+
+        $this->createCustomerWithUserAccount($email, $password, true, $firstName, $lastName);
+    }
+
+    /**
+     * @param string $email
+     * @param string|null $firstName
+     * @param string|null $lastName
+     */
+    private function createCustomer($email, $firstName = null, $lastName = null)
+    {
+        /** @var CustomerInterface $customer */
         $customer = $this->customerFactory->createNew();
 
         $customer->setFirstName($firstName);
@@ -134,14 +146,22 @@ final class CustomerContext implements Context
      * @param string $email
      * @param string $password
      * @param bool $enabled
+     * @param string|null $firstName
+     * @param string|null $lastName
      */
-    private function createCustomerWithUserAccount($email, $password, $enabled = true)
-    {
+    private function createCustomerWithUserAccount(
+        $email,
+        $password,
+        $enabled = true,
+        $firstName = null,
+        $lastName = null
+    ) {
         $user = $this->userFactory->createNew();
+        /** @var CustomerInterface $customer */
         $customer = $this->customerFactory->createNew();
 
-        $customer->setFirstname(self::DEFAULT_CUSTOMER_FIRST_NAME);
-        $customer->setLastname(self::DEFAULT_CUSTOMER_LAST_NAME);
+        $customer->setFirstName($firstName);
+        $customer->setLastName($lastName);
         $customer->setEmail($email);
 
         $user->setUsername($email);

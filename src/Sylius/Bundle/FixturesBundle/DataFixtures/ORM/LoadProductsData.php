@@ -15,6 +15,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sylius\Bundle\FixturesBundle\DataFixtures\DataFixture;
 use Sylius\Component\Core\Model\ProductInterface;
+use Sylius\Component\Core\Model\ProductVariantInterface;
 use Sylius\Component\Product\Model\AttributeValueInterface;
 use Sylius\Component\Taxation\Model\TaxCategoryInterface;
 
@@ -89,6 +90,7 @@ class LoadProductsData extends DataFixture
             'es_ES' => sprintf('Camiseta "%s"', $this->fakers['es_ES']->word),
         ];
         $this->addTranslatedFields($product, $translatedNames);
+        $product->setCode($this->faker->uuid);
 
         $product->setVariantSelectionMethod(ProductInterface::VARIANT_SELECTION_MATCH);
 
@@ -96,7 +98,7 @@ class LoadProductsData extends DataFixture
         $product->setMainTaxon($this->getReference('Sylius.Taxon.t-shirts'));
         $product->setArchetype($this->getReference('Sylius.Archetype.t_shirt'));
 
-        $this->addMasterVariant($product);
+        $this->addVariant($product);
         $this->setChannels($product, ['DEFAULT']);
 
         // T-Shirt brand.
@@ -137,6 +139,7 @@ class LoadProductsData extends DataFixture
             'es_ES' => sprintf('Pegatina "%s"', $this->fakers['es_ES']->word),
         ];
         $this->addTranslatedFields($product, $translatedNames);
+        $product->setCode($this->faker->uuid);
 
         $product->setVariantSelectionMethod(ProductInterface::VARIANT_SELECTION_MATCH);
 
@@ -144,7 +147,7 @@ class LoadProductsData extends DataFixture
         $product->setMainTaxon($this->getReference('Sylius.Taxon.stickers'));
         $product->setArchetype($this->getReference('Sylius.Archetype.sticker'));
 
-        $this->addMasterVariant($product);
+        $this->addVariant($product);
         $this->setChannels($product, ['DEFAULT']);
 
         // Sticker resolution.
@@ -180,12 +183,13 @@ class LoadProductsData extends DataFixture
             'es_ES' => sprintf('Taza "%s"', $this->fakers['es_ES']->word),
         ];
         $this->addTranslatedFields($product, $translatedNames);
+        $product->setCode($this->faker->uuid);
 
         $this->setTaxons($product, ['mugs', 'mugland']);
         $product->setMainTaxon($this->getReference('Sylius.Taxon.mugs'));
         $product->setArchetype($this->getReference('Sylius.Archetype.mug'));
 
-        $this->addMasterVariant($product);
+        $this->addVariant($product);
         $this->setChannels($product, ['DEFAULT']);
 
         $randomMugMaterial = $this->faker->randomElement(['Invisible porcelain', 'Banana skin', 'Porcelain', 'Sand']);
@@ -219,12 +223,13 @@ class LoadProductsData extends DataFixture
             'es_ES' => sprintf('Libro "%s" de "%s"', ucfirst($this->fakers['es_ES']->word), $author),
         ];
         $this->addTranslatedFields($product, $translatedNames);
+        $product->setCode($this->faker->uuid);
 
         $this->setTaxons($product, ['books', 'bookmania']);
         $product->setMainTaxon($this->getReference('Sylius.Taxon.books'));
         $product->setArchetype($this->getReference('Sylius.Archetype.book'));
 
-        $this->addMasterVariant($product, $isbn);
+        $this->addVariant($product, $isbn);
         $this->setChannels($product, ['DEFAULT']);
 
         $this->addAttribute($product, 'book_author', $author);
@@ -251,7 +256,7 @@ class LoadProductsData extends DataFixture
         foreach ($product->getVariants() as $variant) {
             $variant->setAvailableOn($this->faker->dateTimeThisYear);
             $variant->setPrice($this->faker->randomNumber(4));
-            $variant->setSku($this->getUniqueSku());
+            $variant->setCode($this->getUniqueCode());
             $variant->setOnHand($this->faker->randomNumber(1));
 
             $this->setReference('Sylius.Variant-'.$this->totalVariants, $variant);
@@ -261,17 +266,16 @@ class LoadProductsData extends DataFixture
     }
 
     /**
-     * Adds master variant to product.
-     *
      * @param ProductInterface $product
-     * @param string           $sku
+     * @param string $code
      */
-    protected function addMasterVariant(ProductInterface $product, $sku = null)
+    protected function addVariant(ProductInterface $product, $code = null)
     {
-        $variant = $product->getMasterVariant();
+        /** @var ProductVariantInterface $variant */
+        $variant = $this->get('sylius.factory.product_variant')->createNew();
         $variant->setProduct($product);
         $variant->setPrice($this->faker->randomNumber(4));
-        $variant->setSku(null === $sku ? $this->getUniqueSku() : $sku);
+        $variant->setCode(null === $code ? $this->getUniqueCode() : $code);
         $variant->setAvailableOn($this->faker->dateTimeThisYear);
         $variant->setOnHand($this->faker->randomNumber(1));
         $variant->setTaxCategory($this->getTaxCategory('taxable'));
@@ -280,19 +284,19 @@ class LoadProductsData extends DataFixture
         $image = clone $this->getReference('Sylius.Image.'.$mainTaxon->getCode());
         $variant->addImage($image);
 
+        $product->addVariant($variant);
+
         $this->setReference('Sylius.Variant-'.$this->totalVariants, $variant);
 
         ++$this->totalVariants;
-
-        $product->setMasterVariant($variant);
     }
 
     /**
      * Adds attribute to product with given value.
      *
      * @param ProductInterface $product
-     * @param string           $code
-     * @param string           $value
+     * @param string $code
+     * @param string $value
      */
     protected function addAttribute(ProductInterface $product, $code, $value)
     {
@@ -309,7 +313,7 @@ class LoadProductsData extends DataFixture
      * Adds taxons to given product.
      *
      * @param ProductInterface $product
-     * @param array            $taxonCodes
+     * @param array $taxonCodes
      */
     protected function setTaxons(ProductInterface $product, array $taxonCodes)
     {
@@ -326,7 +330,7 @@ class LoadProductsData extends DataFixture
      * Set channels.
      *
      * @param ProductInterface $product
-     * @param array            $channelCodes
+     * @param array $channelCodes
      */
     protected function setChannels(ProductInterface $product, array $channelCodes)
     {
@@ -348,13 +352,11 @@ class LoadProductsData extends DataFixture
     /**
      * Get unique SKU.
      *
-     * @param int $length
-     *
      * @return string
      */
-    protected function getUniqueSku($length = 5)
+    protected function getUniqueCode()
     {
-        return $this->faker->unique()->randomNumber($length);
+        return $this->faker->unique()->uuid();
     }
 
     /**
@@ -368,8 +370,6 @@ class LoadProductsData extends DataFixture
     }
 
     /**
-     * Create new product instance.
-     *
      * @return ProductInterface
      */
     protected function createProduct()

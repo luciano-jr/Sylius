@@ -69,7 +69,8 @@
             </td>
             <td class="picture text-center">
                 <a href="{{ path('sylius_backend_product_show', {'id': product.id}) }}" title="View {{ product.name|escape('html_attr') }} details.">
-                    <img src="{{ product.image ? product.image.path|imagine_filter('sylius_small') : 'http://placehold.it/90x60' }}" alt="" class="imgmedia-object" />
+                    {% set image = (product.variants|length > 0 and product.image) ? product.image.path|imagine_filter('sylius_medium') : 'http://placehold.it/90x60' %}
+                    <img src="{{ image }}" alt="" class="imgmedia-object" />
                 </a>
             </td>
             <td class="info">
@@ -130,7 +131,7 @@
         </td>
         <td class="text-right" colspan="3">
             <strong>{{ 'sylius.ui.tax_total'|trans }}</strong>:
-            <span class="amount">{{ order.getAdjustmentsTotalRecursively(taxAdjustment)|sylius_price(order.currency) }}</span>
+            <span class="amount">{{ order.taxTotal|sylius_price(order.currency) }}</span>
         </td>
     </tr>
     <tr class="shipping-charges">
@@ -148,7 +149,7 @@
         </td>
         <td class="text-right" colspan="3">
             <strong>{{ 'sylius.ui.shipping_total'|trans }}</strong>:
-            <span class="amount">{{ order.adjustmentsTotal(shippingAdjustment)|sylius_price(order.currency) }}</span>
+            <span class="amount">{{ order.shippingTotal|sylius_price(order.currency) }}</span>
         </td>
     </tr>
     <tr class="promotion-discount">
@@ -166,7 +167,7 @@
         </td>
         <td class="text-right" colspan="3">
             <strong>{{ 'sylius.ui.promotion_total'|trans }}</strong>:
-            <span class="amount">{{ order.adjustmentsTotal(promotionAdjustment)|sylius_price(order.currency) }}</span>
+            <span class="amount">{{ order.orderPromotionTotal|sylius_price(order.currency) }}</span>
         </td>
     </tr>
     {% if not order.adjustments.isEmpty() %}

@@ -10,24 +10,41 @@ sylius:
             presentation: Презентація
     ui:
         actions: Дії
+        add_coupon: Додати купон
         cancel: Відмінити
+        cancelled: Відхилено
+        change_your_password: Змінити пароль
+        checkout: Оформити замовлення
         color: Колір
         countries: Країни
         coupon_based: На основі купону
+        coupons: Купони
         create: Створити
         dashboard: Панель керування
+        date: Дата
         default_currency: Валюта за замовчуванням
         delete: Видалити
         description: Опис
         edit: Редагувати
         enabled: Увімкнено
         filter: Фільтр
+        generate_coupons: Генерувати купони
+        item: Елемент
+        list_coupons: Список купонів
         locales: Локалі
         new: Новий
         new_country: Нова країна
         new_tax_category: Нова категорія оподаткування
         "no": false
+        no_promotion: Промо-код не застосовано
+        no_shipping_charges: Націнки за доставку не застосовано
+        no_taxes: Податки не застосовані
+        price: Ціна
+        quantity: К-сть
+        ready: Готовий
+        returned: Повернуто
         save_changes: Зберегти зміни
+        shipped: Відправлено
         shipping_methods: Методи доставки
         success: Успішно
         "yes": true

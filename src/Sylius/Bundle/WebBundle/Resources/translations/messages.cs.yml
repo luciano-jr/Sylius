@@ -76,6 +76,19 @@ sylius:
     page:
         no_route: Váš obsah se zákazníkům nezobrazí, pokud není definováno žádné URL směrování
         publishable: Publikováno
+    payment:
+        state:
+            checkout: Objednat
+            completed: Dokončeno
+            authorized: Autorizováno
+            failed: Neúspěšné
+            new: Nový
+            pending: Čekající
+            processing: Zpracovává se
+            unknown: Neznámý
+            void: Neplatné
+            cancelled: Zrušeno
+            refunded: Platba vrácena
     pricing:
         volume_based:
             max: Maximální objem
@@ -84,6 +97,12 @@ sylius:
         generate: Generovat kupóny
         index: Seznam kupónů
     shipment:
+        state:
+            ready: Připraven
+            returned: Vráceno
+            shipped: Dodáno
+            pending: Čekající
+            cancelled: Zrušeno
         update: Úpravy
     taxon:
         image: Zvolit obrázek
@@ -134,11 +153,8 @@ sylius:
         build: Sestavit
         calculator: Kalkulačka
         cancel: Zrušit
-        cancelled: Zrušeno
         categorization: Kategorizace
         category: Kategorie
-        change_password: Změnit heslo
-        change_your_password: Změnit heslo
         channel: Kanál
         channels: Kanály
         checkout: Objednat
@@ -435,6 +451,7 @@ sylius:
         provinces: Provincie
         qty_max: Množství max
         qty_min: Množství min
+        quantity: Počet
         recent_orders: Poslední objednávky
         recent_users: Poslední uživatelé
         redirect_routes: Přesměrovávací pravidla
@@ -450,7 +467,6 @@ sylius:
         restricted_zone: Zóna s omezeným přístupem
         retail_price: Maloobchodní cena
         return: Vrátit
-        returned: Vráceno
         revert: Vrátit
         roles: Role
         routes: Cesty
@@ -469,7 +485,6 @@ sylius:
         shipment_details: Detaily dodávky
         shipment_state: Stav dodávky
         shipments: Zásilky
-        shipped: Dodáno
         shipping_address: Doručovací adresa
         shipping_categories: Přepravní kategorie
         shipping_category: Typ dopravy
@@ -531,6 +546,7 @@ sylius:
         username: Uživatelské jméno
         users_list_of_all_users_registered_in_store: 'Uživatelé <small>seznam všech uživatelů registrovaných v obchodě</small>'
         variant_selection_method: Metoda výběru varianty
+        variant: Varianty
         variants: Varianty
         view: Pohled
         view_more: Zobrazit více

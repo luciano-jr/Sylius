@@ -16,7 +16,7 @@ use Behat\Mink\Exception\ElementNotFoundException;
 use Sylius\Behat\Page\Admin\Country\CreatePageInterface;
 use Sylius\Behat\Page\Admin\Country\IndexPageInterface;
 use Sylius\Behat\Page\Admin\Country\UpdatePageInterface;
-use Sylius\Behat\Service\CurrentPageResolverInterface;
+use Sylius\Behat\Service\Resolver\CurrentPageResolverInterface;
 use Sylius\Component\Addressing\Model\CountryInterface;
 use Webmozart\Assert\Assert;
 
@@ -94,7 +94,7 @@ final class ManagingCountriesContext implements Context
      */
     public function iAddProvinceWithCode($provinceName, $provinceCode, $provinceAbbreviation = null)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         $currentPage->addProvince($provinceName, $provinceCode, $provinceAbbreviation);
     }

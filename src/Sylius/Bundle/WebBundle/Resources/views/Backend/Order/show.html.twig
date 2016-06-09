@@ -81,7 +81,8 @@
         <tr>
             <td class="picture text-center">
                 <a href="{{ path('sylius_backend_product_show', {'id': product.id}) }}" title="View {{ product.name|escape('html_attr') }} details.">
-                    <img src="{{ product.image ? product.image.path|imagine_filter('sylius_small') : 'http://placehold.it/90x60' }}" alt="" class="imgmedia-object" />
+                    {% set image = (product.variants|length > 0 and product.image) ? product.image.path|imagine_filter('sylius_medium') : 'http://placehold.it/90x60' %}
+                    <img src="{{ image }}" alt="" class="imgmedia-object" />
                 </a>
             </td>
             <td class="info">
@@ -92,7 +93,7 @@
                 </a>
                 {% if product.hasOptions %}
                 <ul class="list-unstyled">
-                    <li class="sku"><strong>{{ 'sylius.ui.sku'|trans }}</strong>: <code>{{ variant.sku|default('SKU') }}</code></li>
+                    <li class="code"><strong>{{ 'sylius.ui.code'|trans }}</strong>: <code>{{ variant.code|default('SKU') }}</code></li>
                     {% for option in variant.options %}
                     <li><strong>{{ option.presentation }}</strong>: {{ option.value  }}</li>
                     {% endfor %}
@@ -139,7 +140,7 @@
             </td>
             <td class="text-right" colspan="3">
                 <strong>{{ 'sylius.ui.tax_total'|trans }}</strong>:
-                <span class="amount">{{ order.getAdjustmentsTotalRecursively(taxAdjustment)|sylius_price(order.currency) }}</span>
+                <span class="amount">{{ order.taxTotal|sylius_price(order.currency) }}</span>
             </td>
         </tr>
         <tr class="shipping-charges">
@@ -157,7 +158,7 @@
             </td>
             <td class="text-right" colspan="3">
                 <strong>{{ 'sylius.ui.shipping_total'|trans }}</strong>:
-                <span class="amount">{{ order.adjustmentsTotal(shippingAdjustment)|sylius_price(order.currency) }}</span>
+                <span class="amount">{{ order.shippingTotal|sylius_price(order.currency) }}</span>
             </td>
         </tr>
         <tr class="promotion-discount">
@@ -175,7 +176,7 @@
             </td>
             <td class="text-right" colspan="3">
                 <strong>{{ 'sylius.ui.promotion_total'|trans }}</strong>:
-                <span class="amount">{{ order.getPromotionsTotalRecursively()|sylius_price(order.currency) }}</span>
+                <span class="amount">{{ order.orderPromotionTotal|sylius_price(order.currency) }}</span>
             </td>
         </tr>
         {% if not order.adjustments().isEmpty() %}
@@ -246,7 +247,7 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>{{ 'sylius.ui.sku'|trans }}</th>
+                    <th>{{ 'sylius.ui.code'|trans }}</th>
                     <th>{{ 'sylius.ui.name'|trans }}</th>
                     <th>{{ 'sylius.ui.inventory_state'|trans }}</th>
                     <th>{{ 'sylius.ui.shipping_state'|trans }}</th>
@@ -259,7 +260,7 @@
                 {% for unit in order.itemUnits %}
                 <tr>
                     <td>{{ loop.index }}</td>
-                    <td>{{ unit.stockable.sku }}</td>
+                    <td>{{ unit.stockable.code }}</td>
                     <td>{{ unit.inventoryName }}</td>
                     <td>{{ unit.inventoryState|humanize }}</td>
                     <td>{{ unit.shippingState|humanize }}</td>

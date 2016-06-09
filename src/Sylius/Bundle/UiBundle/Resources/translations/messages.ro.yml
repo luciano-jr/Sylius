@@ -10,10 +10,15 @@ sylius:
             presentation: Prezentare
     ui:
         actions: Acțiuni
+        add_coupon: Adaugă cod promoțional
         cancel: Anulează
+        cancelled: Anulată
+        change_your_password: Modificare parolă
+        checkout: Trimite comanda
         color: Culoare
         countries: Țări
         coupon_based: Bazat pe cod promoțional
+        coupons: Coduri promoționale
         create: Creează
         dashboard: Panou de administrare
         default_currency: Moneda implicită
@@ -22,12 +27,23 @@ sylius:
         edit: Editare
         enabled: Activat
         filter: Filtrează
+        generate_coupons: Generare coduri promoționale
+        item: Produs
+        list_coupons: Listare coduri promoționale
         locales: Setări regionale
         new: Nouă
         new_country: Țară nouă
         new_tax_category: Categorie de taxă nouă
         "no": false
+        no_promotion: Fără reduceri
+        no_shipping_charges: Nu se aplică taxe pentru livrare
+        no_taxes: Nu se aplică taxe
+        price: Preț
+        quantity: Cantitate
+        ready: Gata
+        returned: Returnată
         save_changes: Salvează modificările
+        shipped: Expediată
         shipping_methods: Metode de livrare
         success: Succes
         "yes": true

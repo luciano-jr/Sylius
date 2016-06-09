@@ -85,8 +85,6 @@ sylius:
         no_shipments: Nuk ka asnjë dërgesë për këtë porosi
         no_shipping_charges: Nuk ka asnjë pagesë dërgimi
         no_taxes: Nuk zbatohen taksa
-        state:
-            order_confimed: Porosia e konfirmuar
     order_item:
         quantity: Sasitë
         sellable: Produkti
@@ -94,6 +92,18 @@ sylius:
         no_route: Përmbajtja jote nuk do të shfaqet në faqen e parë nëse nuk ke përcaktuar rrugën
         publishable: Publikuar
     payment:
+        state:
+            checkout: Kontrolli
+            completed: Përfunduar
+            authorized: Autorizuar
+            failed: Nuk u krye
+            new: E re
+            pending: Në pritje
+            processing: Duke u procesuar
+            unknown: E panjohur
+            void: Bosh
+            cancelled: E fshirë
+            refunded: Rimbursuar
         transition:
             cancel: anulo
             complete: perfundo
@@ -120,6 +130,13 @@ sylius:
             no_account: Ende nuk keni krijuar account
     shipment:
         no_items: "Nuk ka asnjë artikull për t'u shfaqur"
+        state:
+            ready: Gati
+            returned: I kthyer
+            shipped: Dërguar
+            pending: Në pritje
+            onhold: Ne pritje
+            cancelled: E fshirë
         transition:
             backorder: kthe urdherin
             cancel: anulo
@@ -190,13 +207,10 @@ sylius:
         building_product_from_archetype: Duke ndërtuar produktin nga prototipi
         calculator: Llogaritësi
         cancel: Fshi
-        cancelled: E fshirë
         cart_locked: Karroca e kycur
         cart_summary: Përmbajtja e karrocës
         categorization: Kategorizimi
         category: Kategorija
-        change_password: Ndrysho fjalëkalimin
-        change_your_password: Ndrysho fjalëkalimin
         channel: Kanali
         channels: Kanalet
         checkout: Kontrolli
@@ -285,7 +299,6 @@ sylius:
         customer_not_notified: Blerësi nuk u njoftua
         customer_notified: Blerësi u njoftua
         customer_orders: Porositë e blerësit
-        customer_since: Ti je blerës që prej
         customers: Blerësit
         customers_list_of_all_customers_in_store: 'Blerësi <small>Lista e të gjithë blerësve në arkiv </small>'
         customize_default_metadata: Personalizo metadata baze
@@ -558,6 +571,7 @@ sylius:
         provinces: Rajonet
         qty_max: Sasia maksimale
         qty_min: Sasia minimale
+        quantity: Sasia
         rating: Vlersimi
         recent_customers: Blerësit e fundit
         recent_orders: Porositë e fundit
@@ -580,7 +594,6 @@ sylius:
         restricted_zone: Zonë e kufizuar
         retail_price: Çmimi me pakicë
         return: Rikthehu
-        returned: I kthyer
         revert: Rikthe
         review_details: Detajet e recensionit
         reviews: Recensionet
@@ -602,7 +615,6 @@ sylius:
         shipment_mode: Mënyra e dërgesës
         shipment_state: Gjendja e dërgesës
         shipments: Dërgesat
-        shipped: Dërguar
         shipping_address: Adresa e dërgimit
         shipping_categories: Kategoritë e dërgesës
         shipping_category: Kategoria e dërgesës
@@ -713,6 +725,7 @@ sylius:
         users_list_of_all_users_registered_in_store: 'Përdorues <small>Lista e të gjithë përdoruesve të regjistruar në arkiv</small>'
         values: Vlerat
         variant_selection_method: Metoda rezervë e përzgjedhjes
+        variant: Variante
         variants: Variante
         view: Pamja (View)
         view_more: Shiko më shumë

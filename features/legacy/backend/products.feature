@@ -63,22 +63,13 @@ Feature: Products
         When I press "Create"
         Then I should still be on the product creation page
         And I should see "Please enter product name"
-        And I should see "Please enter the price"
-
-    Scenario: Trying to create a product with invalid price
-        Given I am on the product creation page
-        When I fill in "Name" with "Bag"
-        And I fill in "Price" with "-0.01"
-        And I press "Create"
-        Then I should still be on the product creation page
-        And I should see "Price must not be negative"
 
     Scenario: Creating simple product without any attributes and options
         Given I am on the product creation page
         When I fill in the following:
             | Name        | Book about Everything   |
+            | Code        | TEE_CODE                |
             | Description | Interesting description |
-            | Price       | 29.99                   |
         And I press "Create"
         Then I should be on the page of product "Book about Everything"
         And I should see "Product has been successfully created"
@@ -87,19 +78,18 @@ Feature: Products
         Given I am on the product creation page
         When I fill in the following:
             | Name        | Book about Everything   |
+            | Code        | TEE_CODE                |
             | Description | Interesting description |
-            | Price       | 4.10                    |
         And I press "Create"
         Then I should be on the page of product "Book about Everything"
         And I should see "Product has been successfully created"
-        And I should see "4.10"
 
     Scenario: Creating product with options
         Given I am on the product creation page
         When I fill in the following:
             | Name        | Manchester United tee   |
+            | Code        | TEE_CODE                |
             | Description | Interesting description |
-            | Price       | 59.99                   |
         And I select "T-Shirt size" from "Options"
         And I press "Create"
         Then I should be on the page of product "Manchester United tee"
@@ -111,8 +101,8 @@ Feature: Products
         Given I am on the product creation page
         When I fill in the following:
             | Name        | Manchester United tee   |
+            | Code        | TEE_CODE                |
             | Description | Interesting description |
-            | Price       | 59.99                   |
         And go to "Association" tab
         And I click "Add association"
         And I select "Up sell" from "Association type"
@@ -128,8 +118,8 @@ Feature: Products
         Given I am on the product creation page
         When I fill in the following:
             | Name        | Manchester United tee   |
+            | Code        | TEE_CODE                |
             | Description | Interesting description |
-            | Price       | 59.99                   |
         And go to "Attributes" tab
         And I add "T-Shirt fabric" attribute
         And I fill in "T-Shirt fabric" with "Polyester"
@@ -142,8 +132,8 @@ Feature: Products
         Given I am on the product creation page
         When I fill in the following:
             | Name        | Manchester United tee   |
+            | Code        | TEE_CODE                |
             | Description | Interesting description |
-            | Price       | 59.99                   |
         And go to "Attributes" tab
         And I add "T-Shirt fare trade" attribute
         And I check "T-Shirt fare trade"
@@ -156,8 +146,8 @@ Feature: Products
         Given I am on the product creation page
         When I fill in the following:
             | Name        | FC Barcelona tee        |
+            | Code        | TEE_CODE                |
             | Description | Interesting description |
-            | Price       | 59.99                   |
         And go to "Attributes" tab
         And I add following attributes:
             | T-Shirt fabric     |
@@ -175,8 +165,8 @@ Feature: Products
         Given I am on the product creation page
         When I fill in the following:
             | Name        | FC Barcelona tee        |
+            | Code        | TEE_CODE                |
             | Description | Interesting description |
-            | Price       | 59.99                   |
         And I go to "Attributes" tab
         And I add "T-Shirt fabric" attribute
         And I fill in "T-Shirt fabric" with "X"
@@ -190,7 +180,7 @@ Feature: Products
         And I fill in the following:
             | Name        | Manchester United tee   |
             | Description | Interesting description |
-            | Price       | 59.99                   |
+            | Code        | BOSTON_TEE              |
         And I press "Create"
         When I go to the product index page
         Then I should see 5 products in the list
@@ -220,14 +210,6 @@ Feature: Products
         Then I should be on the page of product "Super T-Shirt"
         And I should see "T-Shirt fare trade"
         And I should not see "Wool"
-
-    Scenario: Selecting the product tax category
-        Given I am editing product "Sticker"
-        When I select "Print" from "Tax category"
-        And I press "Save changes"
-        Then I should be on the page of product "Sticker"
-        And I should see "Product has been successfully updated"
-        And "Print" should appear on the page
 
     @javascript
     Scenario: Selecting the categorization taxons
@@ -259,8 +241,8 @@ Feature: Products
         Given I am on the product creation page
         And I fill in the following:
             | Name        | The best T-shirt        |
+            | Code        | BEST_T_SHIRT            |
             | Description | Interesting description |
-            | Price       | 2.99                    |
         And go to "Categorization" tab
         And I select "New" from "Main taxon"
         And I press "Create"

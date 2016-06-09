@@ -54,12 +54,17 @@ class UpdatePage extends SymfonyPage implements UpdatePageInterface
      */
     public function checkValidationMessageFor($element, $message)
     {
-        $foundedElement = $this->getFieldElement($element);
-        if (null === $foundedElement) {
+        $foundElement = $this->getFieldElement($element);
+        if (null === $foundElement) {
+            throw new ElementNotFoundException($this->getSession(), 'Field element');
+        }
+
+        $validationMessage = $foundElement->find('css', '.pointing');
+        if (null === $validationMessage) {
             throw new ElementNotFoundException($this->getSession(), 'Validation message', 'css', '.pointing');
         }
 
-        return $message === $foundedElement->find('css', '.pointing')->getText();
+        return $message === $validationMessage->getText();
     }
 
     /**
@@ -79,7 +84,7 @@ class UpdatePage extends SymfonyPage implements UpdatePageInterface
     /**
      * {@inheritdoc}
      */
-    protected function getRouteName()
+    public function getRouteName()
     {
         return sprintf('sylius_admin_%s_update', $this->resourceName);
     }

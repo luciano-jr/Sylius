@@ -114,7 +114,7 @@ class TaxonChoiceType extends AbstractType
                     $taxons = $repository->findChildren($options['root']);
                 }
             } else {
-                $taxons = $repository->findAll();
+                $taxons = $repository->findNodesTreeSorted();
             }
 
             if (null !== $options['filter']) {
@@ -126,6 +126,7 @@ class TaxonChoiceType extends AbstractType
 
         $resolver
             ->setDefaults([
+                'choice_translation_domain' => false,
                 'choice_list' => $choiceList,
                 'root' => null,
                 'filter' => null,

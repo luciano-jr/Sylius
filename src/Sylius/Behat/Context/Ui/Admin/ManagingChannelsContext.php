@@ -16,7 +16,7 @@ use Sylius\Behat\NotificationType;
 use Sylius\Behat\Page\Admin\Channel\CreatePageInterface;
 use Sylius\Behat\Page\Admin\Channel\IndexPageInterface;
 use Sylius\Behat\Page\Admin\Channel\UpdatePageInterface;
-use Sylius\Behat\Service\CurrentPageResolverInterface;
+use Sylius\Behat\Service\Resolver\CurrentPageResolverInterface;
 use Sylius\Behat\Service\NotificationCheckerInterface;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Webmozart\Assert\Assert;
@@ -168,7 +168,7 @@ final class ManagingChannelsContext implements Context
      */
     public function iDisableIt()
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         $currentPage->disable();
     }
@@ -178,7 +178,7 @@ final class ManagingChannelsContext implements Context
      */
     public function iShouldBeNotifiedThatAtLeastOneChannelHasToBeDefinedIsRequired()
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         Assert::true(
             $currentPage->checkValidationMessageFor('enabled', 'Must have at least one enabled entity'),
@@ -204,7 +204,7 @@ final class ManagingChannelsContext implements Context
      */
     public function iShouldBeNotifiedThatIsRequired($element)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         Assert::true(
             $currentPage->checkValidationMessageFor($element, sprintf('Please enter channel %s.', $element)),
@@ -359,7 +359,7 @@ final class ManagingChannelsContext implements Context
      */
     public function iMakeItAvailableIn($locale)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         $currentPage->chooseLocale($locale);
     }
@@ -382,7 +382,7 @@ final class ManagingChannelsContext implements Context
      */
     public function iAllowToPayingForThisChannel($currency)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         $currentPage->chooseCurrency($currency);
     }
@@ -405,7 +405,7 @@ final class ManagingChannelsContext implements Context
      */
     public function iSelectTheShippingMethod($shippingMethodName)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         $currentPage->chooseShippingMethod($shippingMethodName);
     }
@@ -428,7 +428,7 @@ final class ManagingChannelsContext implements Context
      */
     public function iSelectThePaymentMethod($paymentMethodName)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         $currentPage->choosePaymentMethod($paymentMethodName);
     }

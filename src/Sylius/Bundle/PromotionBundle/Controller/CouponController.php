@@ -21,7 +21,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * Coupon controller.
  *
- * @author Paweł Jędrzejewski <pjedrzejewski@sylius.pl>
+ * @author Paweł Jędrzejewski <pawel@sylius.org>
  */
 class CouponController extends ResourceController
 {
@@ -54,12 +54,14 @@ class CouponController extends ResourceController
         }
 
         if (!$configuration->isHtmlRequest()) {
-            return $this->viewHandler->handle(View::create($form));
+            return $this->viewHandler->handle($configuration, View::create($form));
         }
 
         $view = View::create()
             ->setTemplate($configuration->getTemplate('generate.html'))
             ->setData([
+                'configuration' => $configuration,
+                'metadata' => $this->metadata,
                 'promotion' => $promotion,
                 'form' => $form->createView(),
             ])

@@ -6,15 +6,22 @@ sylius:
         login:
             username: Krosnicko ime
     ui:
+        add_coupon: Dodaj kupon
         cancel: Otkaži
         countries: Zemlje
         create: Kreiraj
         dashboard: Komandna Tabla
         delete: Obrisati
         edit: Izmeniti
+        generate_coupons: Generiši kupone
+        list_coupons: Lista kupona
         new_country: Nova zemlja
         new_tax_category: Nova kategorija poreza
         "no": false
+        no_promotion: Nijedna promocija nije dodata
+        no_shipping_charges: Nisu dodati troškovi porudžbine
+        no_taxes: Nisu dodati porezi
+        quantity: Količina
         save_changes: Sačuvaj izmene
         shipping_methods: Načini dostave
         success: Uspeh

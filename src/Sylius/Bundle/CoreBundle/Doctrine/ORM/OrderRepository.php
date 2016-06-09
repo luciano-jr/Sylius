@@ -23,6 +23,20 @@ class OrderRepository extends CartRepository implements OrderRepositoryInterface
     /**
      * {@inheritdoc}
      */
+    public function createListQueryBuilder()
+    {
+        $queryBuilder = $this->createQueryBuilder('o');
+
+        return $queryBuilder
+            ->addSelect('customer')
+            ->leftJoin('o.customer', 'customer')
+            ->andWhere($queryBuilder->expr()->isNotNull('o.completedAt'))
+        ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function createPaginatorByCustomer(CustomerInterface $customer, array $sorting = [])
     {
         $queryBuilder = $this->createQueryBuilderWithCustomer($customer, $sorting);
@@ -166,7 +180,7 @@ class OrderRepository extends CartRepository implements OrderRepositoryInterface
         $queryBuilder = $this->createQueryBuilder('o')
             ->select('count(o.id)')
             ->leftJoin('o.items', 'item')
-            ->innerJoin('o.promotionCoupons', 'coupons')
+            ->innerJoin('o.promotionCoupon', 'coupon')
             ->andWhere('o.customer = :customer')
             ->andWhere('o.completedAt IS NOT NULL')
             ->andWhere('coupon = :coupon')
@@ -368,6 +382,23 @@ class OrderRepository extends CartRepository implements OrderRepositoryInterface
         ;
 
         return $queryBuilder->getQuery()->getResult();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findCompleted(array $sorting = [], $limit = 5)
+    {
+        $queryBuilder = $this->createQueryBuilder('o');
+        $queryBuilder->andWhere($queryBuilder->expr()->isNotNull('o.completedAt'));
+
+        $this->applySorting($queryBuilder, $sorting);
+
+        return $queryBuilder
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult()
+        ;
     }
 
     /**

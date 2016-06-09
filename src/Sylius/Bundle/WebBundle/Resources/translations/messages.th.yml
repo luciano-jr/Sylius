@@ -7,11 +7,11 @@ sylius:
             details: รายละเอียดใบสั่งซื้อ
             download_invoice: ดาวน์โหลดใบแจ้งหนี้
             empty: คุณยังไม่มีคำสั่งซื้อใดๆ ในตอนนี้
-            list: ใบสั่งซื้อทั้งหมดของคุณ
+            list: ใบสั่งซื้อทั้งหมด
             placed_at: 'Placed at %at%'
             shipment:
-                ready: 'พร้อมตั้งแต่ %at%'
-                returned: 'ส่งคืน %at%'
+                ready: 'พร้อมส่งตั้งแต่ %at%'
+                returned: 'ตีกลับ %at%'
                 shipped: 'จัดส่ง %at%'
         title: บัญชีของฉัน
     archetype:
@@ -85,8 +85,6 @@ sylius:
         no_shipments: ไม่มีการจัดส่งสำหรับใบสั่งซื้อนี้
         no_shipping_charges: ไม่มีค่าธรรมเนียมการจัดส่ง
         no_taxes: ไม่รวมภาษี
-        state:
-            order_confimed: ยืนยันการสั่งซื้อ
     order_item:
         quantity: ปริมาณ
         sellable: สินค้า
@@ -94,6 +92,18 @@ sylius:
         no_route: เนื้อหาของคุณจะปรากฏในระบบหน้าบ้าน (frontend) ถ้าไม่มีเส้นทางที่กำหนด
         publishable: ตั้งเวลาเผยแพร่
     payment:
+        state:
+            checkout: ชำระเงิน
+            completed: เสร็จสมบูรณ์
+            authorized: อำนาจ
+            failed: ล้มเหลว
+            new: รายการใหม่
+            pending: อยู่ระหว่างดำเนินการ
+            processing: กำลังดำเนินการ
+            unknown: ไม่ทราบสถานะ
+            void: โมฆะ
+            cancelled: ถูกยกเลิก
+            refunded: คืนเงินแล้ว
         transition:
             cancel: ยกเลิก
             complete: เรียบร้อย
@@ -120,12 +130,19 @@ sylius:
             no_account: ไม่มีบัญชี
     shipment:
         no_items: ไม่มีรายการแสดง
+        state:
+            ready: พร้อมส่ง
+            returned: ถูกส่งคืน
+            shipped: ส่งของแล้ว
+            pending: อยู่ระหว่างดำเนินการ
+            onhold: On hold
+            cancelled: ถูกยกเลิก
         transition:
             backorder: สินค้าค้างส่ง
             cancel: ยกเลิก
             prepare: เตรียมความพร้อม
             release: นำออกแสดง
-            return: ส่งกลับ
+            return: ตีกลับ
             ship: จัดส่ง
         update: แก้ไข
     stockable:
@@ -154,7 +171,7 @@ sylius:
         add_new_role: เพิ่ม Role
         add_province: เพิ่มจังหวัด
         add_rule: เพิ่มกติกา
-        add_to_cart: หยิบใส่ตระกร้าสินค้า
+        add_to_cart: หยิบใส่ตะกร้า
         add_value: เพิ่มค่า
         adding_new_customer_groups: เพิ่มกลุ่มลูกค้าใหม่
         adding_new_email: เพิ่มอีเมลใหม่
@@ -190,13 +207,10 @@ sylius:
         building_product_from_archetype: สร้างสินค้าจากต้นแบบ
         calculator: การคำนวณ
         cancel: ยกเลิก
-        cancelled: ถูกยกเลิก
         cart_locked: รถเข็นถูกล็อกไว้
-        cart_summary: สรุปรายละเอียดสินค้าในตะกร้า
+        cart_summary: ตะกร้าสินค้า
         categorization: การจัดประเภท
         category: ประเภท
-        change_password: เปลี่ยนรหัสผ่านของคุณ
-        change_your_password: เปลี่ยนรหัสผ่านของคุณ
         channel: ช่องทางการจัดจำหน่าย
         channels: ช่องทางการจัดจำหน่าย
         checkout: ชำระเงิน
@@ -285,7 +299,6 @@ sylius:
         customer_not_notified: ลูกค้าที่ไม่ได้รับแจ้ง
         customer_notified: ลูกค้าที่แจ้ง
         customer_orders: ใบสั่งของลูกค้า
-        customer_since: คุณเป็นลูกค้าตั้งแต่
         customers: ลูกค้า
         customers_list_of_all_customers_in_store: 'ลูกค้า<small>รายการของลูกค้าทั้งหมดในร้าน</small>'
         customize_default_metadata: กำหนดค่า Default metadata
@@ -526,7 +539,7 @@ sylius:
         permissions: สิทธิ์การเข้าถึง
         phone_number: หมายเลขโทรศัพท์
         place_order: สั่งซื้อสินค้า
-        placed_at: Placed at
+        placed_at: วันที่
         postcode: รหัสไปรษณีย์
         presentation: ผู้ใช้มองเห็น
         previous: ก่อนหน้านี้
@@ -558,6 +571,7 @@ sylius:
         provinces: จังหวัด
         qty_max: ปริมาณสูงสุด
         qty_min: ปริมาณต่ำสุด
+        quantity: จำนวน
         rating: การจัดอันดับ
         recent_customers: ลูกค้าล่าสุด
         recent_orders: ใบสั่งซื้อล่าสุด
@@ -579,8 +593,7 @@ sylius:
         restore: คืนค่า
         restricted_zone: จำกัดโซน
         retail_price: ราคาขายปลีก
-        return: ส่งกลับ
-        returned: ถูกส่งคืน
+        return: ตีกลับ
         revert: กลับค่าเดิม
         review_details: รายละเอียดของรายงาน
         reviews: รีวิว
@@ -602,7 +615,6 @@ sylius:
         shipment_mode: โหมดการจัดส่ง
         shipment_state: สถานะการจัดส่ง
         shipments: การจัดส่งสินค้า
-        shipped: ส่งของแล้ว
         shipping_address: ที่อยู่สำหรับจัดส่งสินค้า
         shipping_categories: ประเภทการจัดส่ง
         shipping_category: ประเภทการจัดส่ง
@@ -713,6 +725,7 @@ sylius:
         users_list_of_all_users_registered_in_store: 'ผู้ใช้ <small>รายชื่อผู้ใช้ทั้งหมด</small>'
         values: ค่า
         variant_selection_method: Variant selection method
+        variant: ตัวแปร
         variants: ตัวแปร
         view: มุมมอง
         view_more: ดูเพิ่มเติม

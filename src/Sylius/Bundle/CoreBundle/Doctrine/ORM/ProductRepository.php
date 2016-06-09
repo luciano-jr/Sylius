@@ -27,6 +27,17 @@ class ProductRepository extends BaseProductRepository implements ProductReposito
     /**
      * {@inheritdoc}
      */
+    public function createListQueryBuilder()
+    {
+        return $this->createQueryBuilder('o')
+            ->addSelect('translation')
+            ->leftJoin('o.translations', 'translation')
+        ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function createByTaxonPaginator(TaxonInterface $taxon, array $criteria = [])
     {
         $queryBuilder = $this->createQueryBuilder('o');
@@ -91,6 +102,9 @@ class ProductRepository extends BaseProductRepository implements ProductReposito
             ->leftJoin('o.translations', 'translation')
             ->addSelect('variant')
             ->leftJoin('o.variants', 'variant')
+            ->addSelect('archetype')
+            ->leftJoin('o.archetype', 'archetype')
+            ->leftJoin('archetype.translations', 'archetype_translation')
         ;
 
         if (!empty($criteria['name'])) {
@@ -99,10 +113,10 @@ class ProductRepository extends BaseProductRepository implements ProductReposito
                 ->setParameter('name', '%'.$criteria['name'].'%')
             ;
         }
-        if (!empty($criteria['sku'])) {
+        if (!empty($criteria['code'])) {
             $queryBuilder
-                ->andWhere('variant.sku = :sku')
-                ->setParameter('sku', $criteria['sku'])
+                ->andWhere('variant.code = :code')
+                ->setParameter('code', $criteria['code'])
             ;
         }
 

@@ -8,17 +8,27 @@ sylius:
         option:
             presentation: Презентация
     ui:
+        add_coupon: Добавяне на купон
         cancel: Откажи
+        change_your_password: Смяна на парола
         countries: Страни
+        coupons: Купони
         create: Създай
         dashboard: Табло
         delete: Изтрий
         edit: Редактирай
         filter: Филтър
+        generate_coupons: Генериране на купони
+        item: артикул
+        list_coupons: Списък купони
         locales: Езикови променливи
         new_country: Новата страна
         new_tax_category: Нова данъчна категория
         "no": false
+        no_promotion: Нама приложена промоция
+        no_shipping_charges: Няма такси за доставка
+        no_taxes: Няма такси
+        quantity: Количество
         save_changes: Запиши промените
         shipping_methods: Начин на доставка
         success: Успешно

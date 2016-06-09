@@ -19,7 +19,7 @@ use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * @author Paweł Jędrzejewski <pjedrzejewski@sylius.pl>
+ * @author Paweł Jędrzejewski <pawel@sylius.org>
  */
 class ProvinceChoiceType extends AbstractType
 {
@@ -53,6 +53,7 @@ class ProvinceChoiceType extends AbstractType
 
         $resolver
             ->setDefaults([
+                'choice_translation_domain' => false,
                 'choice_list' => $choices,
                 'country' => null,
                 'label' => 'sylius.form.address.province',

@@ -6,8 +6,9 @@ sylius:
         admin:
             main:
                 catalog:
-                    taxons: Taxons
                     options: Indstillinger
+                    products: Produkter
+                    taxons: Taxons
                 configuration:
                     countries: Lande
                     header: Konfiguration
@@ -18,3 +19,6 @@ sylius:
                     zones: Zoner
                 marketing:
                     promotions: Kampagner
+                sales:
+                    header: Salg
+                    orders: Ordrer

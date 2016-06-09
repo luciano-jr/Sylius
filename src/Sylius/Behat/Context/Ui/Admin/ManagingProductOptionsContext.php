@@ -15,7 +15,7 @@ use Behat\Behat\Context\Context;
 use Sylius\Behat\Page\Admin\Crud\IndexPageInterface;
 use Sylius\Behat\Page\Admin\ProductOption\CreatePageInterface;
 use Sylius\Behat\Page\Admin\ProductOption\UpdatePageInterface;
-use Sylius\Behat\Service\CurrentPageResolverInterface;
+use Sylius\Behat\Service\Resolver\CurrentPageResolverInterface;
 use Sylius\Component\Product\Model\OptionInterface;
 use Webmozart\Assert\Assert;
 
@@ -143,9 +143,17 @@ final class ManagingProductOptionsContext implements Context
      */
     public function iAddTheOptionValueWithCodeAndValue($value, $code)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         $currentPage->addOptionValue($code, $value);
+    }
+
+    /**
+     * @When I delete the :optionValue option value of this product option
+     */
+    public function iDeleteTheOptionValueOfThisProductOption($optionValue)
+    {
+        $this->updatePage->removeOptionValue($optionValue);
     }
 
     /**
@@ -197,7 +205,7 @@ final class ManagingProductOptionsContext implements Context
     /**
      * @Then the product option with :element :value should not be added
      */
-    public function theProductoptionWithElementValueShouldNotBeAdded($element, $value)
+    public function theProductOptionWithElementValueShouldNotBeAdded($element, $value)
     {
         $this->iBrowseProductOptions();
 
@@ -304,13 +312,5 @@ final class ManagingProductOptionsContext implements Context
             $this->createPage->checkValidationMessageFor($element, $expectedMessage),
             sprintf('Product option %s should be required.', $element)
         );
-    }
-
-    /**
-     * @When /^I delete the "([^"]*)" option value of (this product option)$/
-     */
-    public function iDeleteTheOptionValueOfThisProductOption($optionValue, OptionInterface $productOption)
-    {
-        $this->updatePage->removeOptionValue($optionValue);
     }
 }

@@ -15,7 +15,7 @@ use Behat\Behat\Context\Context;
 use Sylius\Behat\Page\Admin\Currency\CreatePageInterface;
 use Sylius\Behat\Page\Admin\Currency\IndexPageInterface;
 use Sylius\Behat\Page\Admin\Currency\UpdatePageInterface;
-use Sylius\Behat\Service\CurrentPageResolverInterface;
+use Sylius\Behat\Service\Resolver\CurrentPageResolverInterface;
 use Sylius\Component\Currency\Model\CurrencyInterface;
 use Webmozart\Assert\Assert;
 
@@ -233,7 +233,7 @@ final class ManagingCurrenciesContext implements Context
      */
     public function iShouldBeNotifiedThatExchangeRateIsRequired()
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         Assert::true(
             $currentPage->checkValidationMessageFor('exchangeRate', 'Please enter exchange rate.'),

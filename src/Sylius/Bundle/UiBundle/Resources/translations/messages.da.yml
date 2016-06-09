@@ -10,9 +10,13 @@ sylius:
             presentation: Præsentation
     ui:
         actions: Handlinger
+        add_coupon: Tilføj kupon
         cancel: Anuller
+        change_your_password: Ændre din adgangskode
+        checkout: Til kassen
         countries: Lande
         coupon_based: Kupon baseret
+        coupons: Kuponer
         create: Opret
         dashboard: Kontrolpanel
         default_currency: Standard valuta
@@ -21,12 +25,23 @@ sylius:
         edit: Rediger
         enabled: Aktiveret
         filter: Filter
+        generate_coupons: Generere kuponer
+        item: Varen
+        list_coupons: Kupon liste
         locales: Landekoder
         new: Ny
         new_country: Nyt land
         new_tax_category: Ny moms kategori
         "no": false
+        no_promotion: Ingen kampagnekode
+        no_shipping_charges: Ingen forsendelsesomkostninger
+        no_taxes: Ingen afgifter tilføjet
+        price: Pris
+        quantity: Antal
+        ready: Klar
+        returned: Returneret
         save_changes: Gem ændringer
+        shipped: Afsendt
         shipping_methods: Fragtmetoder
         success: Succes
         "yes": true

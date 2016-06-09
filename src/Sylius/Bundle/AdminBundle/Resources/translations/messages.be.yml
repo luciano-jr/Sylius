@@ -6,8 +6,9 @@ sylius:
         admin:
             main:
                 catalog:
-                    taxons: Катэгорыі
                     options: Опцыі
+                    products: Тавары
+                    taxons: Катэгорыі
                 configuration:
                     countries: Краіны
                     header: Канфігурацыя
@@ -18,3 +19,6 @@ sylius:
                     zones: Зоны
                 marketing:
                     promotions: Прамоцыі
+                sales:
+                    header: Продаж
+                    orders: Замовы

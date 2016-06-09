@@ -11,9 +11,14 @@ sylius:
             presentation: Prezentacija
     ui:
         actions: Akcije
+        add_coupon: Dodaj kod za popust
         cancel: Prekini
+        cancelled: Otkazano
+        change_your_password: Promijenite lozinku
+        checkout: Blagajna
         countries: Države
         coupon_based: Promocija bazirana na kuponima za popust
+        coupons: Kuponi
         create: Kreiraj
         dashboard: Kontrolna ploča
         default_currency: Zadana valuta
@@ -22,12 +27,23 @@ sylius:
         edit: Uredi
         enabled: Omogući
         filter: Filter
+        generate_coupons: Generirajte kod za popust
+        item: sylius.order_item.product
+        list_coupons: Izlist kodova za popust
         locales: Lokaliteti
         new: Novo
         new_country: Nova država
         new_tax_category: Nova kategorija poreza
         "no": false
+        no_promotion: Proizvod nema akciju
+        no_shipping_charges: Nema troškova dostave
+        no_taxes: Bez PDV-a
+        price: Cijena
+        quantity: Količina
+        ready: Spremno
+        returned: Vraćeno
         save_changes: Sačuvaj izmjene
+        shipped: Poslano
         shipping_methods: Načini slanja
         success: Uspješno
         "yes": true

@@ -11,10 +11,15 @@ sylius:
             presentation: Prezentacija
     ui:
         actions: Veiksmai
+        add_coupon: Pridėti kuponą
         cancel: Atšaukti
+        cancelled: Atšaukta
+        change_your_password: Pakeisti savo slaptažodį
+        checkout: Apmokėjimas
         color: Spalva
         countries: Šalys
         coupon_based: Pagal kuponą
+        coupons: Kuponai
         create: Sukurti
         currencies: Valiutos
         dashboard: Skydelis
@@ -25,15 +30,27 @@ sylius:
         empty: Išvalyti
         enabled: Įjungta
         exclusive: Išskirtinis
+        expires_at: Nustoja galioti
         filter: Filtruoti
+        generate_coupons: Generuoti kuponus
+        item: Produktas
+        list_coupons: Kuponų sąrašas
         locales: Lokalės
         new: Naujas
         new_country: Naujas šalis
         new_currency: Nauja valiuta
         new_tax_category: Nauja mokesčių kategorija
         "no": false
+        no_promotion: Nepritaikyta jokių nuolaidų
+        no_shipping_charges: Nepritaikyta jokių pristatymo mokesčių
+        no_taxes: Nepritaikyta jokių mokesčių
         powered_by: Sukurta
+        price: Kaina
+        quantity: Kiekis
+        ready: Paruošta
+        returned: Grąžintas
         save_changes: Išsaugoti pakeitimus
+        shipped: Pristatytas
         shipping_methods: Pristatymo būdai
         sign_in: Prisijungti
         sign_out: Atsijungti

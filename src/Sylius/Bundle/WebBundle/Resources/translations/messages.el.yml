@@ -30,6 +30,18 @@ sylius:
     order_item:
         quantity: Ποσότητα
         sellable: Προϊόν
+    payment:
+        state:
+            checkout: Ολοκλήρωση αγορών
+            pending: Σε εκκρεμότητα
+            processing: Σε εξέλιξη
+            unknown: Άγνωστο
+    shipment:
+        state:
+            ready: Έτοιμα
+            returned: Επεστράφησαν
+            shipped: Αποστάλθηκαν
+            pending: Σε εκκρεμότητα
     ui:
         actions: Ενέργειες
         add_member: Προσθήκη μέλους
@@ -129,17 +141,16 @@ sylius:
         promotions: Προσφορές
         province: Επαρχία
         provinces: Επαρχίες
+        quantity: Ποσότητα
         register: Καταχώρηση
         restricted_zone: Απαγορευμένη ζώνη
         retail_price: Τιμή
-        returned: Επεστράφησαν
         roles: Ρόλοι
         rules: Κανόνες
         save: Αποθήκευση
         save_changes: Αποθήκευση αλλαγών
         search: Αναζήτηση
         shipments: Αποστολές
-        shipped: Αποστάλθηκαν
         shipping_address: Διεύθυνση αποστολής
         shipping_category: Κατηγορία αποστολής
         shipping_charges: Έξοδα αποστολής

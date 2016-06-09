@@ -10,15 +10,20 @@ sylius:
         option:
             presentation: Weergave
     ui:
-        all: Alles
+        account_credentials: Logingegevens
         actions: Acties
+        add_coupon: Nieuwe coupon
         administration_panel_login: Beheer
+        all: Alles
         an_error_occurred: Er deed zich een fout voor
         are_your_sure_you_want_to_perform_this_action: Weet u zeker dat u deze actie wilt uitvoeren?
         available_for_channels: Beschikbaar voor kanalen
         cancel: Annuleren
+        cancelled: Geannuleerd
         category_requirements: Categorie vereisten
+        change_your_password: Verander uw wachtwoord
         charges_and_taxes: Heffingen en belastingen
+        checkout: Afrekenen
         clear_filters: Wis filters
         color: Kleur
         configure_channels_available_in_your_store: Configureer beschikbare kanalen in uw winkel
@@ -26,9 +31,12 @@ sylius:
         contains: Bevat
         countries: Landen
         coupon_based: Coupon gebaseerd
+        coupons: Coupons
         create: Creëer
         currencies: "Valuta's"
+        customer_can_login_to_the_store: Klant kan inloggen op de winkel
         dashboard: Dashboard
+        date: Datum
         default_currency: Standaard valuta
         default_locale: Standaardlandinstelling
         delete: Verwijderen
@@ -40,8 +48,8 @@ sylius:
         edit_currency: Bewerk valuta
         edit_customer: Bewerk klant
         edit_payment_method: Bewerk betaalmethode
-        edit_product_option: Bewerk product-optie
         edit_product_attribute: Productattribuut bewerken
+        edit_product_option: Bewerk product-optie
         edit_promotion: Bewerk promotie
         edit_shipping_method: Verzendmethode bewerken
         edit_tax_category: Bewerk belasting categorie
@@ -53,23 +61,30 @@ sylius:
         ends_with: Eindigt met
         equal: Gelijk
         exclusive: Exclusief
+        expires_at: Verloopt op
+        extra_information: Extra informatie
         filter: Filter
+        go: Ga
+        generate_coupons: Coupons genereren
         in: In
         info: Info
+        item: Artikel
+        jump_to_page: Ga naar pagina
         last_updated: Laatst bijgewerkt
+        list_coupons: Lijst van coupons
         locales: "Talen/Regio's"
         manage_attributes_of_your_products: Beheer kenmerken van uw producten
-        manage_currencies_available_in_the_store: "Beheer beschikbare valuta's in de winkel"
-        manage_your_customers: Klanten beheren
-        manage_languages_available_in_the_store: Beheren van beschikbare talen voor de winkel
+        manage_categorization_of_your_products: Beheer categorisering van uw producten
         manage_configuration_options_of_your_products: Beheer configuratie-opties van uw producten
+        manage_currencies_available_in_the_store: "Beheer beschikbare valuta's in de winkel"
+        manage_discounts_and_promotional_campaigns: Beheer kortingen en promotionele campagnes
+        manage_geographical_zones: Beheer geografische zones
+        manage_languages_available_in_the_store: Beheren van beschikbare talen voor de winkel
         manage_payment_methods_available_to_your_customers: Beheer beschikbare betalingsmethoden voor uw klanten
         manage_shipping_destinations: Beheer van bestemmingen voor verzending
-        manage_categorization_of_your_products: Beheer categorisering van uw producten
         manage_shipping_methods_for_your_store: Beheer verzendmethoden voor uw winkel
         manage_taxation_of_your_products: Beheren van belastingen van uw producten
-        manage_geographical_zones: Beheer geografische zones
-        manage_discounts_and_promotional_campaigns: Beheer kortingen en promotionele campagnes
+        manage_your_customers: Klanten beheren
         new: Nieuw
         new_channel: Nieuw kanaal
         new_country: NIeuw land toevoegen
@@ -78,15 +93,25 @@ sylius:
         new_tax_category: Nieuwe belastingcategorie toevoegen
         "no": false
         no_account: geen account
+        no_promotion: Geen promotie toegepast
+        no_requirement: Geen vereiste
         no_results_to_display: Er zijn geen resultaten om weer te geven
+        no_shipping_charges: Geen verzendkosten
+        no_taxes: Geen belasting toegepast
+        no_theme: Geen thema
         not_contains: Bevat niet
         not_empty: Niet leeg
         not_in: Niet in
         or: of
         powered_by: Mogelijk gemaakt door
+        price: Prijs
         promotion_configuration: Promotie configuratie
         promotion_information: Promotie informatie
+        quantity: Hoeveelheid
+        ready: Klaar
+        returned: Geretourneerd
         save_changes: Aanpassingen opslaan
+        shipped: Verzonden
         shipping_methods: Verzendmethoden
         show: Toon
         sign_in: Aanmelden
@@ -95,18 +120,11 @@ sylius:
         status: Status
         success: Succes
         tax_categories: Belastingscategorieën
+        total_records: Aantal records
+        unlimited: Onbeperkt
+        usage: Gebruik
         values: Waarden
         "yes": true
-        total_records: Aantal records
-        jump_to_page: Ga naar pagina
-        go: Ga
-        unlimited: Onbeperkt
-        no_requirement: Geen vereiste
         zone_consisting_of_countries: Zone bestaande uit landen
-        zone_consisting_of_provinces: Zone bestaande uit provincies
         zone_consisting_of_other_zones: Zone bestaande uit andere zones
-        no_theme: Geen thema
-        usage: Gebruik
-        customer_can_login_to_the_store: Klant kan inloggen op de winkel
-        account_credentials: Logingegevens
-        extra_information: Extra informatie
+        zone_consisting_of_provinces: Zone bestaande uit provincies

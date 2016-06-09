@@ -14,7 +14,7 @@ namespace Sylius\Behat\Context\Ui\Admin;
 use Behat\Behat\Context\Context;
 use Sylius\Behat\Page\Admin\Crud\IndexPageInterface;
 use Sylius\Behat\Page\Admin\TaxRate\UpdatePageInterface;
-use Sylius\Behat\Service\CurrentPageResolverInterface;
+use Sylius\Behat\Service\Resolver\CurrentPageResolverInterface;
 use Sylius\Behat\Page\Admin\TaxRate\CreatePageInterface;
 use Sylius\Component\Core\Model\TaxRateInterface;
 use Webmozart\Assert\Assert;
@@ -236,7 +236,7 @@ final class ManagingTaxRateContext implements Context
 
         Assert::true(
             $this->indexPage->isSingleResourceOnPage([$element => $code]),
-            sprintf('Tax rate with %s %s cannot be founded.', $element, $code)
+            sprintf('Tax rate with %s %s cannot be found.', $element, $code)
         );
     }
 
@@ -327,7 +327,7 @@ final class ManagingTaxRateContext implements Context
      */
     private function assertFieldValidationMessage($element, $expectedMessage)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         Assert::true(
             $currentPage->checkValidationMessageFor($element, $expectedMessage),

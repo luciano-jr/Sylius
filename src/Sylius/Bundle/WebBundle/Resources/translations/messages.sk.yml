@@ -85,8 +85,6 @@ sylius:
         no_shipments: Pre túto objednávku neexistujú žiadne zásielky
         no_shipping_charges: Nie sú uplatnené žiadne poplatky za dopravu
         no_taxes: Nie sú uplatnené žiadne dane
-        state:
-            order_confimed: Objednávka potvrdená
     order_item:
         quantity: Množstvo
         sellable: Produkt
@@ -94,6 +92,18 @@ sylius:
         no_route: Obsah sa nezobrazi vo verejnej časti stránky, pokiaľ nie je definovaná URL cesta
         publishable: Uverejnené
     payment:
+        state:
+            checkout: Košík
+            completed: Dokončená
+            authorized: Autorizovaná
+            failed: Neúspešná
+            new: Nová
+            pending: Čakajúca
+            processing: Spracúvava sa
+            unknown: Neznáme
+            void: Neplatná
+            cancelled: Zrušená
+            refunded: Vrátené peniaze
         transition:
             cancel: zrušiť
             complete: dokončené
@@ -120,6 +130,15 @@ sylius:
             no_account: Ešte nemáte konto
     shipment:
         no_items: Neexistujú žiadne položky na zobrazenie
+        state:
+            ready: Pripravená
+            returned: Vrátená
+            shipped: Odoslané
+            pending: Čakajúca
+            onhold: Rezerované
+            backordered: Predobjednané
+            cancelled: Zrušená
+            partially_shipped: Čiastočne dodané
         transition:
             backorder: predobjednaná
             cancel: zrušiť
@@ -190,13 +209,10 @@ sylius:
         building_product_from_archetype: Vytvoriť produkt z prototypu
         calculator: Spôsob vypočtu
         cancel: Zrušiť
-        cancelled: Zrušené
         cart_locked: Košík uzamknutý
         cart_summary: Obsah košíka
         categorization: Kategórie
         category: Kategória
-        change_password: Zmena hesla
-        change_your_password: Zmena hesla
         channel: Kanál
         channels: Kanály
         checkout: Košík
@@ -285,7 +301,7 @@ sylius:
         customer_not_notified: Upozornenie nebolo poslané
         customer_notified: Upozornenie poslané
         customer_orders: Objednávky zákazníka
-        customer_since: Ste zákazníkom od
+        customer_since: Zákazník od
         customers: Zákazníci
         customers_list_of_all_customers_in_store: 'Zákazníci, <small>zoznam všetkých zakazníkov v obchode</small>'
         customize_default_metadata: Úprava predvolených metadáta
@@ -304,6 +320,7 @@ sylius:
         description: Popis
         details: Podrobnosti
         disable: Vypnúť
+        discounted_unit_price: Zľavnená jednotková cena
         edit: Upraviť
         edit_association_type: Upraviť typ priradenia
         edit_group: Upraviť skupinu
@@ -558,6 +575,7 @@ sylius:
         provinces: Provincie
         qty_max: Max. množstvo
         qty_min: Min. množstvo
+        quantity: Množstvo
         rating: Hodnotenie
         recent_customers: Najnovši zákaznici
         recent_orders: Posledné objednávky
@@ -580,7 +598,6 @@ sylius:
         restricted_zone: Zóna s obmedzeným prístupom
         retail_price: Predajná cena
         return: Vrátiť
-        returned: Vrátené
         revert: Vrátiť spať
         review_details: Detail recenzie
         reviews: Recenzie
@@ -602,7 +619,6 @@ sylius:
         shipment_mode: Spôsob doručenia
         shipment_state: Stav zásielky
         shipments: Zásielky
-        shipped: Odoslané
         shipping_address: Adresa doručenia
         shipping_categories: Kategórie doručenia
         shipping_category: Kategória doručenia
@@ -713,6 +729,7 @@ sylius:
         users_list_of_all_users_registered_in_store: 'Používatelia <small>Zoznam všetkých používateľov zaregistrovaných v obchode</small>'
         values: Hodnoty
         variant_selection_method: Spôsob výberu produktového variantu
+        variant: Varianty
         variants: Varianty
         view: Zobraziť
         view_more: Zobraziť viac

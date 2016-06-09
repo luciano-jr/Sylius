@@ -81,6 +81,19 @@ sylius:
     page:
         no_route: Yol yok tanımlanmışsa, içeriğinizi önyüz içinde görünmez
         publishable: yayınla
+    payment:
+        state:
+            checkout: 'Ödeme  yap'
+            completed: Tamamlandı
+            authorized: Yetkili
+            failed: Başarısız oldu
+            new: Yeni
+            pending: Beklemede
+            processing: İşlem Yapılıyor
+            unknown: Bilinmiyor
+            void: Boş
+            cancelled: İptal Edildi
+            refunded: İade Edildi
     pricing:
         volume_based:
             max: Max birim
@@ -95,6 +108,12 @@ sylius:
         login:
             info: '<b>"İyi sylius@example.com"</b> e-posta ve <b>"sylius"</b> şifrenizi kullanarak giriş yapınız. <small>Bay Sylius Demo Kılavuzu</small>'
     shipment:
+        state:
+            ready: Hazır
+            returned: İade Edildi
+            shipped: Kargolandı
+            pending: Beklemede
+            cancelled: İptal Edildi
         update: Düzenle
     taxon:
         image: Resim seç
@@ -146,11 +165,8 @@ sylius:
         building_product_from_archetype: Güzel örneği yapı ürün
         calculator: Hesaplayıcı
         cancel: İptal
-        cancelled: İptal Edildi
         categorization: Sınıflandırma
         category: Kategori
-        change_password: Parolanızı değiştirin
-        change_your_password: Parolanızı değiştirin
         channel: Kanal
         channels: Kanallar
         checkout: 'Ödeme  yap'
@@ -463,6 +479,7 @@ sylius:
         provinces: İller
         qty_max: Maks miktar
         qty_min: Min miktar
+        quantity: Adet
         recent_customers: Son müşteriler
         recent_orders: Son siparişler
         recent_users: Son kullanıcılar
@@ -480,7 +497,6 @@ sylius:
         restricted_zone: Kısıtlı bölge
         retail_price: Perakende fiyatı
         return: İade
-        returned: İade Edildi
         revert: Döndür
         reviews: Yorumlar
         roles: Roller
@@ -500,7 +516,6 @@ sylius:
         shipment_details: Kargo ayrıntıları
         shipment_state: Teslimat durumu
         shipments: Kargo İşlemleri
-        shipped: Kargolandı
         shipping_address: Teslimat adresi
         shipping_categories: Kargo Kategorileri
         shipping_category: Teslimat kategorisi
@@ -561,6 +576,7 @@ sylius:
         username: Kullanıcı adı
         users_list_of_all_users_registered_in_store: '<small>Tüm kullanıcıların listesini deposunda kayıtlı</small> kullanıcılar'
         variant_selection_method: Varyant seçme yöntemi
+        variant: Türevleri
         variants: Türevleri
         view: Görüntüle
         view_more: Detayları göster

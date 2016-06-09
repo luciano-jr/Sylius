@@ -69,11 +69,35 @@ class IndexPage extends SymfonyPage implements IndexPageInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function isSingleResourceWithSpecificElementOnPage(array $parameters, $element)
+    {
+        try {
+            $rows = $this->tableAccessor->getRowsWithFields($this->getElement('table'), $parameters);
+
+            if (1 !== count($rows)) {
+                return false;
+            }
+
+            return null !== $rows[0]->find('css', $element);
+        } catch (\InvalidArgumentException $exception) {
+            return false;
+        } catch (ElementNotFoundException $exception) {
+            return false;
+        }
+    }
+
+    /**
      * @return int
      */
     public function countItems()
     {
-        return $this->getTableAccessor()->countTableBodyRows($this->getElement('table'));
+        try {
+            return $this->getTableAccessor()->countTableBodyRows($this->getElement('table'));
+        } catch (ElementNotFoundException $exception) {
+            return 0;
+        }
     }
 
     /**
@@ -93,7 +117,7 @@ class IndexPage extends SymfonyPage implements IndexPageInterface
     /**
      * {@inheritdoc}
      */
-    protected function getRouteName()
+    public function getRouteName()
     {
         return sprintf('sylius_admin_%s_index', $this->resourceName);
     }

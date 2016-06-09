@@ -13,10 +13,10 @@ namespace Sylius\Behat\Context\Ui\Admin;
 
 use Behat\Behat\Context\Context;
 use Sylius\Behat\NotificationType;
-use Sylius\Behat\Page\Admin\Crud\IndexPageInterface;
+use Sylius\Behat\Page\Admin\Promotion\IndexPageInterface;
 use Sylius\Behat\Page\Admin\Promotion\CreatePageInterface;
 use Sylius\Behat\Page\Admin\Promotion\UpdatePageInterface;
-use Sylius\Behat\Service\CurrentPageResolverInterface;
+use Sylius\Behat\Service\Resolver\CurrentPageResolverInterface;
 use Sylius\Behat\Service\NotificationCheckerInterface;
 use Sylius\Component\Core\Model\PromotionInterface;
 use Sylius\Component\Core\Test\Services\SharedStorageInterface;
@@ -90,6 +90,14 @@ final class ManagingPromotionsContext implements Context
     }
 
     /**
+     * @Given I want to browse promotions
+     */
+    public function iWantToBrowsePromotions()
+    {
+        $this->indexPage->open();
+    }
+
+    /**
      * @When I specify its code as :code
      * @When I do not specify its code
      */
@@ -110,6 +118,7 @@ final class ManagingPromotionsContext implements Context
 
     /**
      * @Then the :promotionName promotion should appear in the registry
+     * @Then the :promotionName promotion should exist in the registry
      * @Then this promotion should still be named :promotionName
      * @Then promotion :promotionName should still exist in the registry
      */
@@ -176,6 +185,40 @@ final class ManagingPromotionsContext implements Context
     }
 
     /**
+     * @Then /^there should be (\d+) promotion(?:|s)$/
+     */
+    public function thereShouldBePromotion($number)
+    {
+        Assert::eq(
+            $number,
+            $this->indexPage->countItems(),
+            'I should see %s promotions but i see only %2$s'
+        );
+    }
+
+    /**
+     * @Then /^(this promotion) should be coupon based$/
+     */
+    public function thisPromotionShouldBeCouponBased(PromotionInterface $promotion)
+    {
+        Assert::true(
+            $this->indexPage->isCouponBasedFor($promotion),
+            sprintf('Promotion with name "%s" should be coupon based', $promotion->getName())
+        );
+    }
+
+    /**
+     * @Then /^I should be able to manage coupons for (this promotion)$/
+     */
+    public function iShouldBeAbleToManageCouponsForThisPromotion(PromotionInterface $promotion)
+    {
+        Assert::true(
+            $this->indexPage->isAbleToManageCouponsFor($promotion),
+            sprintf('I should be able to manage coupons for given promotion with name %s but apparently i am not.', $promotion->getName())
+        );
+    }
+
+    /**
      * @Then I should be notified that :element is required
      */
     public function iShouldBeNotifiedThatIsRequired($element)
@@ -225,7 +268,7 @@ final class ManagingPromotionsContext implements Context
      */
     public function iSetItsUsageLimitTo($usageLimit)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         $currentPage->fillUsageLimit($usageLimit);
     }
@@ -248,7 +291,7 @@ final class ManagingPromotionsContext implements Context
      */
     public function iMakeItExclusive()
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         $currentPage->makeExclusive();
     }
@@ -266,7 +309,7 @@ final class ManagingPromotionsContext implements Context
      */
     public function iMakeItCouponBased()
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         $currentPage->checkCouponBased();
     }
@@ -284,7 +327,7 @@ final class ManagingPromotionsContext implements Context
      */
     public function iMakeItApplicableForTheChannel($channelName)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         $currentPage->checkChannel($channelName);
     }
@@ -292,7 +335,7 @@ final class ManagingPromotionsContext implements Context
     /**
      * @Then the :promotion promotion should be applicable for the :channelName channel
      */
-    public function thePromotionShouldBeApplicatableForTheChannel(PromotionInterface $promotion, $channelName)
+    public function thePromotionShouldBeApplicableForTheChannel(PromotionInterface $promotion, $channelName)
     {
         $this->iWantToModifyAPromotion($promotion);
 
@@ -372,7 +415,7 @@ final class ManagingPromotionsContext implements Context
      */
     public function iMakeItAvailableFromTo(\DateTime $startsDate, \DateTime $endsDate)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         $currentPage->setStartsAt($startsDate);
         $currentPage->setEndsAt($endsDate);
@@ -401,7 +444,7 @@ final class ManagingPromotionsContext implements Context
      */
     public function iShouldBeNotifiedThatPromotionCannotEndBeforeItsEvenStart()
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         Assert::true(
             $currentPage->checkValidationMessageFor('ends_at', 'End date cannot be set prior start date.'),
@@ -415,7 +458,7 @@ final class ManagingPromotionsContext implements Context
      */
     private function assertFieldValidationMessage($element, $expectedMessage)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         Assert::true(
             $currentPage->checkValidationMessageFor($element, $expectedMessage),

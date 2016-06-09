@@ -75,6 +75,19 @@ sylius:
     page:
         no_route: Jūsų turinys nebus rodomas, jei nukreipimas nėra nurodytas
         publishable: Paskelbta
+    payment:
+        state:
+            checkout: Apmokėjimas
+            completed: Baigtas
+            authorized: Patvirtintas
+            failed: Nepavyko
+            new: Naujas
+            pending: Laukiama
+            processing: Apdorojamas
+            unknown: Nežinoma
+            void: Nenurodyta
+            cancelled: Atšaukta
+            refunded: Grąžinta
     pricing:
         volume_based:
             max: Maks. kiekis
@@ -83,6 +96,12 @@ sylius:
         generate: Generuoti kuponus
         index: Kuponų sąrašas
     shipment:
+        state:
+            ready: Paruošta
+            returned: Grąžintas
+            shipped: Pristatytas
+            pending: Laukiama
+            cancelled: Atšaukta
         update: Redaguoti
     taxon:
         image: Pasirinkite paveikslėlį
@@ -133,11 +152,8 @@ sylius:
         building_product_from_archetype: Produkto kūrimas iš archetipo
         calculator: Skaičiuoklė
         cancel: Atšaukti
-        cancelled: Atšaukta
         categorization: Skirstymas į kategorijas
         category: Kategorija
-        change_password: Pakeisti savo slaptažodį
-        change_your_password: Pakeisti savo slaptažodį
         channel: Kanalas
         channels: Kanalai
         checkout: Apmokėjimas
@@ -427,6 +443,7 @@ sylius:
         provinces: Provincijos
         qty_max: Kiekis max
         qty_min: Kiekis min
+        quantity: Kiekis
         recent_orders: Naujausi užsakymai
         recent_users: Naujausi vartotojai
         redirect_routes: Nukreipimo maršrutai
@@ -442,7 +459,6 @@ sylius:
         restricted_zone: Apribota zona
         retail_price: Mažmeninė kaina
         return: Grįžti
-        returned: Grąžintas
         revert: Atstatyti
         roles: Rolės
         routes: Maršrutai
@@ -461,7 +477,6 @@ sylius:
         shipment_details: Pristatymo detalės
         shipment_state: Pristatymo būsena
         shipments: Pristatymai
-        shipped: Pristatytas
         shipping_address: Pristatymo adresas
         shipping_categories: Pristatymo kategorijos
         shipping_category: Pristatymo kategorija
@@ -522,6 +537,7 @@ sylius:
         username: Vartotojo vardas
         users_list_of_all_users_registered_in_store: 'Vartotojai <small>visų registruotų vartotojų sąrašas</small>'
         variant_selection_method: Varianto pasirinkimo būdas
+        variant: Variantai
         variants: Variantai
         view: Peržiūrėti
         view_more: Rodyti daugiau

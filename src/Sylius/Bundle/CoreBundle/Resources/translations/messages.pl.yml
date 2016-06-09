@@ -36,6 +36,7 @@ sylius:
             shipping_methods: Metody wysyłki
             payment_methods: Metody płatności
             theme: Motyw
+            hostname: Nazwa hosta
         image:
             file: Zdjęcie
         locale:
@@ -61,7 +62,7 @@ sylius:
             main_taxon: Główne grupy
         product_filter:
             name: Nazwa
-            sku: SKU
+            code: Kod
         product_variant:
             tax_category: Kategoria podatkowa
         settings:
@@ -146,3 +147,5 @@ sylius:
             name: Potwierdzenie dostawy
         user_confirmation:
             name: Potwierdzenia przez użytkownika
+        password_reset:
+            name: Resetowanie hasła

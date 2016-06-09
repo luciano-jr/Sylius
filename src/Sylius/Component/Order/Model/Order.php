@@ -299,14 +299,6 @@ class Order implements OrderInterface
     /**
      * {@inheritdoc}
      */
-    public function getTotalItems()
-    {
-        return $this->countItems();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getTotalQuantity()
     {
         $quantity = 0;
@@ -435,7 +427,9 @@ class Order implements OrderInterface
 
         $total = 0;
         foreach ($this->getAdjustments($type) as $adjustment) {
-            $total += $adjustment->getAmount();
+            if (!$adjustment->isNeutral()) {
+                $total += $adjustment->getAmount();
+            }
         }
 
         return $total;
@@ -448,7 +442,9 @@ class Order implements OrderInterface
     {
         $total = 0;
         foreach ($this->getAdjustmentsRecursively($type) as $adjustment) {
-            $total += $adjustment->getAmount();
+            if (!$adjustment->isNeutral()) {
+                $total += $adjustment->getAmount();
+            }
         }
 
         return $total;
@@ -471,10 +467,12 @@ class Order implements OrderInterface
     /**
      * {@inheritdoc}
      */
-    public function clearAdjustments()
+    public function removeAdjustmentsRecursively($type = null)
     {
-        $this->adjustments->clear();
-        $this->recalculateAdjustmentsTotal();
+        $this->removeAdjustments($type);
+        foreach ($this->items as $item) {
+            $item->removeAdjustmentsRecursively($type);
+        }
     }
 
     /**

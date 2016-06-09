@@ -11,8 +11,13 @@ sylius:
             placed_at: 'Hecho el %at%'
             shipment:
                 ready: 'Preparado desde %at%'
-                returned: 'Devuelto %at%'
-                shipped: 'Enviado %at%'
+                returned: 'Devuelto el %at%'
+                shipped: 'Enviado el %at%'
+                checkout: 'Extraído de %at%'
+                pending: 'Pendiente %at%'
+                onhold: 'En espera desde %at%'
+                backordered: 'Pendientes desde %at%'
+                cancelled: '%at% cancelado'
         title: Mi cuenta
     archetype:
         build: Construir prototipo
@@ -33,7 +38,7 @@ sylius:
         empty: El carrito está vacío
         summary:
             clear: Vaciar carrito
-            quantity: Cantidad
+            quantity: Cant.
         total_items: Total de articulos
     checkout:
         finalize:
@@ -47,7 +52,7 @@ sylius:
                 quantity: Cantidad
         forward: Siguiente
         security:
-            proceed_order: Proceder con su orden
+            proceed_order: Realizar pedido
         shipping:
             error: Lo sentimos, pero nuestra tienda no puede enviar productos al país que ha elegido
     confirmation:
@@ -86,7 +91,7 @@ sylius:
         no_shipping_charges: Sin cargos de envío aplicados
         no_taxes: Sin impuestos
         state:
-            order_confimed: Pedido confirmado
+            order_confirmed: Pedido confirmado
     order_item:
         quantity: Cantidad
         sellable: Producto
@@ -94,6 +99,18 @@ sylius:
         no_route: Su contenido no aparecerá en la interfaz si no se ha definido ninguna ruta
         publishable: Publicado
     payment:
+        state:
+            checkout: Completar pedido
+            completed: Completado
+            authorized: Autorizado
+            failed: Fallido
+            new: Nuevo
+            pending: Pendiente
+            processing: Procesando
+            unknown: Desconocido
+            void: Vacío
+            cancelled: Cancelado/a
+            refunded: Reembolsado
         transition:
             cancel: cancelar
             complete: completar
@@ -120,9 +137,21 @@ sylius:
             no_account: Sin cuenta todavía
     shipment:
         no_items: No hay elementos para mostrar
+        state:
+            ready: Listo
+            returned: Devuelto
+            shipped: Enviado
+            checkout: Completado
+            pending: Pendiente
+            onhold: En espera
+            backordered: Pendientes de entrega
+            cancelled: Cancelado/a
+            partially_shipped: Enviado parcialmente
         transition:
+            backorder: en espera
             cancel: cancelar
             prepare: preparar
+            release: lanzamiento
             return: devolver
             ship: enviar
         update: Editar
@@ -188,13 +217,10 @@ sylius:
         building_product_from_archetype: Construir producto de prototipo
         calculator: Calculadora
         cancel: Cancelar
-        cancelled: Cancelado/a
         cart_locked: Carrito bloqueado
         cart_summary: Resumen del carrito
         categorization: Categorización
         category: Categoria
-        change_password: Cambiar mi contraseña
-        change_your_password: Cambiar mi contraseña
         channel: Canal
         channels: Canales
         checkout: Completar pedido
@@ -283,7 +309,7 @@ sylius:
         customer_not_notified: Cliente no notificado
         customer_notified: Cliente notificado
         customer_orders: Pedidos del cliente
-        customer_since: Usted es cliente desde
+        customer_since: Cliente desde
         customers: Clientes
         customers_list_of_all_customers_in_store: 'Clientes <small>Lista de todos los clientes en la tienda</small>'
         customize_default_metadata: Personalizar metadatos predeterminados
@@ -302,6 +328,7 @@ sylius:
         description: Descripción
         details: Detalles
         disable: Desactivar
+        discounted_unit_price: Precio unitario con descuento
         edit: Editar
         edit_association_type: Editar tipo de asociación
         edit_group: Editar grupo
@@ -556,6 +583,7 @@ sylius:
         provinces: Provincias
         qty_max: Cantidad Maxima
         qty_min: Cantidad minima
+        quantity: Cantidad
         rating: Valoración
         recent_customers: Clientes recientes
         recent_orders: Pedidos recientes
@@ -578,11 +606,10 @@ sylius:
         restricted_zone: Zona restringida
         retail_price: Precio
         return: Devolver
-        returned: Devuelto
         revert: Revertir
         review_details: Detalles de reseña
         reviews: Reseñas
-        roles: Roles
+        roles: Perfiles
         routes: Rutas
         rules: Reglas
         sales: Ventas
@@ -600,7 +627,6 @@ sylius:
         shipment_mode: Modo de envío
         shipment_state: Estado del envio
         shipments: Envios
-        shipped: Enviado
         shipping_address: Dirección de envio
         shipping_categories: Categorías de envío
         shipping_category: Categoría de envío
@@ -711,6 +737,7 @@ sylius:
         users_list_of_all_users_registered_in_store: Lista de todos los usuarios registrados en la tienda
         values: Valores
         variant_selection_method: étodo de selección de la variante
+        variant: Variantes
         variants: Variantes
         view: Ver
         view_more: Ver más

@@ -85,8 +85,6 @@ sylius:
         no_shipments: Kein Versand für diese Bestellung
         no_shipping_charges: Keine Versandkosten
         no_taxes: Keine Steuern
-        state:
-            order_confimed: Bestellung bestätigt
     order_item:
         quantity: Artikelmenge
         sellable: Verkäuflich
@@ -94,6 +92,18 @@ sylius:
         no_route: Die Seite wird nicht im Frontend angezeigt, da keine Route definiert worden ist
         publishable: Veröffentlicht
     payment:
+        state:
+            checkout: Zur Kasse
+            completed: Abgeschlossen
+            authorized: Autorisiert
+            failed: Fehlgeschlagen
+            new: Neu
+            pending: Ausstehend
+            processing: Wird verarbeitet
+            unknown: Unbekannt
+            void: Ungültig
+            cancelled: Abgebrochen
+            refunded: Rückerstattet
         transition:
             cancel: Abbrechen
             complete: Abgeschlossen
@@ -120,6 +130,13 @@ sylius:
             no_account: Noch keinen Account
     shipment:
         no_items: Es gibt keine Elemente anzuzeigen
+        state:
+            ready: Bereit
+            returned: Zurückgesandt
+            shipped: Versandt
+            pending: Ausstehend
+            onhold: Angehalten
+            cancelled: Abgebrochen
         transition:
             backorder: Rückstand
             cancel: Abbrechen
@@ -190,13 +207,10 @@ sylius:
         building_product_from_archetype: Produkt aus Vorlage erstellen
         calculator: Steuersatzrechner
         cancel: Abbrechen
-        cancelled: Abgebrochen
         cart_locked: Warenkorb gesperrt
         cart_summary: Warenkorb-Übersicht
         categorization: Produktkategorisierung
         category: Kategorie
-        change_password: Passwort ändern
-        change_your_password: Passwort ändern
         channel: Promotionskanäle
         channels: Ausgabekanäle
         checkout: Zur Kasse
@@ -285,7 +299,6 @@ sylius:
         customer_not_notified: Kunde nicht benachrichtigt
         customer_notified: Kunde benachrichtigt
         customer_orders: Kundenbestellungen
-        customer_since: Sie sind Kunde seit
         customers: Kunden
         customers_list_of_all_customers_in_store: 'Kunden<small>Liste aller Kunden</small>'
         customize_default_metadata: Standard-Metadaten anpassen
@@ -557,6 +570,7 @@ sylius:
         provinces: Bundesländer
         qty_max: Maximal Anzahl
         qty_min: Mindestanzahl
+        quantity: Stückzahl
         rating: Bewertung
         recent_customers: Neuste Kunden
         recent_orders: Letzte Bestellungen
@@ -579,7 +593,6 @@ sylius:
         restricted_zone: Eingeschränktes Versandgebiet
         retail_price: Listenpreis
         return: Zurückschicken
-        returned: Zurückgesandt
         revert: Wiederherstellen
         review_details: Bewertungsdetails
         reviews: Rezensionen
@@ -601,7 +614,6 @@ sylius:
         shipment_mode: Versandart
         shipment_state: Versandstatus
         shipments: Lieferungen
-        shipped: Versandt
         shipping_address: Lieferadresse
         shipping_categories: Versandgruppen
         shipping_category: Versandkategorie
@@ -712,6 +724,7 @@ sylius:
         users_list_of_all_users_registered_in_store: Benutzer
         values: Werte
         variant_selection_method: Variantenauswahlmethode
+        variant: Varianten
         variants: Varianten
         view: Anzeigen
         view_more: Mehr anzeigen

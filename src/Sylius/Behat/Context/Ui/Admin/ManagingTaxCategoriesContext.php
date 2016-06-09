@@ -15,7 +15,7 @@ use Behat\Behat\Context\Context;
 use Sylius\Behat\Page\Admin\Crud\IndexPageInterface;
 use Sylius\Behat\Page\Admin\TaxCategory\UpdatePageInterface;
 use Sylius\Behat\Page\Admin\TaxCategory\CreatePageInterface;
-use Sylius\Behat\Service\CurrentPageResolverInterface;
+use Sylius\Behat\Service\Resolver\CurrentPageResolverInterface;
 use Sylius\Component\Taxation\Model\TaxCategoryInterface;
 use Webmozart\Assert\Assert;
 
@@ -200,7 +200,7 @@ final class ManagingTaxCategoriesContext implements Context
         $this->indexPage->open();
         Assert::true(
             $this->indexPage->isSingleResourceOnPage([$element => $code]),
-            sprintf('Tax category with %s %s cannot be founded.', $element, $code)
+            sprintf('Tax category with %s %s cannot be found.', $element, $code)
         );
     }
 
@@ -209,7 +209,7 @@ final class ManagingTaxCategoriesContext implements Context
      */
     public function iShouldBeNotifiedThatIsRequired($element)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         Assert::true(
             $currentPage->checkValidationMessageFor($element, sprintf('Please enter tax category %s.', $element)),

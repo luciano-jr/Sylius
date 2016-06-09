@@ -11,13 +11,19 @@ sylius:
             presentation: Prezentace
     ui:
         actions: Akce
+        add_coupon: Přidat kupón
         cancel: Zrušit
+        cancelled: Zrušeno
+        change_your_password: Změnit heslo
+        checkout: Objednat
         color: Barva
         countries: Země
         coupon_based: Kupón na bázi
+        coupons: Kupóny
         create: Vytvořit
         currencies: Měny
         dashboard: Nástěnka
+        date: Datum
         default_currency: Výchozí měna
         delete: Odstranit
         description: Popis
@@ -25,14 +31,26 @@ sylius:
         empty: Prázdné
         enabled: Povoleno
         exclusive: Exkluzivní
+        expires_at: Končí v
         filter: Filtr
+        generate_coupons: Generovat kupóny
+        item: Položka
+        list_coupons: Seznam kupónů
         locales: Lokalizace
         new: Nový
         new_country: Nové země
         new_currency: Nová měna
         new_tax_category: Nová kategorie daně
         "no": false
+        no_promotion: Nejsou aplikovány žádné akce
+        no_shipping_charges: Nejsou aplikovány žádné poplatky za dopravu
+        no_taxes: Nejsou aplikovány žádné daně
+        price: Cena
+        quantity: Množství
+        ready: Připraven
+        returned: Vráceno
         save_changes: Uložit změny
+        shipped: Dodáno
         shipping_methods: Způsoby dopravy
         success: Úspěch
         "yes": true

@@ -11,6 +11,7 @@
 
 namespace Sylius\Bundle\VariationBundle\Form\Type;
 
+use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\VariationBundle\Form\EventListener\BuildVariantFormSubscriber;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -48,25 +49,10 @@ class VariantType extends AbstractResourceType
                 'required' => false,
                 'label' => 'sylius.form.variant.presentation',
             ])
+            ->addEventSubscriber(new AddCodeFormSubscriber())
         ;
 
-        if (!$options['master']) {
-            $builder->addEventSubscriber(new BuildVariantFormSubscriber($this->variableName, $builder->getFormFactory()));
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        parent::configureOptions($resolver);
-
-        $resolver
-            ->setDefaults([
-                'master' => false,
-            ])
-        ;
+        $builder->addEventSubscriber(new BuildVariantFormSubscriber($this->variableName, $builder->getFormFactory()));
     }
 
     /**

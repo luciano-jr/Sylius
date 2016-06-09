@@ -15,7 +15,7 @@ use Behat\Behat\Context\Context;
 use Sylius\Behat\Page\Admin\Crud\IndexPageInterface;
 use Sylius\Behat\Page\Admin\Zone\UpdatePageInterface;
 use Sylius\Behat\Page\Admin\Zone\CreatePageInterface;
-use Sylius\Behat\Service\CurrentPageResolverInterface;
+use Sylius\Behat\Service\Resolver\CurrentPageResolverInterface;
 use Sylius\Behat\Service\NotificationCheckerInterface;
 use Sylius\Behat\NotificationType;
 use Sylius\Component\Addressing\Model\ZoneInterface;
@@ -237,7 +237,7 @@ final class ManagingZonesContext implements Context
      */
     public function iShouldBeNotifiedThatZoneWithThisCodeAlreadyExists()
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         Assert::true(
             $currentPage->checkValidationMessageFor('code', 'Zone code must be unique.'),
@@ -263,7 +263,7 @@ final class ManagingZonesContext implements Context
      */
     public function iShouldBeNotifiedThatIsRequired($element)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         Assert::true(
             $currentPage->checkValidationMessageFor($element, sprintf('Please enter zone %s.', $element)),

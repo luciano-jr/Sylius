@@ -44,10 +44,28 @@ sylius:
     order_item:
         quantity: Antall
         sellable: Produkt
+    payment:
+        state:
+            checkout: Gå til kassen
+            completed: Fullført
+            failed: Mislyktes
+            new: Ny
+            pending: Venter
+            processing: Behandler
+            unknown: Ukjent
+            void: Ugyldig
+            cancelled: Avbrutt
+            refunded: Refundert
     promotion_coupon:
         generate: Generer kuponger
         index: List ut kuponger
     shipment:
+        state:
+            ready: Klar
+            returned: Returnert
+            shipped: Sendt
+            pending: Venter
+            cancelled: Avbrutt
         update: Rediger
     taxon:
         image: Velg bilde
@@ -85,11 +103,8 @@ sylius:
         build: Bygg
         calculator: Kalkulator
         cancel: Avbryt
-        cancelled: Avbrutt
         categorization: Kategorisering
         category: Kategori
-        change_password: Endre passord
-        change_your_password: Endre passord
         checkout: Gå til kassen
         choose_file: Velg fil
         city: By
@@ -288,6 +303,7 @@ sylius:
         promotions: Kampanjer
         province: Provins
         provinces: Fylker
+        quantity: Antall
         recent_orders: Siste ordrer
         recent_users: Nylige brukere
         refunded: Refundert
@@ -298,7 +314,6 @@ sylius:
         restricted_zone: Begrenset sone
         retail_price: Utsalgspris
         return: Retur
-        returned: Returnert
         roles: Roller
         routes: Ruter
         rules: Regler
@@ -314,7 +329,6 @@ sylius:
         shipment_details: Forsendelsedetaljer
         shipment_state: Forsendelsestatus
         shipments: Forsendelser
-        shipped: Sendt
         shipping_address: Leveringsadresse
         shipping_categories: Fraktkategorier
         shipping_category: Fraktkategori

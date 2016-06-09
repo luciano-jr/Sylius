@@ -29,6 +29,7 @@ final class MainMenuBuilder extends AbstractAdminMenuBuilder
         $menu = $this->factory->createItem('root');
 
         $this->configureCatalogSubMenu($menu);
+        $this->configureSalesMenu($menu);
         $this->configureCustomersSubMenu($menu);
         $this->configureMarketingSubMenu($menu);
         $this->configureConfigurationSubMenu($menu);
@@ -53,11 +54,19 @@ final class MainMenuBuilder extends AbstractAdminMenuBuilder
             ->setLabel('sylius.menu.admin.main.catalog.taxons')
             ->setLabelAttribute('icon', 'folder')
         ;
+
+        $catalogSubMenu
+            ->addChild('products', ['route' => 'sylius_admin_product_index'])
+            ->setLabel('sylius.menu.admin.main.catalog.products')
+            ->setLabelAttribute('icon', 'cube')
+        ;
+
         $catalogSubMenu
             ->addChild('attributes', ['route' => 'sylius_admin_product_attribute_index'])
             ->setLabel('sylius.menu.admin.main.catalog.attributes')
             ->setLabelAttribute('icon', 'cubes')
         ;
+
         $catalogSubMenu
             ->addChild('options', ['route' => 'sylius_admin_product_option_index'])
             ->setLabel('sylius.menu.admin.main.catalog.options')
@@ -96,6 +105,23 @@ final class MainMenuBuilder extends AbstractAdminMenuBuilder
             ->addChild('promotions', ['route' => 'sylius_admin_promotion_index'])
             ->setLabel('sylius.menu.admin.main.marketing.promotions')
             ->setLabelAttribute('icon', 'in cart')
+        ;
+    }
+
+    /**
+     * @param ItemInterface $menu
+     */
+    private function configureSalesMenu(ItemInterface $menu)
+    {
+        $child = $menu
+            ->addChild('sales')
+            ->setLabel('sylius.menu.admin.main.sales.header')
+        ;
+
+        $child
+            ->addChild('orders', ['route' => 'sylius_admin_order_index'])
+            ->setLabel('sylius.menu.admin.main.sales.orders')
+            ->setLabelAttribute('icon', 'cart')
         ;
     }
 

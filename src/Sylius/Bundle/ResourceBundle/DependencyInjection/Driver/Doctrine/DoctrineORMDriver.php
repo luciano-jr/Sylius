@@ -71,7 +71,7 @@ class DoctrineORMDriver extends AbstractDoctrineDriver
         $definition = new Definition(DefaultResourceType::class);
         $definition
             ->setArguments([
-                $this->getMetdataDefinition($metadata),
+                $this->getMetadataDefinition($metadata),
                 $defaultFormBuilderDefinition,
             ])
             ->addTag('form.type', ['alias' => sprintf('%s_%s', $metadata->getApplicationName(), $metadata->getName())])
@@ -85,7 +85,11 @@ class DoctrineORMDriver extends AbstractDoctrineDriver
      */
     protected function getManagerServiceId(MetadataInterface $metadata)
     {
-        return sprintf('doctrine.orm.%s_entity_manager', $this->getObjectManagerName($metadata));
+        if ($objectManagerName = $this->getObjectManagerName($metadata)) {
+            return sprintf('doctrine.orm.%s_entity_manager', $objectManagerName);
+        }
+
+        return 'doctrine.orm.entity_manager';
     }
 
     /**

@@ -10,6 +10,11 @@ sylius:
                 ready: 'Ready since %at%'
                 returned: 'Returned %at%'
                 shipped: 'Shipped %at%'
+                checkout: 'Checked out %at%'
+                pending: 'Pending %at%'
+                onhold: 'On hold since %at%'
+                backordered: 'Backordered since %at%'
+                cancelled: 'Cancelled %at%'
         title: 'My account'
     archetype:
         build: 'Build archetype'
@@ -83,7 +88,7 @@ sylius:
         no_shipping_charges: 'No shipping charges applied'
         no_taxes: 'No taxes applied'
         state:
-            order_confimed: 'Order confirmed'
+            order_confirmed: 'Order confirmed'
     order_item:
         quantity: Qty
         sellable: Product
@@ -91,6 +96,18 @@ sylius:
         no_route: 'Your content will not appear in frontend if no route is defined'
         publishable: Published
     payment:
+        state:
+            checkout: Checkout
+            completed: Completed
+            authorized: Authorized
+            failed: Failed
+            new: New
+            pending: Pending
+            processing: Processing
+            unknown: Unknown
+            void: Void
+            cancelled: Cancelled
+            refunded: Refunded
         transition:
             cancel: cancel
             complete: complete
@@ -117,6 +134,16 @@ sylius:
             no_account: 'No account yet'
     shipment:
         no_items: 'There are no items to display'
+        state:
+            ready: Ready
+            returned: Returned
+            shipped: Shipped
+            checkout: Checked out
+            pending: Pending
+            onhold: On hold
+            backordered: Backordered
+            cancelled: Cancelled
+            partially_shipped: Partially shipped
         transition:
             backorder: backorder
             cancel: cancel
@@ -140,6 +167,7 @@ sylius:
         add_action: 'Add action'
         add_association: 'Add association'
         add_attribute: 'Add attribute'
+        add_attributes: 'Add attributes'
         add_channel: 'Add channel'
         add_choice: 'Add choice'
         add_coupon: 'Add coupon'
@@ -187,13 +215,10 @@ sylius:
         building_product_from_archetype: 'Building product from archetype'
         calculator: Calculator
         cancel: Cancel
-        cancelled: Cancelled
         cart_locked: 'Cart locked'
         cart_summary: 'Cart summary'
         categorization: Categorization
         category: Category
-        change_password: 'Change your password'
-        change_your_password: 'Change your password'
         channel: Channel
         channels: Channels
         checkout: Checkout
@@ -282,7 +307,7 @@ sylius:
         customer_not_notified: 'Customer not notified'
         customer_notified: 'Customer notified'
         customer_orders: 'Customer orders'
-        customer_since: 'You are a customer since'
+        customer_since: 'Customer since'
         customers: Customers
         customers_list_of_all_customers_in_store: 'Customers <small>List of all customers in store</small>'
         customize_default_metadata: 'Customize default metadata'
@@ -301,6 +326,7 @@ sylius:
         description: Description
         details: Details
         disable: Disable
+        discounted_unit_price: 'Discounted unit price'
         edit: Edit
         edit_association_type: 'Edit Association type'
         edit_group: 'Edit group'
@@ -555,6 +581,7 @@ sylius:
         provinces: Provinces
         qty_max: 'Qty max'
         qty_min: 'Qty min'
+        quantity: 'Quantity'
         rating: Rating
         recent_customers: 'Recent customers'
         recent_orders: 'Recent orders'
@@ -574,10 +601,8 @@ sylius:
         reset_button: Reset
         reset_password: 'Reset password'
         restore: Restore
-        restricted_zone: 'Restricted zone'
         retail_price: 'Retail price'
         return: Return
-        returned: Returned
         revert: Revert
         review_details: 'Review details'
         reviews: Reviews
@@ -599,7 +624,6 @@ sylius:
         shipment_mode: 'Shipment mode'
         shipment_state: 'Shipment state'
         shipments: Shipments
-        shipped: Shipped
         shipping_address: 'Shipping address'
         shipping_categories: 'Shipping Categories'
         shipping_category: 'Shipping category'
@@ -691,7 +715,7 @@ sylius:
         total_orders: 'Total orders'
         total_qty: 'Total Qty'
         total_registrations: 'Total registrations'
-        tracking_code: 'Tracking Code'
+        tracking_code: 'Tracking code'
         tracking_number: 'Tracking number'
         translations: Translations
         type: Type
@@ -710,6 +734,7 @@ sylius:
         users_list_of_all_users_registered_in_store: 'Users <small>List of all users registered in store</small>'
         values: Values
         variant_selection_method: 'Variant selection method'
+        variant: Variants
         variants: Variants
         view: View
         view_more: 'View more'

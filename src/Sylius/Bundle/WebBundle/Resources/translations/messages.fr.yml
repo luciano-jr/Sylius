@@ -13,6 +13,11 @@ sylius:
                 ready: 'Prêt depuis %at%'
                 returned: 'Retourné le %at%'
                 shipped: 'Livré le %at%'
+                checkout: 'Vérifié le %at%'
+                pending: 'En attente depuis le %at%'
+                onhold: 'En attente depuis le %at%'
+                backordered: 'En rupture de stock depuis le %at%'
+                cancelled: 'Annulé le %at%'
         title: Mon compte
     archetype:
         build: Construire un prototype
@@ -86,7 +91,7 @@ sylius:
         no_shipping_charges: Aucun frais de port appliqué
         no_taxes: Pas de taxe appliquée
         state:
-            order_confimed: Commande confirmée
+            order_confirmed: Commande confirmée
     order_item:
         quantity: Quantité
         sellable: Produit
@@ -94,6 +99,18 @@ sylius:
         no_route: "Votre contenu ne va pas apparaître sur la boutique si aucune route n'est définie"
         publishable: Publié
     payment:
+        state:
+            checkout: Paiement
+            completed: Complété
+            authorized: Autorisé
+            failed: Échoué
+            new: Nouveau
+            pending: En attente
+            processing: En cours
+            unknown: Inconnu
+            void: Nul
+            cancelled: Annulé
+            refunded: Remboursé
         transition:
             cancel: annuler
             complete: terminé
@@ -121,6 +138,16 @@ sylius:
             no_account: "Vous n'avez encore pas de compte"
     shipment:
         no_items: "Il n'y a aucun élément à afficher"
+        state:
+            ready: Prêt
+            returned: Retourné
+            shipped: Expédié
+            checkout: Vérifié
+            pending: En attente
+            onhold: En attente
+            backordered: Rupture de stock
+            cancelled: Annulé
+            partially_shipped: Partiellement expédiée
         transition:
             backorder: rupture de stock
             cancel: annuler
@@ -191,13 +218,10 @@ sylius:
         building_product_from_archetype: Créer un produit depuis un prototype
         calculator: Calculateur
         cancel: Annuler
-        cancelled: Annulé
         cart_locked: Panier verrouillé
         cart_summary: Détail du panier
         categorization: Catégorisation
         category: Catégorie
-        change_password: Modifier votre mot de passe
-        change_your_password: Modifier votre mot de passe
         channel: Canal
         channels: Canaux
         checkout: Paiement
@@ -286,7 +310,7 @@ sylius:
         customer_not_notified: Client non informé
         customer_notified: Client informé
         customer_orders: Commandes clients
-        customer_since: Vous êtes client depuis
+        customer_since: Client depuis le
         customers: Clients
         customers_list_of_all_customers_in_store: 'Clients <small>Liste de tous les clients de la boutique</small>'
         customize_default_metadata: Personnaliser les méta-données par défaut
@@ -305,6 +329,7 @@ sylius:
         description: Description
         details: Détails
         disable: Desactiver
+        discounted_unit_price: Prix unitaire réduit
         edit: Modifier
         edit_association_type: "Modifier le type d'association"
         edit_group: Modifier le groupe
@@ -456,6 +481,7 @@ sylius:
         new_contact_topic: Nouvelle rubrique contact
         new_country: Nouveau pays
         new_currency: Nouvelle devise
+        new_customer: Nouveau client
         new_order: Nouvelle commande
         new_password: Nouveau mot de passe
         new_payment: Nouveau paiement
@@ -558,6 +584,7 @@ sylius:
         provinces: Province
         qty_max: Qté max
         qty_min: Qté min
+        quantity: Quantité
         rating: Note
         recent_customers: Clients récents
         recent_orders: Commandes récentes
@@ -580,7 +607,6 @@ sylius:
         restricted_zone: Restriction de zone
         retail_price: Prix
         return: Retour
-        returned: Retourné
         revert: Revenir en arrière
         review_details: Détails
         reviews: Avis
@@ -602,7 +628,6 @@ sylius:
         shipment_mode: Mode de livraison
         shipment_state: "Statut d'expédition"
         shipments: Expéditions
-        shipped: Expédié
         shipping_address: Adresse de livraison
         shipping_categories: "Catégories d'expédition"
         shipping_category: Catégorie de livraison
@@ -713,6 +738,7 @@ sylius:
         users_list_of_all_users_registered_in_store: Utilisateurs
         values: Valeurs
         variant_selection_method: Méthode de sélection de variante
+        variant: Variantes
         variants: Variantes
         view: Vue
         view_more: En savoir plus

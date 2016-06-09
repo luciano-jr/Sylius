@@ -13,6 +13,10 @@ sylius:
                 ready: 'Gereed sinds %at%'
                 returned: 'Geretourneerd op %at%'
                 shipped: 'Verzonden op %at%'
+                pending: 'Hangende %at%'
+                onhold: 'Wachtstand sinds %at%'
+                backordered: 'Bijbesteld sinds %at%'
+                cancelled: 'Geannuleerd %at%'
         title: Mijn account
     archetype:
         build: Bouw prototype
@@ -86,7 +90,7 @@ sylius:
         no_shipping_charges: Geen verzendkosten
         no_taxes: Geen belastingen
         state:
-            order_confimed: Bestelling bevestigd
+            order_confirmed: Bestelling bevestigd
     order_item:
         quantity: Hoeveelheid
         sellable: Product
@@ -94,6 +98,18 @@ sylius:
         no_route: Uw inhoud wordt niet weergegeven als er geen route gedefinieerd is
         publishable: Gepubliceerd
     payment:
+        state:
+            checkout: Afrekenen
+            completed: Voltooid
+            authorized: Gemachtigd
+            failed: Mislukt
+            new: Nieuw
+            pending: In behandeling
+            processing: Verwerken
+            unknown: Onbekend
+            void: Leeg
+            cancelled: Geannuleerd
+            refunded: Terugbetaald
         transition:
             cancel: annuleer
             complete: voltooi
@@ -120,6 +136,15 @@ sylius:
             no_account: Nog geen account
     shipment:
         no_items: Er zijn geen items om weer te geven
+        state:
+            ready: Klaar
+            returned: Geretourneerd
+            shipped: Verzonden
+            pending: In behandeling
+            onhold: In de wacht
+            backordered: Bijbesteld
+            cancelled: Geannuleerd
+            partially_shipped: Gedeeltelijk verzonden
         transition:
             backorder: nabestelling
             cancel: annuleer
@@ -190,13 +215,10 @@ sylius:
         building_product_from_archetype: Nieuw product van prototype
         calculator: Calculator
         cancel: Annuleren
-        cancelled: Geannuleerd
         cart_locked: Winkelwagen vergrendeld
         cart_summary: Winkelwagen overzicht
         categorization: Categorisering
         category: Categorie
-        change_password: Verander uw wachtwoord
-        change_your_password: Verander uw wachtwoord
         channel: Kanalen
         channels: Kanalen
         checkout: Afrekenen
@@ -285,7 +307,7 @@ sylius:
         customer_not_notified: Klant is niet geïnformeerd
         customer_notified: Klant op de hoogte gesteld
         customer_orders: Klantorders
-        customer_since: U bent al klant sinds
+        customer_since: Klant sinds
         customers: Klanten
         customers_list_of_all_customers_in_store: 'Klanten een <small>lijst van alle klanten in de winkel</small>'
         customize_default_metadata: Aanpassen van de standaard metadata
@@ -558,6 +580,7 @@ sylius:
         provinces: Provincies
         qty_max: Maximum aantal
         qty_min: Minimum aantal
+        quantity: Hoeveelheid
         rating: Beoordeling
         recent_customers: Recente klanten
         recent_orders: Recente bestellingen
@@ -580,7 +603,6 @@ sylius:
         restricted_zone: Beperkte zone
         retail_price: Retail prijs
         return: Retourneren
-        returned: Geretourneerd
         revert: Terugkeren
         review_details: Beoordelingsdetails
         reviews: Beoordelingen
@@ -602,7 +624,6 @@ sylius:
         shipment_mode: Verzendmethode
         shipment_state: Verzendstatus
         shipments: Verzendingen
-        shipped: Verzonden
         shipping_address: Bezorgadres
         shipping_categories: Verzendcategorieën
         shipping_category: Verzend categorie
@@ -713,6 +734,7 @@ sylius:
         users_list_of_all_users_registered_in_store: 'Gebruikers <small>Lijst van alle gebruikers in de winkel</small>'
         values: Waarden
         variant_selection_method: Variant selectiemethode
+        variant: Varianten
         variants: Varianten
         view: Weergave
         view_more: Bekijk details

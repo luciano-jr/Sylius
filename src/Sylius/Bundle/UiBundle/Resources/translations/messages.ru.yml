@@ -11,13 +11,19 @@ sylius:
             presentation: Публичное название
     ui:
         actions: Действия
+        add_coupon: Добавить купон
         cancel: Отмена
+        cancelled: Отменён
+        change_your_password: Change my password
+        checkout: Сверка
         color: Цвет
         countries: Страны
         coupon_based: Основана на купонах
+        coupons: sylius.breadcrumb.promotion_coupon.index
         create: Добавить
         currencies: Валюты
         dashboard: Приборная панель
+        date: Дата
         default_currency: Валюта по умолчанию
         default_locale: Локаль по умолчанию
         delete: sylius.account.address.action.delete
@@ -25,14 +31,26 @@ sylius:
         edit: Редактировать
         enabled: Активен
         exclusive: Эксклюзив
+        expires_at: Истекает
         filter: Фильтр
+        generate_coupons: Генерировать купоны
+        item: Товар
+        list_coupons: Список купонов
         locales: Языки
         new: Новый
         new_country: Добавить страну
         new_currency: Новая валюта
         new_tax_category: Создать налоговую категорию
         "no": false
+        no_promotion: Без скидки
+        no_shipping_charges: Без оплаты за пересылку
+        no_taxes: Без НДС
+        price: Цена
+        quantity: Количество
+        ready: Готов
+        returned: Возвращено
         save_changes: Сохранить изменения
+        shipped: Доставлено
         shipping_methods: Методы доставки
         sign_in: Войти
         sign_out: Выйти

@@ -42,10 +42,25 @@ sylius:
     order_item:
         quantity: Quantidade
         sellable: Produto
+    payment:
+        state:
+            checkout: Finalizar compra
+            completed: Concluído
+            failed: Falhado
+            new: Novo
+            pending: Pendente
+            processing: Em processamento
+            unknown: Desconhecido
+            void: Vazio
+            cancelled: Cancelado
+            refunded: Reembolsado
     promotion_coupon:
         generate: Gerar cupons
         index: Cupons
     shipment:
+        state:
+            pending: Pendente
+            cancelled: Cancelado
         update: Editar
     ui:
         actions: Ações
@@ -68,7 +83,6 @@ sylius:
         billing_address: Endereço de faturamento
         calculator: Calculadora
         cancel: Cancelar
-        cancelled: Cancelado
         categorization: Categorização
         category: Categoria
         checkout: Finalizar compra

@@ -15,7 +15,7 @@ use Behat\Behat\Context\Context;
 use Sylius\Behat\Page\Admin\Crud\IndexPageInterface;
 use Sylius\Behat\Page\Admin\ShippingMethod\CreatePageInterface;
 use Sylius\Behat\Page\Admin\ShippingMethod\UpdatePageInterface;
-use Sylius\Behat\Service\CurrentPageResolverInterface;
+use Sylius\Behat\Service\Resolver\CurrentPageResolverInterface;
 use Sylius\Behat\Service\NotificationCheckerInterface;
 use Sylius\Behat\NotificationType;
 use Sylius\Component\Core\Model\ShippingMethodInterface;
@@ -184,7 +184,7 @@ final class ManagingShippingMethodsContext implements Context
 
         Assert::true(
             $this->indexPage->isSingleResourceOnPage([$element => $code]),
-            sprintf('Shipping method with %s %s cannot be founded.', $element, $code)
+            sprintf('Shipping method with %s %s cannot be found.', $element, $code)
         );
     }
 
@@ -384,7 +384,7 @@ final class ManagingShippingMethodsContext implements Context
      */
     private function assertFieldValidationMessage($element, $expectedMessage)
     {
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm($this->createPage, $this->updatePage);
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         Assert::true(
             $currentPage->checkValidationMessageFor($element, $expectedMessage),
